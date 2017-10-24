@@ -4,8 +4,8 @@ Pod::Spec.new do |s|
 
 
   s.name         = "XPUtil"
-  s.version      = "0.0.2"
-  s.summary      = "A short description of XPUtil."
+  s.version      = "1.0.0"
+  s.summary      = "Swift Tool"
   s.description  = <<-DESC
   tghhghhg
                    DESC
