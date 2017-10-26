@@ -12,8 +12,12 @@
 		30492EDA1F9F208A00ED64AD /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30492ED91F9F208A00ED64AD /* Date+Extension.swift */; };
 		30492EDC1F9F24B000ED64AD /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30492EDB1F9F24B000ED64AD /* UIImage+Extension.swift */; };
 		30492EDE1F9F24F400ED64AD /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30492EDD1F9F24F400ED64AD /* UIButton+Extension.swift */; };
-		30492EE01F9F250500ED64AD /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30492EDF1F9F250500ED64AD /* UILabel+Extension.swift */; };
 		30492EE21F9F279A00ED64AD /* UIBarButtonItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30492EE11F9F279A00ED64AD /* UIBarButtonItem+Extension.swift */; };
+		30492EE31FA185F400ED64AD /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3097A04E1F7F358B00E27C9F /* UIColor+Extension.swift */; };
+		30492EE41FA1860000ED64AD /* Range+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3097A0501F7F358C00E27C9F /* Range+Extension.swift */; };
+		30492EE51FA1860000ED64AD /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3097A04D1F7F358B00E27C9F /* String+Extension.swift */; };
+		30492EE61FA1860000ED64AD /* UIlabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3097A04F1F7F358C00E27C9F /* UIlabel+Extension.swift */; };
+		30492EE71FA1860000ED64AD /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3097A04C1F7F358B00E27C9F /* UIView+Extension.swift */; };
 		3097A01E1F7F34E100E27C9F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3097A01D1F7F34E100E27C9F /* AppDelegate.swift */; };
 		3097A0201F7F34E100E27C9F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3097A01F1F7F34E100E27C9F /* ViewController.swift */; };
 		3097A0231F7F34E100E27C9F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3097A0211F7F34E100E27C9F /* Main.storyboard */; };
@@ -298,7 +302,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				30492EE01F9F250500ED64AD /* UILabel+Extension.swift in Sources */,
+				30492EE41FA1860000ED64AD /* Range+Extension.swift in Sources */,
+				30492EE51FA1860000ED64AD /* String+Extension.swift in Sources */,
+				30492EE61FA1860000ED64AD /* UIlabel+Extension.swift in Sources */,
+				30492EE71FA1860000ED64AD /* UIView+Extension.swift in Sources */,
+				30492EE31FA185F400ED64AD /* UIColor+Extension.swift in Sources */,
 				30492EDA1F9F208A00ED64AD /* Date+Extension.swift in Sources */,
 				3097A0201F7F34E100E27C9F /* ViewController.swift in Sources */,
 				30492ED81F9F1A4A00ED64AD /* Timer+Extension.swift in Sources */,

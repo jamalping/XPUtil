@@ -57,6 +57,8 @@ public extension UIView {
 }
 
 public extension UIView {
+    
+    /// 获取view的vc
     var viewController: UIViewController? {
         var next:UIView? = self
         repeat{

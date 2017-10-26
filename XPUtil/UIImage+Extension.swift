@@ -12,6 +12,8 @@ import CoreGraphics
 
 extension UIImage {
     
+    
+    
     convenience init(color: UIColor) {
         let rect = CGRect(x: 0.0, y: 0.0, width: 1.0, height: 1.0)
         UIGraphicsBeginImageContext(rect.size)
@@ -21,6 +23,14 @@ extension UIImage {
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         self.init(cgImage: (image?.cgImage)!)
+    }
+    
+    /// 是否有AlPha通道
+    var hasAlphaChannnel: Bool {
+        get {
+            let alpha = self.cgImage?.alphaInfo
+            return alpha == .first || alpha == .last || alpha == .premultipliedFirst || alpha == .premultipliedLast
+        }
     }
     
     // base64字符串转image
@@ -174,6 +184,28 @@ extension UIImage {
         }
      
         return animatedImage;
+    }
         
+    /// 获取某个点的UIColor
+    ///
+    /// - Parameter point: 目标点
+    /// - Returns: UIColor
+    func colorOfPoint(point: CGPoint)-> UIColor? {
+        guard point.x >= 0 && point.y >= 0 else { return nil }
+        guard let cgimage = self.cgImage else { return nil }
+        let width = CGFloat(cgimage.width)
+        let height = CGFloat(cgimage.height)
+        guard point.x <= width && point.y <= height else { return nil }
+        let pixelData = CGDataProvider.init(data: self.cgImage! as! CFData)
+
+        let data:UnsafePointer<UInt8> = CFDataGetBytePtr(pixelData as! CFData)
+        let pixelInfo: Int = ((Int(self.size.width) * Int(point.y)) + Int(point.x)) * 4
+        
+        let r = CGFloat(data[pixelInfo]) / CGFloat(255.0)
+        let g = CGFloat(data[pixelInfo+1]) / CGFloat(255.0)
+        let b = CGFloat(data[pixelInfo+2]) / CGFloat(255.0)
+        let a = CGFloat(data[pixelInfo+3]) / CGFloat(255.0)
+        
+        return UIColor.init(red: r, green: g, blue: b, alpha: a)
     }
 }

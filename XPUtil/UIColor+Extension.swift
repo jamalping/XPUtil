@@ -70,5 +70,31 @@ public extension UIColor {
         let B = CGFloat(arc4random_uniform(255))/255.0
         return UIColor.init(red: R, green: G, blue: B, alpha: 1)
     }
+    
+    
+    /// 生产渐变颜色
+    ///
+    /// - Parameters:
+    ///   - from: 开始的颜色
+    ///   - toColor: 结束的颜色
+    ///   - height: 渐变颜色的高度
+    /// - Returns: 渐变颜色
+    class func gradientColor(_ fromColor: UIColor, toColor: UIColor, height: CGFloat) -> UIColor? {
+        let size = CGSize.init(width: 1, height: height)
+        UIGraphicsBeginImageContextWithOptions(size, false, 0)
+        let context = UIGraphicsGetCurrentContext()
+        let colorSpace = CGColorSpaceCreateDeviceRGB()
+        let colors = [fromColor.cgColor, toColor.cgColor]
+        
+        guard let gradient: CGGradient = CGGradient.init(colorsSpace: colorSpace, colors: colors as CFArray, locations: nil) else { return nil }
+        
+        context?.drawLinearGradient(gradient, start: CGPoint.init(x: 0, y: 0), end: CGPoint.init(x: 0, y: size.height), options: .drawsBeforeStartLocation)
+        
+        guard let image = UIGraphicsGetImageFromCurrentImageContext() else { return nil }
+        
+        UIGraphicsEndImageContext()
+        
+        return UIColor.init(patternImage: image)
+    }
 }
 

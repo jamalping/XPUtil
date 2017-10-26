@@ -13,8 +13,13 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        self.navigationController?.viewControllers.append(contentsOf: [UIViewController()])
-        
+//        self.navigationController?.viewControllers.append(contentsOf: [UIViewController()])
+//        let size = CGSize.init(width: 1, height: 1)
+//        let fromColor = UIColor.red
+//        let toColor = UIColor.blue
+//        self.view.backgroundColor = UIColor.gradientColor(UIColor.black, toColor: UIColor.white, height: self.view.height)
+//        self.view.colorof
+//        let ccc = []
     }
 
     override func didReceiveMemoryWarning() {
