@@ -96,5 +96,18 @@ public extension UIColor {
         
         return UIColor.init(patternImage: image)
     }
+    
+    
+    /// 获取对应的rgba值
+    var component: (CGFloat,CGFloat,CGFloat,CGFloat) {
+        get {
+            var r: CGFloat = 0
+            var g: CGFloat = 0
+            var b: CGFloat = 0
+            var a: CGFloat = 0
+            getRed(&r, green: &g, blue: &b, alpha: &a)
+            return (r * 255,g * 255,b * 255,a)
+        }
+    }
 }
 

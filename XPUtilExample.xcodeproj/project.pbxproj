@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		302266BF1FAAC5BA005D32B7 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302266BE1FAAC5BA005D32B7 /* Array+Extension.swift */; };
+		302266C11FAB147A005D32B7 /* Dictionary+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302266C01FAB147A005D32B7 /* Dictionary+Extension.swift */; };
+		302266C31FAB2948005D32B7 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302266C21FAB2948005D32B7 /* Date+Extensions.swift */; };
 		30492ED61F9F181900ED64AD /* XPCycleScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30492ED51F9F181900ED64AD /* XPCycleScrollView.swift */; };
 		30492ED81F9F1A4A00ED64AD /* Timer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30492ED71F9F1A4A00ED64AD /* Timer+Extension.swift */; };
 		30492EDA1F9F208A00ED64AD /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30492ED91F9F208A00ED64AD /* Date+Extension.swift */; };
@@ -45,6 +48,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		302266BE1FAAC5BA005D32B7 /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
+		302266C01FAB147A005D32B7 /* Dictionary+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+Extension.swift"; sourceTree = "<group>"; };
+		302266C21FAB2948005D32B7 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		30492ED51F9F181900ED64AD /* XPCycleScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XPCycleScrollView.swift; sourceTree = "<group>"; };
 		30492ED71F9F1A4A00ED64AD /* Timer+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Timer+Extension.swift"; sourceTree = "<group>"; };
 		30492ED91F9F208A00ED64AD /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
@@ -160,10 +166,13 @@
 				30492ED71F9F1A4A00ED64AD /* Timer+Extension.swift */,
 				3097A0501F7F358C00E27C9F /* Range+Extension.swift */,
 				3097A04D1F7F358B00E27C9F /* String+Extension.swift */,
+				302266BE1FAAC5BA005D32B7 /* Array+Extension.swift */,
 				3097A04E1F7F358B00E27C9F /* UIColor+Extension.swift */,
 				3097A04F1F7F358C00E27C9F /* UIlabel+Extension.swift */,
 				3097A04C1F7F358B00E27C9F /* UIView+Extension.swift */,
 				30492ED51F9F181900ED64AD /* XPCycleScrollView.swift */,
+				302266C01FAB147A005D32B7 /* Dictionary+Extension.swift */,
+				302266C21FAB2948005D32B7 /* Date+Extensions.swift */,
 			);
 			path = XPUtil;
 			sourceTree = "<group>";
@@ -313,8 +322,11 @@
 				30492EDC1F9F24B000ED64AD /* UIImage+Extension.swift in Sources */,
 				30492ED61F9F181900ED64AD /* XPCycleScrollView.swift in Sources */,
 				3097A01E1F7F34E100E27C9F /* AppDelegate.swift in Sources */,
+				302266BF1FAAC5BA005D32B7 /* Array+Extension.swift in Sources */,
 				30492EE21F9F279A00ED64AD /* UIBarButtonItem+Extension.swift in Sources */,
+				302266C31FAB2948005D32B7 /* Date+Extensions.swift in Sources */,
 				30492EDE1F9F24F400ED64AD /* UIButton+Extension.swift in Sources */,
+				302266C11FAB147A005D32B7 /* Dictionary+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

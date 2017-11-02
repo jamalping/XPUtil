@@ -117,5 +117,9 @@ public extension String {
         return NSClassFromString(classStringName)
     }
 
+//    public func underline() -> NSAttributedString {
+//        let underlineString = NSAttributedString(string: self, attributes:[NSAttributedStringKey.underlineStyle: NSNumber.init(value: NSUnderlineStyle.styleSingle.rawValue)])
+//        return underlineString
+//    }
 }
 

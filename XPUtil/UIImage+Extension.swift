@@ -12,7 +12,12 @@ import CoreGraphics
 
 extension UIImage {
     
-    
+    /// 获取图片的大小，多少bytes
+    var bytesSize: Int { return UIImageJPEGRepresentation(self, 1)?.count ?? 0 }
+    /// 获取图片的大小，多少kb
+    var kiloBytesSize: Int {
+        return self.bytesSize/1024
+    }
     
     convenience init(color: UIColor) {
         let rect = CGRect(x: 0.0, y: 0.0, width: 1.0, height: 1.0)
