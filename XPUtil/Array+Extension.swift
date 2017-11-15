@@ -10,7 +10,6 @@ import Foundation
 
 public extension Array {
     
-    
     /// 随机一个元素
     var random: Element? {
         get {
@@ -25,7 +24,7 @@ public extension Array {
 
 extension Array where Element: Equatable {
     
-    /// 是否包含某个数组
+    /// 判断数组中是否包含某个数组
     func containArray(_ array: [Element]) -> Bool {
         var flag: Bool = true
         array.forEach { (element) in

@@ -14,6 +14,11 @@ public extension String {
     var length: Int {
         return self.characters.count
     }
+    
+    /// 提取字符串中的数字组成新的字符串
+    var scannerNum: String {
+        return self.filter { return Int(String($0)) != nil }
+    }
 
     /// 删除两端空格
     var trimmingSpace: String {
@@ -117,6 +122,27 @@ public extension String {
         return NSClassFromString(classStringName)
     }
 
+    
+    /// 匹配字符串在目标字符串的位置（可用于搜索标记）
+    ///
+    /// - Parameter string: 字符串
+    /// - Returns: 字符串所在的位置
+    func match(string: String) -> [NSRange] {
+        var result = [NSRange?]()
+        
+        string.forEach { (aChar) in
+            let temArray = self.enumerated().map({ (index,bChar) -> NSRange? in
+                if aChar == bChar {
+                    return NSMakeRange(index, 1)
+                }
+                return nil
+            })
+            result.append(contentsOf: temArray)
+        }
+        return result.filter{ return $0 != nil }.map{ return $0! }
+    }
+    
+    
 //    public func underline() -> NSAttributedString {
 //        let underlineString = NSAttributedString(string: self, attributes:[NSAttributedStringKey.underlineStyle: NSNumber.init(value: NSUnderlineStyle.styleSingle.rawValue)])
 //        return underlineString

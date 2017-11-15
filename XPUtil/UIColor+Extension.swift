@@ -71,7 +71,6 @@ public extension UIColor {
         return UIColor.init(red: R, green: G, blue: B, alpha: 1)
     }
     
-    
     /// 生产渐变颜色
     ///
     /// - Parameters:
@@ -96,7 +95,6 @@ public extension UIColor {
         
         return UIColor.init(patternImage: image)
     }
-    
     
     /// 获取对应的rgba值
     var component: (CGFloat,CGFloat,CGFloat,CGFloat) {
