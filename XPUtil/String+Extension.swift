@@ -24,6 +24,13 @@ public extension String {
     var trimmingSpace: String {
         return self.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
     }
+    
+    subscript (i: Int) -> String {
+        get {
+            let startIndex = self.index(self.startIndex, offsetBy: i)
+            return String(self[startIndex])
+        }
+    }
 
     // 下标范围取值：eg: "12345"[1..<3] = "23"
     subscript (i : Range<Int>) -> String {
