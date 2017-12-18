@@ -100,5 +100,25 @@ public extension UIView {
         self.init(frame: .zero)
         self.backgroundColor = backGroundColor
     }
+    
+    /// 截取整个View
+    ///
+    /// - Parameter save: 是否保存到系统相册
+    func screenShot(_ save: Bool) -> UIImage? {
+        
+        guard frame.size.height > 0 && frame.size.width > 0 else {
+            return nil
+        }
+
+        UIGraphicsBeginImageContextWithOptions(frame.size, false, 0)
+        layer.render(in: UIGraphicsGetCurrentContext()!)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        // 保存到相册
+        if save {
+            UIImageWriteToSavedPhotosAlbum(image!, self, nil, nil)
+        }
+        return image
+    }
 }
 

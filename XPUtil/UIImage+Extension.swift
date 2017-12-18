@@ -30,6 +30,17 @@ extension UIImage {
         self.init(cgImage: (image?.cgImage)!)
     }
     
+    convenience init?(fileName: String, bundle: Bundle = Bundle.main) {
+        var path: String?
+        if fileName.contains(".png") {
+            path = bundle.path(forResource: fileName, ofType: nil)
+        }else {
+            path = bundle.path(forResource: fileName, ofType: ".png")
+        }
+        guard path != nil else { return nil }
+        self.init(contentsOfFile: path!)
+    }
+    
     /// 是否有AlPha通道
     var hasAlphaChannnel: Bool {
         get {
@@ -37,6 +48,7 @@ extension UIImage {
             return alpha == .first || alpha == .last || alpha == .premultipliedFirst || alpha == .premultipliedLast
         }
     }
+    
     
     // base64字符串转image
     convenience init?(base64ImgString: String) {
@@ -110,25 +122,33 @@ extension UIImage {
             return vData
         }
         
-        let newSize = self.scaleImages(self, imageLength: 1000)
-        guard let newImage = self.resizeImage(self, newSize: newSize) else { return nil }
+        let newSize = self.scaleImages(imageLength: 1000)
+        guard let newImage = self.resizeImage(newSize: newSize) else { return nil }
         
         var compress:CGFloat = 0.9
         guard var data = UIImageJPEGRepresentation(newImage, compress) else { return nil }
         
         while data.count > maxLength && compress > 0.01 {
             compress -= 0.02
-            data = UIImageJPEGRepresentation(newImage, compress)!
+            autoreleasepool {
+                data = UIImageJPEGRepresentation(newImage, compress)!
+            }
         }
         return data
     }
     
-    func  scaleImages(_ image: UIImage, imageLength: CGFloat) -> CGSize {
+    
+    /// 指定宽或高的最大值
+    ///
+    /// - Parameters:
+    ///   - imageLength: 最大值
+    /// - Returns: 按比例压缩后的尺寸
+    func  scaleImages(imageLength: CGFloat) -> CGSize {
         
         var newWidth:CGFloat = 0.0
         var newHeight:CGFloat = 0.0
-        let width = image.size.width
-        let height = image.size.height
+        let width = self.size.width
+        let height = self.size.height
         
         if (width > imageLength || height > imageLength){
             
@@ -152,10 +172,12 @@ extension UIImage {
         return CGSize(width: newWidth, height: newHeight)
     }
     
-    func resizeImage(_ image: UIImage, newSize: CGSize) -> UIImage? {
+    
+    /// 压缩图片到指定大小
+    func resizeImage(newSize: CGSize) -> UIImage? {
         UIGraphicsBeginImageContext(newSize)
         
-        image.draw(in:CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height))
+        self.draw(in:CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height))
         
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
@@ -213,4 +235,5 @@ extension UIImage {
         
         return UIColor.init(red: r, green: g, blue: b, alpha: a)
     }
+    
 }
