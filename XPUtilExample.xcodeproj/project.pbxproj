@@ -28,6 +28,7 @@
 		3097A0281F7F34E100E27C9F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3097A0261F7F34E100E27C9F /* LaunchScreen.storyboard */; };
 		3097A0331F7F34E100E27C9F /* XPUtilExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3097A0321F7F34E100E27C9F /* XPUtilExampleTests.swift */; };
 		3097A03E1F7F34E100E27C9F /* XPUtilExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3097A03D1F7F34E100E27C9F /* XPUtilExampleUITests.swift */; };
+		30C3BB931FE75BA500795A31 /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C3BB921FE75BA500795A31 /* Protocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +77,7 @@
 		3097A04E1F7F358B00E27C9F /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		3097A04F1F7F358C00E27C9F /* UIlabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIlabel+Extension.swift"; sourceTree = "<group>"; };
 		3097A0501F7F358C00E27C9F /* Range+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Range+Extension.swift"; sourceTree = "<group>"; };
+		30C3BB921FE75BA500795A31 /* Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +175,7 @@
 				30492ED51F9F181900ED64AD /* XPCycleScrollView.swift */,
 				302266C01FAB147A005D32B7 /* Dictionary+Extension.swift */,
 				302266C21FAB2948005D32B7 /* Date+Extensions.swift */,
+				30C3BB921FE75BA500795A31 /* Protocol.swift */,
 			);
 			path = XPUtil;
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 				302266BF1FAAC5BA005D32B7 /* Array+Extension.swift in Sources */,
 				30492EE21F9F279A00ED64AD /* UIBarButtonItem+Extension.swift in Sources */,
 				302266C31FAB2948005D32B7 /* Date+Extensions.swift in Sources */,
+				30C3BB931FE75BA500795A31 /* Protocol.swift in Sources */,
 				30492EDE1F9F24F400ED64AD /* UIButton+Extension.swift in Sources */,
 				302266C11FAB147A005D32B7 /* Dictionary+Extension.swift in Sources */,
 			);

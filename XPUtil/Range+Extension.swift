@@ -8,14 +8,12 @@
 
 import Foundation
 
-public extension Range {
-
-    // 将Range转成NSRange：Range的Bund必须是String.Index
-    var nsRange: NSRange? {
-        guard let loc = self.lowerBound as? String.Index, let length: String.Index = self.upperBound as? String.Index else { return nil }
-        return NSMakeRange(loc.encodedOffset, length.encodedOffset)
+public extension Range where Bound == String.Index {
+    
+    var nsRange: NSRange {
+        let loc = self.lowerBound
+        let length = self.upperBound
+        return NSMakeRange(loc.encodedOffset, length.encodedOffset - loc.encodedOffset)
     }
-    
-    
 }
 
