@@ -40,7 +40,28 @@ public extension String {
             return String(self[startIndex ..< endIndex])
         }
     }
+    
+    // 用目标字符串替换range下标的字符串
+    // var aa = "123456"
+    // aa.replace(in: 1..<4, with: "*") 结果为：1*56
+    mutating func replace(in range: Range<Int>, with astring: String) -> String {
+        
+        let startIndex = self.index(self.startIndex, offsetBy: range.lowerBound)
+        let endIndex = self.index(self.startIndex, offsetBy: range.upperBound)
+        return self.replacingCharacters(in: startIndex..<endIndex, with: astring)
+    }
 
+    
+    /// 格式化金额
+    func formatMoney() -> String? {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        guard let intValue = Int(self), var resultString = formatter.string(from: NSNumber.init(value: intValue)) else {
+            return nil
+        }
+        resultString.removeSubrange(resultString.startIndex ..< resultString.index(resultString.startIndex, offsetBy: 1))
+        return resultString
+    }
     /// MD5加密
     ///
     /// - Returns: 加密后的字符串
