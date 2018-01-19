@@ -169,10 +169,42 @@ public extension String {
         return result.filter{ return $0 != nil }.map{ return $0! }
     }
     
+    /// 共用方法，传参数正则表达试
+    public func isValidRegexString(regexString: String) ->Bool {
+        do {
+            let pattern = regexString
+            let regex: NSRegularExpression = try NSRegularExpression(pattern: pattern, options: NSRegularExpression.Options.caseInsensitive)
+            let matches = regex.matches(in: self, options: NSRegularExpression.MatchingOptions.reportProgress, range: NSMakeRange(0, self.characters.count))
+            return matches.count > 0
+            
+        } catch {
+            return false
+        }
+    }
     
-//    public func underline() -> NSAttributedString {
-//        let underlineString = NSAttributedString(string: self, attributes:[NSAttributedStringKey.underlineStyle: NSNumber.init(value: NSUnderlineStyle.styleSingle.rawValue)])
-//        return underlineString
-//    }
+    // 匹配数字递增或者递减。比如（123456、654321）
+    func isIncreasOrdiminish() -> Bool {
+        let regeXStr = "(?:(?:0(?=1)|1(?=2)|2(?=3)|3(?=4)|4(?=5)|5(?=6)|6(?=7)|7(?=8)|8(?=9)){5}|(?:9(?=8)|8(?=7)|7(?=6)|6(?=5)|5(?=4)|4(?=3)|3(?=2)|2(?=1)|1(?=0)){5})\\d"
+        return self.isValidRegexString(regexString: regeXStr)
+    }
+    
+    // 匹配6个数字是否相同
+    func isSameString() -> Bool {
+        let regeXStr = "([\\d])\\1{5,}" // 匹配6个数字相同
+        return self.isValidRegexString(regexString: regeXStr)
+    }
+    // 匹配2233类型（比如2233、2222，333444）
+    func is2233String() -> Bool {
+        let regeXStr = "([\\d])\\1{1,}([\\d])\\2{1,}"
+        return self.isValidRegexString(regexString: regeXStr)
+    }
+    
+    // 是否是简单密码
+    var isSimplePwd: Bool {
+        if isIncreasOrdiminish() || isSameString() || is2233String() {
+            return true
+        }
+        return false
+    }
 }
 
