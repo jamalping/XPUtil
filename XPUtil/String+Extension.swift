@@ -9,7 +9,6 @@
 import Foundation
 
 public extension String {
-
     /// 长度
     var length: Int {
         return self.characters.count
