@@ -55,7 +55,7 @@ public extension String {
     func formatMoney() -> String? {
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
-        guard let intValue = Int(self), var resultString = formatter.string(from: NSNumber.init(value: intValue)) else {
+        guard let floatValue = Float(self), var resultString = formatter.string(from: NSNumber.init(value: floatValue)) else {
             return nil
         }
         resultString.removeSubrange(resultString.startIndex ..< resultString.index(resultString.startIndex, offsetBy: 1))
