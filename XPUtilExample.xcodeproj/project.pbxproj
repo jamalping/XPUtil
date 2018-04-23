@@ -29,6 +29,26 @@
 		3097A03E1F7F34E100E27C9F /* XPUtilExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3097A03D1F7F34E100E27C9F /* XPUtilExampleUITests.swift */; };
 		30C3BB931FE75BA500795A31 /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C3BB921FE75BA500795A31 /* Protocol.swift */; };
 		F6EFE73D208D880C006B1349 /* UIlabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6EFE73C208D880C006B1349 /* UIlabel+Extension.swift */; };
+		F6EFE74E208D899C006B1349 /* XPTool.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6EFE745208D899C006B1349 /* XPTool.framework */; };
+		F6EFE755208D899D006B1349 /* XPToolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6EFE754208D899D006B1349 /* XPToolTests.swift */; };
+		F6EFE757208D899D006B1349 /* XPTool.h in Headers */ = {isa = PBXBuildFile; fileRef = F6EFE747208D899C006B1349 /* XPTool.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F6EFE75A208D899D006B1349 /* XPTool.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6EFE745208D899C006B1349 /* XPTool.framework */; };
+		F6EFE75B208D899D006B1349 /* XPTool.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F6EFE745208D899C006B1349 /* XPTool.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F6EFE763208D89CB006B1349 /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C3BB921FE75BA500795A31 /* Protocol.swift */; };
+		F6EFE764208D89CB006B1349 /* UIlabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6EFE73C208D880C006B1349 /* UIlabel+Extension.swift */; };
+		F6EFE765208D89CB006B1349 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30492EDB1F9F24B000ED64AD /* UIImage+Extension.swift */; };
+		F6EFE766208D89CB006B1349 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30492EDD1F9F24F400ED64AD /* UIButton+Extension.swift */; };
+		F6EFE767208D89CB006B1349 /* UIBarButtonItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30492EE11F9F279A00ED64AD /* UIBarButtonItem+Extension.swift */; };
+		F6EFE768208D89CB006B1349 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3097A04E1F7F358B00E27C9F /* UIColor+Extension.swift */; };
+		F6EFE769208D89CB006B1349 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3097A04C1F7F358B00E27C9F /* UIView+Extension.swift */; };
+		F6EFE76A208D89CB006B1349 /* XPCycleScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30492ED51F9F181900ED64AD /* XPCycleScrollView.swift */; };
+		F6EFE76B208D89CB006B1349 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302266BE1FAAC5BA005D32B7 /* Array+Extension.swift */; };
+		F6EFE76C208D89CB006B1349 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3097A04D1F7F358B00E27C9F /* String+Extension.swift */; };
+		F6EFE76D208D89CB006B1349 /* Range+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3097A0501F7F358C00E27C9F /* Range+Extension.swift */; };
+		F6EFE76E208D89CB006B1349 /* Timer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30492ED71F9F1A4A00ED64AD /* Timer+Extension.swift */; };
+		F6EFE76F208D89CB006B1349 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30492ED91F9F208A00ED64AD /* Date+Extension.swift */; };
+		F6EFE770208D89CB006B1349 /* Dictionary+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302266C01FAB147A005D32B7 /* Dictionary+Extension.swift */; };
+		F6EFE771208D89CB006B1349 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302266C21FAB2948005D32B7 /* Date+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,7 +66,42 @@
 			remoteGlobalIDString = 3097A0191F7F34E100E27C9F;
 			remoteInfo = XPUtilExample;
 		};
+		F6EFE74F208D899C006B1349 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3097A0121F7F34E100E27C9F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F6EFE744208D899C006B1349;
+			remoteInfo = XPTool;
+		};
+		F6EFE751208D899D006B1349 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3097A0121F7F34E100E27C9F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3097A0191F7F34E100E27C9F;
+			remoteInfo = XPUtilExample;
+		};
+		F6EFE758208D899D006B1349 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3097A0121F7F34E100E27C9F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F6EFE744208D899C006B1349;
+			remoteInfo = XPTool;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F6EFE75F208D899D006B1349 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				F6EFE75B208D899D006B1349 /* XPTool.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		302266BE1FAAC5BA005D32B7 /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
@@ -64,7 +119,7 @@
 		3097A0221F7F34E100E27C9F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3097A0241F7F34E100E27C9F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3097A0271F7F34E100E27C9F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		3097A0291F7F34E100E27C9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3097A0291F7F34E100E27C9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../XPUtilExample/Info.plist; sourceTree = "<group>"; };
 		3097A02E1F7F34E100E27C9F /* XPUtilExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XPUtilExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3097A0321F7F34E100E27C9F /* XPUtilExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XPUtilExampleTests.swift; sourceTree = "<group>"; };
 		3097A0341F7F34E100E27C9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -77,6 +132,12 @@
 		3097A0501F7F358C00E27C9F /* Range+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Range+Extension.swift"; sourceTree = "<group>"; };
 		30C3BB921FE75BA500795A31 /* Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
 		F6EFE73C208D880C006B1349 /* UIlabel+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIlabel+Extension.swift"; sourceTree = "<group>"; };
+		F6EFE745208D899C006B1349 /* XPTool.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XPTool.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F6EFE747208D899C006B1349 /* XPTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XPTool.h; sourceTree = "<group>"; };
+		F6EFE748208D899C006B1349 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F6EFE74D208D899C006B1349 /* XPToolTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XPToolTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F6EFE754208D899D006B1349 /* XPToolTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XPToolTests.swift; sourceTree = "<group>"; };
+		F6EFE756208D899D006B1349 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +145,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6EFE75A208D899D006B1349 /* XPTool.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,6 +163,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F6EFE741208D899C006B1349 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F6EFE74A208D899C006B1349 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F6EFE74E208D899C006B1349 /* XPTool.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -111,6 +188,8 @@
 				3097A01C1F7F34E100E27C9F /* XPUtilExample */,
 				3097A0311F7F34E100E27C9F /* XPUtilExampleTests */,
 				3097A03C1F7F34E100E27C9F /* XPUtilExampleUITests */,
+				F6EFE746208D899C006B1349 /* XPTool */,
+				F6EFE753208D899D006B1349 /* XPToolTests */,
 				3097A01B1F7F34E100E27C9F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -121,6 +200,8 @@
 				3097A01A1F7F34E100E27C9F /* XPUtilExample.app */,
 				3097A02E1F7F34E100E27C9F /* XPUtilExampleTests.xctest */,
 				3097A0391F7F34E100E27C9F /* XPUtilExampleUITests.xctest */,
+				F6EFE745208D899C006B1349 /* XPTool.framework */,
+				F6EFE74D208D899C006B1349 /* XPToolTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -133,7 +214,6 @@
 				3097A0211F7F34E100E27C9F /* Main.storyboard */,
 				3097A0241F7F34E100E27C9F /* Assets.xcassets */,
 				3097A0261F7F34E100E27C9F /* LaunchScreen.storyboard */,
-				3097A0291F7F34E100E27C9F /* Info.plist */,
 			);
 			path = XPUtilExample;
 			sourceTree = "<group>";
@@ -150,6 +230,7 @@
 		3097A03C1F7F34E100E27C9F /* XPUtilExampleUITests */ = {
 			isa = PBXGroup;
 			children = (
+				3097A0291F7F34E100E27C9F /* Info.plist */,
 				3097A03D1F7F34E100E27C9F /* XPUtilExampleUITests.swift */,
 				3097A03F1F7F34E100E27C9F /* Info.plist */,
 			);
@@ -194,7 +275,36 @@
 			path = UIKit;
 			sourceTree = "<group>";
 		};
+		F6EFE746208D899C006B1349 /* XPTool */ = {
+			isa = PBXGroup;
+			children = (
+				F6EFE747208D899C006B1349 /* XPTool.h */,
+				F6EFE748208D899C006B1349 /* Info.plist */,
+			);
+			path = XPTool;
+			sourceTree = "<group>";
+		};
+		F6EFE753208D899D006B1349 /* XPToolTests */ = {
+			isa = PBXGroup;
+			children = (
+				F6EFE754208D899D006B1349 /* XPToolTests.swift */,
+				F6EFE756208D899D006B1349 /* Info.plist */,
+			);
+			path = XPToolTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		F6EFE742208D899C006B1349 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F6EFE757208D899D006B1349 /* XPTool.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		3097A0191F7F34E100E27C9F /* XPUtilExample */ = {
@@ -204,10 +314,12 @@
 				3097A0161F7F34E100E27C9F /* Sources */,
 				3097A0171F7F34E100E27C9F /* Frameworks */,
 				3097A0181F7F34E100E27C9F /* Resources */,
+				F6EFE75F208D899D006B1349 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				F6EFE759208D899D006B1349 /* PBXTargetDependency */,
 			);
 			name = XPUtilExample;
 			productName = XPUtilExample;
@@ -250,13 +362,50 @@
 			productReference = 3097A0391F7F34E100E27C9F /* XPUtilExampleUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		F6EFE744208D899C006B1349 /* XPTool */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F6EFE75C208D899D006B1349 /* Build configuration list for PBXNativeTarget "XPTool" */;
+			buildPhases = (
+				F6EFE740208D899C006B1349 /* Sources */,
+				F6EFE741208D899C006B1349 /* Frameworks */,
+				F6EFE742208D899C006B1349 /* Headers */,
+				F6EFE743208D899C006B1349 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = XPTool;
+			productName = XPTool;
+			productReference = F6EFE745208D899C006B1349 /* XPTool.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		F6EFE74C208D899C006B1349 /* XPToolTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F6EFE760208D899D006B1349 /* Build configuration list for PBXNativeTarget "XPToolTests" */;
+			buildPhases = (
+				F6EFE749208D899C006B1349 /* Sources */,
+				F6EFE74A208D899C006B1349 /* Frameworks */,
+				F6EFE74B208D899C006B1349 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F6EFE750208D899C006B1349 /* PBXTargetDependency */,
+				F6EFE752208D899D006B1349 /* PBXTargetDependency */,
+			);
+			name = XPToolTests;
+			productName = XPToolTests;
+			productReference = F6EFE74D208D899C006B1349 /* XPToolTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		3097A0121F7F34E100E27C9F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0900;
+				LastSwiftUpdateCheck = 0920;
 				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = xyj;
 				TargetAttributes = {
@@ -271,6 +420,15 @@
 					};
 					3097A0381F7F34E100E27C9F = {
 						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 3097A0191F7F34E100E27C9F;
+					};
+					F6EFE744208D899C006B1349 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					F6EFE74C208D899C006B1349 = {
+						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 3097A0191F7F34E100E27C9F;
 					};
@@ -292,6 +450,8 @@
 				3097A0191F7F34E100E27C9F /* XPUtilExample */,
 				3097A02D1F7F34E100E27C9F /* XPUtilExampleTests */,
 				3097A0381F7F34E100E27C9F /* XPUtilExampleUITests */,
+				F6EFE744208D899C006B1349 /* XPTool */,
+				F6EFE74C208D899C006B1349 /* XPToolTests */,
 			);
 		};
 /* End PBXProject section */
@@ -315,6 +475,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		3097A0371F7F34E100E27C9F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F6EFE743208D899C006B1349 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F6EFE74B208D899C006B1349 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -364,6 +538,36 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F6EFE740208D899C006B1349 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F6EFE763208D89CB006B1349 /* Protocol.swift in Sources */,
+				F6EFE764208D89CB006B1349 /* UIlabel+Extension.swift in Sources */,
+				F6EFE765208D89CB006B1349 /* UIImage+Extension.swift in Sources */,
+				F6EFE766208D89CB006B1349 /* UIButton+Extension.swift in Sources */,
+				F6EFE767208D89CB006B1349 /* UIBarButtonItem+Extension.swift in Sources */,
+				F6EFE768208D89CB006B1349 /* UIColor+Extension.swift in Sources */,
+				F6EFE769208D89CB006B1349 /* UIView+Extension.swift in Sources */,
+				F6EFE76A208D89CB006B1349 /* XPCycleScrollView.swift in Sources */,
+				F6EFE76B208D89CB006B1349 /* Array+Extension.swift in Sources */,
+				F6EFE76C208D89CB006B1349 /* String+Extension.swift in Sources */,
+				F6EFE76D208D89CB006B1349 /* Range+Extension.swift in Sources */,
+				F6EFE76E208D89CB006B1349 /* Timer+Extension.swift in Sources */,
+				F6EFE76F208D89CB006B1349 /* Date+Extension.swift in Sources */,
+				F6EFE770208D89CB006B1349 /* Dictionary+Extension.swift in Sources */,
+				F6EFE771208D89CB006B1349 /* Date+Extensions.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F6EFE749208D899C006B1349 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F6EFE755208D899D006B1349 /* XPToolTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -376,6 +580,21 @@
 			isa = PBXTargetDependency;
 			target = 3097A0191F7F34E100E27C9F /* XPUtilExample */;
 			targetProxy = 3097A03A1F7F34E100E27C9F /* PBXContainerItemProxy */;
+		};
+		F6EFE750208D899C006B1349 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F6EFE744208D899C006B1349 /* XPTool */;
+			targetProxy = F6EFE74F208D899C006B1349 /* PBXContainerItemProxy */;
+		};
+		F6EFE752208D899D006B1349 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3097A0191F7F34E100E27C9F /* XPUtilExample */;
+			targetProxy = F6EFE751208D899D006B1349 /* PBXContainerItemProxy */;
+		};
+		F6EFE759208D899D006B1349 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F6EFE744208D899C006B1349 /* XPTool */;
+			targetProxy = F6EFE758208D899D006B1349 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -509,6 +728,7 @@
 		3097A0431F7F34E100E27C9F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = XPUtilExample/Info.plist;
@@ -523,6 +743,7 @@
 		3097A0441F7F34E100E27C9F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = XPUtilExample/Info.plist;
@@ -596,6 +817,86 @@
 			};
 			name = Release;
 		};
+		F6EFE75D208D899D006B1349 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = XPTool/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = xiaoping.li.XPTool;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		F6EFE75E208D899D006B1349 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = XPTool/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = xiaoping.li.XPTool;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		F6EFE761208D899D006B1349 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = XPToolTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = xiaoping.li.XPToolTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/XPUtilExample.app/XPUtilExample";
+			};
+			name = Debug;
+		};
+		F6EFE762208D899D006B1349 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = XPToolTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = xiaoping.li.XPToolTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/XPUtilExample.app/XPUtilExample";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -631,6 +932,24 @@
 			buildConfigurations = (
 				3097A0491F7F34E100E27C9F /* Debug */,
 				3097A04A1F7F34E100E27C9F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F6EFE75C208D899D006B1349 /* Build configuration list for PBXNativeTarget "XPTool" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F6EFE75D208D899D006B1349 /* Debug */,
+				F6EFE75E208D899D006B1349 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F6EFE760208D899D006B1349 /* Build configuration list for PBXNativeTarget "XPToolTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F6EFE761208D899D006B1349 /* Debug */,
+				F6EFE762208D899D006B1349 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
