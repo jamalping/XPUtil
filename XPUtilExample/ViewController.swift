@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import XPTool
 
 class ViewController: UIViewController {
 
@@ -20,6 +21,7 @@ class ViewController: UIViewController {
 //        self.view.backgroundColor = UIColor.gradientColor(UIColor.black, toColor: UIColor.white, height: self.view.height)
 //        self.view.colorof
 //        let ccc = []
+        
     }
 
     override func didReceiveMemoryWarning() {

@@ -49,6 +49,8 @@
 		F6EFE76F208D89CB006B1349 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30492ED91F9F208A00ED64AD /* Date+Extension.swift */; };
 		F6EFE770208D89CB006B1349 /* Dictionary+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302266C01FAB147A005D32B7 /* Dictionary+Extension.swift */; };
 		F6EFE771208D89CB006B1349 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302266C21FAB2948005D32B7 /* Date+Extensions.swift */; };
+		F6F2876B20B5025F00F4DFE2 /* KeyChainTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F2876A20B5025F00F4DFE2 /* KeyChainTool.swift */; };
+		F6F2876D20B5054C00F4DFE2 /* CheckValueTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F2876C20B5054C00F4DFE2 /* CheckValueTool.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -138,6 +140,8 @@
 		F6EFE74D208D899C006B1349 /* XPToolTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XPToolTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6EFE754208D899D006B1349 /* XPToolTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XPToolTests.swift; sourceTree = "<group>"; };
 		F6EFE756208D899D006B1349 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F6F2876A20B5025F00F4DFE2 /* KeyChainTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainTool.swift; sourceTree = "<group>"; };
+		F6F2876C20B5054C00F4DFE2 /* CheckValueTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckValueTool.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,6 +244,7 @@
 		3097A04B1F7F356E00E27C9F /* XPUtil */ = {
 			isa = PBXGroup;
 			children = (
+				F6F2876920B5022200F4DFE2 /* Tool */,
 				30C3BB921FE75BA500795A31 /* Protocol.swift */,
 				F6EFE73F208D881F006B1349 /* UIKit */,
 				F6EFE73E208D8814006B1349 /* Foundation */,
@@ -291,6 +296,15 @@
 				F6EFE756208D899D006B1349 /* Info.plist */,
 			);
 			path = XPToolTests;
+			sourceTree = "<group>";
+		};
+		F6F2876920B5022200F4DFE2 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				F6F2876A20B5025F00F4DFE2 /* KeyChainTool.swift */,
+				F6F2876C20B5054C00F4DFE2 /* CheckValueTool.swift */,
+			);
+			path = Tool;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -509,8 +523,10 @@
 				30492EDA1F9F208A00ED64AD /* Date+Extension.swift in Sources */,
 				3097A0201F7F34E100E27C9F /* ViewController.swift in Sources */,
 				30492ED81F9F1A4A00ED64AD /* Timer+Extension.swift in Sources */,
+				F6F2876D20B5054C00F4DFE2 /* CheckValueTool.swift in Sources */,
 				30492EDC1F9F24B000ED64AD /* UIImage+Extension.swift in Sources */,
 				30492ED61F9F181900ED64AD /* XPCycleScrollView.swift in Sources */,
+				F6F2876B20B5025F00F4DFE2 /* KeyChainTool.swift in Sources */,
 				3097A01E1F7F34E100E27C9F /* AppDelegate.swift in Sources */,
 				302266BF1FAAC5BA005D32B7 /* Array+Extension.swift in Sources */,
 				F6EFE73D208D880C006B1349 /* UIlabel+Extension.swift in Sources */,

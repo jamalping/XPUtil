@@ -2,7 +2,7 @@
 //  UIlabel+Extension.swift
 //  XPUtil
 //
-//  Created by xyj on 2017/9/28.
+//  Created by xp on 2017/9/28.
 //  Copyright © 2017年 xyj. All rights reserved.
 //
 
@@ -25,8 +25,9 @@ public extension UILabel {
         guard let statusLabelText: NSString = self.text as NSString? else { return 0 }
         
         let size = CGSize(width: width, height: CGFloat(MAXFLOAT))
-        
+
         let dic: [NSAttributedStringKey : Any] = [NSAttributedStringKey.font: self.font]
+//        let dic: [NSAttributedStringKey : Any] = [NSAttributedStringKey.font: self.font]
         
         return statusLabelText.boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: dic, context:nil).size.height+0.5
     }
@@ -39,7 +40,8 @@ public extension UILabel {
         let attributeString = NSMutableAttributedString.init(string: labelText)
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = space
-        attributeString.addAttributes([NSAttributedStringKey.paragraphStyle: paragraphStyle], range: NSMakeRange(0, labelText.length))
+        attributeString.addAttribute(NSAttributedStringKey.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, attributeString.length))
+//        attributeString.addAttributes([NSAttributedStringKey.paragraphStyle: paragraphStyle], range: NSMakeRange(0, labelText.length))
         self.attributedText = attributeString
     }
     
@@ -49,6 +51,7 @@ public extension UILabel {
     func setWordSpace(space: CGFloat) {
         guard let labelText = self.text else { return }
         let attributeString = NSMutableAttributedString.init(string: labelText, attributes: [NSAttributedStringKey.kern: space])
+//        let attributeString = NSMutableAttributedString.init(string: labelText, attributes: [NSAttributedStringKey.kern: space])
         self.attributedText = attributeString
     }
     
