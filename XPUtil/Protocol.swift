@@ -1,9 +1,9 @@
 //
-//  Protocol.swift
+//  CheckValueTool.swift
 //  XPUtilExample
 //
-//  Created by xyj on 2017/12/18.
-//  Copyright © 2017年 xyj. All rights reserved.
+//  Created by xp on 2018/5/23.
+//  Copyright © 2018年 xyj. All rights reserved.
 //
 
 import Foundation
