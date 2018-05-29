@@ -4,10 +4,10 @@ Pod::Spec.new do |s|
 
 
   s.name         = "XPUtil"
-  s.version      = "2.0.0"
-  s.summary      = "Swift Tool: Swift 扩展以及一些工具类"
+  s.version      = "2.0.1"
+  s.summary      = "Swift Tool: Swift扩展以及一些工具类"
   s.description  = <<-DESC
-  Swift Tool: Swift 扩展以及一些工具类
+  Swift Tool: Swift 扩展以及一些工具类.
                    DESC
 
   s.homepage     = "https://github.com/jamalping/XPUtil"
