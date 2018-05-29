@@ -28,6 +28,10 @@
 		3097A03E1F7F34E100E27C9F /* XPUtilExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3097A03D1F7F34E100E27C9F /* XPUtilExampleUITests.swift */; };
 		30C3BB931FE75BA500795A31 /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C3BB921FE75BA500795A31 /* Protocol.swift */; };
 		F6B073FA20BD296A00E31A69 /* Device+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B073F920BD296A00E31A69 /* Device+Extensions.swift */; };
+		F6B073FD20BD2ED000E31A69 /* ContactsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F2876F20B53B2D00F4DFE2 /* ContactsManager.swift */; };
+		F6B073FE20BD2ED400E31A69 /* KeyChainTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F2876A20B5025F00F4DFE2 /* KeyChainTool.swift */; };
+		F6B073FF20BD2ED400E31A69 /* CheckValueTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F2876C20B5054C00F4DFE2 /* CheckValueTool.swift */; };
+		F6B0740020BD2ED900E31A69 /* Device+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B073F920BD296A00E31A69 /* Device+Extensions.swift */; };
 		F6EFE73D208D880C006B1349 /* UIlabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6EFE73C208D880C006B1349 /* UIlabel+Extension.swift */; };
 		F6EFE74E208D899C006B1349 /* XPTool.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6EFE745208D899C006B1349 /* XPTool.framework */; };
 		F6EFE755208D899D006B1349 /* XPToolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6EFE754208D899D006B1349 /* XPToolTests.swift */; };
@@ -569,6 +573,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6B0740020BD2ED900E31A69 /* Device+Extensions.swift in Sources */,
+				F6B073FE20BD2ED400E31A69 /* KeyChainTool.swift in Sources */,
+				F6B073FF20BD2ED400E31A69 /* CheckValueTool.swift in Sources */,
+				F6B073FD20BD2ED000E31A69 /* ContactsManager.swift in Sources */,
 				F6EFE763208D89CB006B1349 /* Protocol.swift in Sources */,
 				F6EFE764208D89CB006B1349 /* UIlabel+Extension.swift in Sources */,
 				F6EFE765208D89CB006B1349 /* UIImage+Extension.swift in Sources */,

@@ -12,6 +12,7 @@ import CoreData
 import Contacts
 import ContactsUI
 
+@available(iOS 9.0, *)
 class Contact {
     // MARK: - 属性列表
     /// 姓名
@@ -65,6 +66,7 @@ enum ContactsToolError: Error {
 //  MARK: - 类
 
 /// 联系人工具类
+@available(iOS 9.0, *)
 class ContactsManager: NSObject, CNContactPickerDelegate, UINavigationControllerDelegate  {
     typealias ContactOnSuccess = (_ location: Contact) -> ()
     typealias ContactOnCancle = (_ errorCode: String) -> ()
@@ -331,7 +333,7 @@ class ContactsManager: NSObject, CNContactPickerDelegate, UINavigationController
 }
 
 // MARK: - CNContactPickerDelegate
-
+@available(iOS 9.0, *)
 extension ContactsManager {
     func contactPickerDidCancel(_ picker: CNContactPickerViewController) {
         getContactOnCancle!("CANCEL")
