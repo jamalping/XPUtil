@@ -28,6 +28,7 @@
 		3097A0331F7F34E100E27C9F /* XPUtilExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3097A0321F7F34E100E27C9F /* XPUtilExampleTests.swift */; };
 		3097A03E1F7F34E100E27C9F /* XPUtilExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3097A03D1F7F34E100E27C9F /* XPUtilExampleUITests.swift */; };
 		30C3BB931FE75BA500795A31 /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C3BB921FE75BA500795A31 /* Protocol.swift */; };
+		F6B073FA20BD296A00E31A69 /* Device+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B073F920BD296A00E31A69 /* Device+Extensions.swift */; };
 		F6EFE73D208D880C006B1349 /* UIlabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6EFE73C208D880C006B1349 /* UIlabel+Extension.swift */; };
 		F6EFE74E208D899C006B1349 /* XPTool.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6EFE745208D899C006B1349 /* XPTool.framework */; };
 		F6EFE755208D899D006B1349 /* XPToolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6EFE754208D899D006B1349 /* XPToolTests.swift */; };
@@ -41,7 +42,6 @@
 		F6EFE767208D89CB006B1349 /* UIBarButtonItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30492EE11F9F279A00ED64AD /* UIBarButtonItem+Extension.swift */; };
 		F6EFE768208D89CB006B1349 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3097A04E1F7F358B00E27C9F /* UIColor+Extension.swift */; };
 		F6EFE769208D89CB006B1349 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3097A04C1F7F358B00E27C9F /* UIView+Extension.swift */; };
-		F6EFE76A208D89CB006B1349 /* XPCycleScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30492ED51F9F181900ED64AD /* XPCycleScrollView.swift */; };
 		F6EFE76B208D89CB006B1349 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302266BE1FAAC5BA005D32B7 /* Array+Extension.swift */; };
 		F6EFE76C208D89CB006B1349 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3097A04D1F7F358B00E27C9F /* String+Extension.swift */; };
 		F6EFE76D208D89CB006B1349 /* Range+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3097A0501F7F358C00E27C9F /* Range+Extension.swift */; };
@@ -134,6 +134,7 @@
 		3097A04E1F7F358B00E27C9F /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		3097A0501F7F358C00E27C9F /* Range+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Range+Extension.swift"; sourceTree = "<group>"; };
 		30C3BB921FE75BA500795A31 /* Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
+		F6B073F920BD296A00E31A69 /* Device+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Device+Extensions.swift"; sourceTree = "<group>"; };
 		F6EFE73C208D880C006B1349 /* UIlabel+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIlabel+Extension.swift"; sourceTree = "<group>"; };
 		F6EFE745208D899C006B1349 /* XPTool.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XPTool.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6EFE747208D899C006B1349 /* XPTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XPTool.h; sourceTree = "<group>"; };
@@ -278,7 +279,7 @@
 				30492EE11F9F279A00ED64AD /* UIBarButtonItem+Extension.swift */,
 				3097A04E1F7F358B00E27C9F /* UIColor+Extension.swift */,
 				3097A04C1F7F358B00E27C9F /* UIView+Extension.swift */,
-				30492ED51F9F181900ED64AD /* XPCycleScrollView.swift */,
+				F6B073F920BD296A00E31A69 /* Device+Extensions.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -306,6 +307,7 @@
 			children = (
 				F6F2876A20B5025F00F4DFE2 /* KeyChainTool.swift */,
 				F6F2876C20B5054C00F4DFE2 /* CheckValueTool.swift */,
+				30492ED51F9F181900ED64AD /* XPCycleScrollView.swift */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -540,6 +542,7 @@
 				30492ED61F9F181900ED64AD /* XPCycleScrollView.swift in Sources */,
 				F6F2876B20B5025F00F4DFE2 /* KeyChainTool.swift in Sources */,
 				3097A01E1F7F34E100E27C9F /* AppDelegate.swift in Sources */,
+				F6B073FA20BD296A00E31A69 /* Device+Extensions.swift in Sources */,
 				302266BF1FAAC5BA005D32B7 /* Array+Extension.swift in Sources */,
 				F6EFE73D208D880C006B1349 /* UIlabel+Extension.swift in Sources */,
 				30492EE21F9F279A00ED64AD /* UIBarButtonItem+Extension.swift in Sources */,
@@ -577,7 +580,6 @@
 				F6EFE767208D89CB006B1349 /* UIBarButtonItem+Extension.swift in Sources */,
 				F6EFE768208D89CB006B1349 /* UIColor+Extension.swift in Sources */,
 				F6EFE769208D89CB006B1349 /* UIView+Extension.swift in Sources */,
-				F6EFE76A208D89CB006B1349 /* XPCycleScrollView.swift in Sources */,
 				F6EFE76B208D89CB006B1349 /* Array+Extension.swift in Sources */,
 				F6EFE76C208D89CB006B1349 /* String+Extension.swift in Sources */,
 				F6EFE76D208D89CB006B1349 /* Range+Extension.swift in Sources */,

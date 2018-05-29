@@ -20,7 +20,7 @@ public extension UIColor {
             let splitIndex = hexColor.index(after: hexColor.startIndex)
             hexColor = String(hexColor[splitIndex...])
         }
-        if hexColor.characters.count == 8 {
+        if hexColor.count == 8 {
             let scanner = Scanner(string: hexColor)
             
             var hexNumber: UInt64 = 0
@@ -34,7 +34,7 @@ public extension UIColor {
                 self.init(red: r, green: g, blue: b, alpha: a)
                 return
             }
-        } else if hexColor.characters.count == 6 {
+        } else if hexColor.count == 6 {
             let scanner = Scanner(string: hexColor)
             var hexNumber: UInt64 = 0
             

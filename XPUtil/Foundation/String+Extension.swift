@@ -11,7 +11,7 @@ import Foundation
 public extension String {
     /// 长度
     var length: Int {
-        return self.characters.count
+        return self.count
     }
     
     /// 提取字符串中的数字组成新的字符串
@@ -144,7 +144,7 @@ public extension String {
     static func swiftClassFromString(string: String) -> AnyClass? {
 
         let appName = Bundle.main.object(forInfoDictionaryKey: "CFBundleName") as! String
-        let classStringName = "_TtC\(appName.characters.count)\(appName)"+"\(string.characters.count)"+string
+        let classStringName = "_TtC\(appName.count)\(appName)"+"\(string.count)"+string
 
         return NSClassFromString(classStringName)
     }
@@ -174,7 +174,7 @@ public extension String {
         do {
             let pattern = regexString
             let regex: NSRegularExpression = try NSRegularExpression(pattern: pattern, options: NSRegularExpression.Options.caseInsensitive)
-            let matches = regex.matches(in: self, options: NSRegularExpression.MatchingOptions.reportProgress, range: NSMakeRange(0, self.characters.count))
+            let matches = regex.matches(in: self, options: NSRegularExpression.MatchingOptions.reportProgress, range: NSMakeRange(0, self.count))
             return matches.count > 0
             
         } catch {
