@@ -10,7 +10,6 @@
 		302266BF1FAAC5BA005D32B7 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302266BE1FAAC5BA005D32B7 /* Array+Extension.swift */; };
 		302266C11FAB147A005D32B7 /* Dictionary+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302266C01FAB147A005D32B7 /* Dictionary+Extension.swift */; };
 		302266C31FAB2948005D32B7 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302266C21FAB2948005D32B7 /* Date+Extensions.swift */; };
-		30492ED61F9F181900ED64AD /* XPCycleScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30492ED51F9F181900ED64AD /* XPCycleScrollView.swift */; };
 		30492ED81F9F1A4A00ED64AD /* Timer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30492ED71F9F1A4A00ED64AD /* Timer+Extension.swift */; };
 		30492EDA1F9F208A00ED64AD /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30492ED91F9F208A00ED64AD /* Date+Extension.swift */; };
 		30492EDC1F9F24B000ED64AD /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30492EDB1F9F24B000ED64AD /* UIImage+Extension.swift */; };
@@ -110,7 +109,6 @@
 		302266BE1FAAC5BA005D32B7 /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
 		302266C01FAB147A005D32B7 /* Dictionary+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+Extension.swift"; sourceTree = "<group>"; };
 		302266C21FAB2948005D32B7 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
-		30492ED51F9F181900ED64AD /* XPCycleScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XPCycleScrollView.swift; sourceTree = "<group>"; };
 		30492ED71F9F1A4A00ED64AD /* Timer+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Timer+Extension.swift"; sourceTree = "<group>"; };
 		30492ED91F9F208A00ED64AD /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		30492EDB1F9F24B000ED64AD /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
@@ -307,7 +305,6 @@
 			children = (
 				F6F2876A20B5025F00F4DFE2 /* KeyChainTool.swift */,
 				F6F2876C20B5054C00F4DFE2 /* CheckValueTool.swift */,
-				30492ED51F9F181900ED64AD /* XPCycleScrollView.swift */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -433,7 +430,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = xyj;
 				TargetAttributes = {
 					3097A0191F7F34E100E27C9F = {
@@ -539,7 +536,6 @@
 				30492ED81F9F1A4A00ED64AD /* Timer+Extension.swift in Sources */,
 				F6F2876D20B5054C00F4DFE2 /* CheckValueTool.swift in Sources */,
 				30492EDC1F9F24B000ED64AD /* UIImage+Extension.swift in Sources */,
-				30492ED61F9F181900ED64AD /* XPCycleScrollView.swift in Sources */,
 				F6F2876B20B5025F00F4DFE2 /* KeyChainTool.swift in Sources */,
 				3097A01E1F7F34E100E27C9F /* AppDelegate.swift in Sources */,
 				F6B073FA20BD296A00E31A69 /* Device+Extensions.swift in Sources */,
@@ -662,6 +658,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -669,6 +666,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -719,6 +717,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -726,6 +725,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
