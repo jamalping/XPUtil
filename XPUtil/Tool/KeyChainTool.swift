@@ -12,7 +12,8 @@ import Foundation
 public class KeychainTool {
     
     /// 获取 UUID，并保存
-    @discardableResult public class func getUUID(key: String) -> String {
+    @discardableResult
+    public class func getUUID(key: String) -> String {
         guard let uuid: String = self.value(forKey: key) else {
             let uuid = UUID.init().uuidString
             print("uuid:",uuid)
@@ -24,7 +25,8 @@ public class KeychainTool {
     }
     
     /// 添加或更新值
-    @discardableResult public class func set<T: TypeSafeKeychainValue>(_ value: T?, forKey key: String) -> Bool {
+    @discardableResult
+    public class func set<T: TypeSafeKeychainValue>(_ value: T?, forKey key: String) -> Bool {
         guard let value = value else {
             removeValue(forKey: key)
             return true
@@ -37,6 +39,7 @@ public class KeychainTool {
     }
     
     /// 获取值
+    @discardableResult
     public class func value<T: TypeSafeKeychainValue>(forKey key: String) -> T? {
         guard let valueData = valueData(forKey: key) else { return nil }
         
@@ -44,12 +47,14 @@ public class KeychainTool {
     }
     
     /// 移除值
-    @discardableResult public class func removeValue(forKey key:String) -> Bool {
+    @discardableResult
+    public class func removeValue(forKey key:String) -> Bool {
         return deleteValue(forKey: key)
     }
     
     /// 删除所有的值
-    @discardableResult public class func reset() -> Bool {
+    @discardableResult
+    public class func reset() -> Bool {
         
         let searchDictionary = basicDictionary()
         let status = SecItemDelete(searchDictionary as CFDictionary)
@@ -57,6 +62,7 @@ public class KeychainTool {
     }
     
     /// 获取所有的键值对
+    @discardableResult
     public class func allValues() -> [[String: String]]?  {
         
         var searchDictionary = basicDictionary()
@@ -94,11 +100,13 @@ public class KeychainTool {
 fileprivate extension KeychainTool {
     
     /// 是否存在该键值对
+    @discardableResult
     class func valueExists(forKey key: String) -> Bool {
         return valueData(forKey: key) != nil
     }
     
     /// 创建一个键值对
+    @discardableResult
     class func create<T: TypeSafeKeychainValue>(_ value: T, forKey key: String) -> Bool {
         var dictionary = newSearchDictionary(forKey: key)
         
@@ -109,6 +117,7 @@ fileprivate extension KeychainTool {
     }
     
     /// 更新键值对
+    @discardableResult
     class func update<T: TypeSafeKeychainValue>(_ value: T, forKey key: String) -> Bool {
         
         let searchDictionary = newSearchDictionary(forKey: key)
@@ -122,7 +131,8 @@ fileprivate extension KeychainTool {
     }
     
     /// 删除某个键值对
-    @discardableResult class func deleteValue(forKey key: String) -> Bool {
+    @discardableResult
+    class func deleteValue(forKey key: String) -> Bool {
         let searchDictionary = newSearchDictionary(forKey: key)
         let status = SecItemDelete(searchDictionary as CFDictionary)
         
@@ -130,6 +140,7 @@ fileprivate extension KeychainTool {
     }
     
     /// 获取对应的值
+    @discardableResult
     class func valueData(forKey key: String) -> Data?  {
         
         var searchDictionary = newSearchDictionary(forKey: key)
@@ -148,7 +159,7 @@ fileprivate extension KeychainTool {
         return data
     }
     
-    
+    @discardableResult
     class func newSearchDictionary(forKey key: String) -> [String: Any] {
         let encodedIdentifier = key.data(using: .utf8, allowLossyConversion: false)
         
@@ -160,6 +171,7 @@ fileprivate extension KeychainTool {
     }
     
     /// 基础的键值对
+    @discardableResult
     class func basicDictionary() -> [String: Any] {
         
         let serviceName = Bundle(for: self).infoDictionary![kCFBundleIdentifierKey as String] as! String

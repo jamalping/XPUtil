@@ -8,10 +8,10 @@
 
 import Foundation
 
-extension Date {
+public extension Date {
     
     // 时间戳转化成时间（毫秒）"yyyy-MM-dd HH:mm:ss"
-    static func timeStampToString(timeStamp: String, dataFormatter: String) ->String {
+    public static func timeStampToString(timeStamp: String, dataFormatter: String) ->String {
         
         let timeSta: TimeInterval = (Double(timeStamp) ?? 0)/1000
         
@@ -25,7 +25,7 @@ extension Date {
     }
     
     // 时间转化成时间戳
-    static func stringToTimeStamp(stringTime:String)->String {
+    public static func stringToTimeStamp(stringTime:String)->String {
         
         let dfmatter = DateFormatter()
         dfmatter.dateFormat="yyyy年MM月dd日"
@@ -39,7 +39,7 @@ extension Date {
         
     }
     // 格式化时间
-    static func formatDate(format: String = "yyyy-MM-dd", time: String) -> String {
+    public static func formatDate(format: String = "yyyy-MM-dd", time: String) -> String {
         let dfmatter = DateFormatter()
         dfmatter.dateFormat = format
 //        dfmatter.date(from: time)
@@ -57,24 +57,24 @@ extension Date {
     }
     
     // 比较Date是都相等----到天
-    func isEqual(date: Date, otherDate: Date) -> Bool {
+    public func isEqual(date: Date, otherDate: Date) -> Bool {
         let calendar = Calendar.current
         return calendar.isDate(date, inSameDayAs: otherDate)
     
     }
     
     // 是否为今天
-    func isToday() -> Bool {
+    public func isToday() -> Bool {
         return Calendar.current.isDateInToday(self)
     }
     
     // 是否为明天
-    func isTomorrow() -> Bool {
+    public func isTomorrow() -> Bool {
         return Calendar.current.isDateInTomorrow(self)
     }
     
     // 是否为昨天
-    func isYesterday() -> Bool {
+    public func isYesterday() -> Bool {
         return Calendar.current.isDateInYesterday(self)
     }
 }

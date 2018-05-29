@@ -11,7 +11,7 @@ import Foundation
 public extension Array {
     
     /// 随机一个元素
-    var random: Element? {
+    public var random: Element? {
         get {
             guard count > 0 else { return nil }
             let index = Int(arc4random_uniform(UInt32(count)))
@@ -25,7 +25,7 @@ public extension Array {
 extension Array where Element: Equatable {
     
     /// 判断数组中是否包含某个数组
-    func containArray(_ array: [Element]) -> Bool {
+    public func containArray(_ array: [Element]) -> Bool {
         var flag: Bool = true
         array.forEach { (element) in
             if !self.contains(element) {
@@ -37,7 +37,7 @@ extension Array where Element: Equatable {
     
     
     /// 找出不同于参数的元素的数组
-    func difference(_ values: [Element]...) -> [Element] {
+    public func difference(_ values: [Element]...) -> [Element] {
         var result = [Element]()
         
         elements: for element in self {

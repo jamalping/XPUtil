@@ -10,47 +10,47 @@ import UIKit
 
 public extension UIView {
 
-    var left: CGFloat {
+    public var left: CGFloat {
         set { self.frame.origin.x = newValue }
         get { return self.frame.minX }
     }
-    var top: CGFloat {
+    public var top: CGFloat {
         set { self.frame.origin.y = newValue }
         get { return self.frame.minY }
     }
-    var right: CGFloat {
+    public var right: CGFloat {
         set { self.frame.origin.x = newValue - self.frame.width }
         get { return self.frame.maxX }
     }
-    var bottom: CGFloat {
+    public var bottom: CGFloat {
         set { self.frame.origin.y = newValue - self.frame.maxY }
         get { return self.frame.maxY }
     }
     
-    var width: CGFloat {
+    public var width: CGFloat {
         set { self.frame.size.width = newValue }
         get { return self.frame.width }
     }
     
-    var height: CGFloat {
+    public var height: CGFloat {
         set { self.frame.size.height = newValue }
         get { return self.frame.height }
     }
-    var centerX: CGFloat {
+    public var centerX: CGFloat {
         set { self.center = CGPoint.init(x: newValue, y: self.center.y) }
         get { return self.center.x }
     }
     
-    var centerY: CGFloat {
+    public var centerY: CGFloat {
         set { self.center = CGPoint.init(x: self.center.x, y: newValue) }
         get { return self.center.y }
     }
     
-    var size: CGSize {
+    public var size: CGSize {
         set { self.frame = CGRect.init(origin: self.frame.origin, size: newValue) }
         get { return self.frame.size }
     }
-    var origin: CGPoint {
+    public var origin: CGPoint {
         set { self.frame = CGRect.init(origin: newValue, size: self.frame.size) }
         get { return self.frame.origin }
     }
@@ -59,7 +59,7 @@ public extension UIView {
 public extension UIView {
     
     /// 获取view的vc
-    var viewController: UIViewController? {
+    public var viewController: UIViewController? {
         var next:UIView? = self
         repeat{
             if let nextResponder = next?.next, nextResponder is UIViewController {
@@ -71,7 +71,7 @@ public extension UIView {
         return nil
     }
     /// 移除当前视图的所有子视图
-    func removeAllSubviews() -> Void {
+    public func removeAllSubviews() -> Void {
         _ = self.subviews.map { $0.removeFromSuperview()}
     }
     
@@ -96,7 +96,7 @@ public extension UIView {
 //        self.layer.addSublayer(shape)
 //    }
     
-    convenience init(backGroundColor: UIColor) {
+    public convenience init(backGroundColor: UIColor) {
         self.init(frame: .zero)
         self.backgroundColor = backGroundColor
     }
@@ -104,7 +104,7 @@ public extension UIView {
     /// 截取整个View
     ///
     /// - Parameter save: 是否保存到系统相册
-    func screenShot(_ save: Bool) -> UIImage? {
+    public func screenShot(_ save: Bool) -> UIImage? {
         
         guard frame.size.height > 0 && frame.size.width > 0 else {
             return nil

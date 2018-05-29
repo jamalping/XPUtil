@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension Date {
+public extension Date {
 
     public static let minutesInAWeek = 24 * 60 * 7
 

@@ -8,10 +8,10 @@
 
 import Foundation
 
-extension Timer {
+public extension Timer {
     
     /// MARK -- 暂停
-    func pauseTimer() {
+    public func pauseTimer() {
         if !self.isValid {
             return
         }
@@ -19,7 +19,7 @@ extension Timer {
     }
     
     /// MARK -- 重启
-    func resumeTimer() {
+    public func resumeTimer() {
         if !self.isValid {
             return
         }
@@ -27,7 +27,7 @@ extension Timer {
     }
     
     /// MARK -- 隔一段时间启动
-    func resumeTimerAfterInterval(_ interval:TimeInterval) {
+    public func resumeTimerAfterInterval(_ interval:TimeInterval) {
         if !self.isValid {
             return
         }

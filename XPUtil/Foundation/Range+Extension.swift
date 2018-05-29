@@ -10,7 +10,7 @@ import Foundation
 
 public extension Range where Bound == String.Index {
     
-    var nsRange: NSRange {
+    public var nsRange: NSRange {
         let loc = self.lowerBound
         let length = self.upperBound
         return NSMakeRange(loc.encodedOffset, length.encodedOffset - loc.encodedOffset)

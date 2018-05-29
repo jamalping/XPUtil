@@ -9,10 +9,10 @@
 import UIKit
 
 
-extension UIButton {
+public extension UIButton {
     
     // MARK: --- 表单提交按钮
-    convenience init(formBtnTitle: String) {
+    public convenience init(formBtnTitle: String) {
         self.init(type: .custom)
         setTitle(formBtnTitle, for: .normal)
         
@@ -26,7 +26,7 @@ extension UIButton {
     }
     
     // MARK: --- 分段选择器按钮的创建
-    convenience init(title: String, bNormalImg: UIImage?, bSelectedImg: UIImage?){
+    public convenience init(title: String, bNormalImg: UIImage?, bSelectedImg: UIImage?){
         self.init(type: .custom)
         self.setBackgroundImage(bNormalImg, for: .normal)
         self.setBackgroundImage(bSelectedImg, for: .selected)
@@ -36,14 +36,14 @@ extension UIButton {
         self.setTitle(title, for: .normal)
     }
     
-    // 只有默认北
-    convenience init(normalbackgroundImage: String) {
+    // 只有默认背景
+    public convenience init(normalbackgroundImage: String) {
         self.init()
         self.setBackgroundImage(UIImage(named: normalbackgroundImage), for: .normal)
     }
     
     // 创建一般按钮
-    convenience init(title: String, titleColor: UIColor, backGroundColor: UIColor, font: UIFont = .systemFont(ofSize: 13)) {
+    public convenience init(title: String, titleColor: UIColor, backGroundColor: UIColor, font: UIFont = .systemFont(ofSize: 13)) {
         self.init()
         self.backgroundColor = backGroundColor
         
@@ -58,7 +58,7 @@ extension UIButton {
         self.layer.masksToBounds = true
     }
     
-    convenience init(title: String, titleColor: UIColor, normalImg: UIImage, selectedimg: UIImage) {
+    public convenience init(title: String, titleColor: UIColor, normalImg: UIImage, selectedimg: UIImage) {
         self.init()
         
         self.setTitle(title, for: .normal)

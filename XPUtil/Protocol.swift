@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 // MARK: --- ImageFactory
-protocol ImageFactory {
+public protocol ImageFactory {
     
     /// 颜色转image
     func createImage(color: UIColor) -> UIImage?
@@ -20,8 +20,8 @@ protocol ImageFactory {
 }
 
 // MARK: --- 实现 ImageFactory
-extension ImageFactory {
-    func createImage(color: UIColor) -> UIImage? {
+public extension ImageFactory {
+    public func createImage(color: UIColor) -> UIImage? {
         let rect = CGRect(x: 0.0, y: 0.0, width: 1.0, height: 1.0)
         UIGraphicsBeginImageContext(rect.size)
         let context = UIGraphicsGetCurrentContext()
@@ -32,7 +32,7 @@ extension ImageFactory {
         return image ?? nil
     }
     
-    func gifImage(gifData: Data) -> UIImage? {
+    public func gifImage(gifData: Data) -> UIImage? {
         
         guard let sources = CGImageSourceCreateWithData(gifData as CFData, nil) else { return nil }
         

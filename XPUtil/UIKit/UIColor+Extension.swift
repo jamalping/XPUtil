@@ -10,7 +10,7 @@ import UIKit
 
 public extension UIColor {
     // user:UIColor.init(hexString: "#ff5a10") ||UIColor.init(hexString: "ff5a10")
-    convenience init(hexString: String, alpha: CGFloat = 1) {
+    public convenience init(hexString: String, alpha: CGFloat = 1) {
         var r, g, b, a: CGFloat
         a = alpha
         var hexColor: String = hexString.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
@@ -52,7 +52,7 @@ public extension UIColor {
     
     //用数值初始化颜色，便于生成设计图上标明的十六进制颜色
     //user: UIColor.init(valueHex: 0xff5a10)
-    convenience init(valueHex: UInt, alpha: CGFloat = 1.0) {
+    public convenience init(valueHex: UInt, alpha: CGFloat = 1.0) {
         
         self.init(
             red: CGFloat((valueHex & 0xFF0000) >> 16) / 255.0,
@@ -64,7 +64,7 @@ public extension UIColor {
     
     /// 获取随机颜色
     /// - Returns: 随机颜色
-    class func randamColor() -> UIColor{
+    public class func randamColor() -> UIColor{
         let R = CGFloat(arc4random_uniform(255))/255.0
         let G = CGFloat(arc4random_uniform(255))/255.0
         let B = CGFloat(arc4random_uniform(255))/255.0
@@ -78,7 +78,7 @@ public extension UIColor {
     ///   - toColor: 结束的颜色
     ///   - height: 渐变颜色的高度
     /// - Returns: 渐变颜色
-    class func gradientColor(_ fromColor: UIColor, toColor: UIColor, height: CGFloat) -> UIColor? {
+    public class func gradientColor(_ fromColor: UIColor, toColor: UIColor, height: CGFloat) -> UIColor? {
         let size = CGSize.init(width: 1, height: height)
         UIGraphicsBeginImageContextWithOptions(size, false, 0)
         let context = UIGraphicsGetCurrentContext()
@@ -97,7 +97,7 @@ public extension UIColor {
     }
     
     /// 获取对应的rgba值
-    var component: (CGFloat,CGFloat,CGFloat,CGFloat) {
+    public var component: (CGFloat,CGFloat,CGFloat,CGFloat) {
         get {
             var r: CGFloat = 0
             var g: CGFloat = 0

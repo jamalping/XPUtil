@@ -44,7 +44,7 @@ private let DeviceList = [
     /* Simulator */       "x86_64": "Simulator", "i386": "Simulator"
 ]
 
-extension UIDevice {
+public extension UIDevice {
     
     public class func idForVendor() -> String? {
         return UIDevice.current.identifierForVendor?.uuidString

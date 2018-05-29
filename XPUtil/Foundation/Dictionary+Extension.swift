@@ -11,12 +11,12 @@ import Foundation
 public extension Dictionary {
     
     /// 获取一个随机值
-    func random() -> Value? {
+    public func random() -> Value? {
         return Array(values).random
     }
     
     /// 是否存在该key
-    func has(_ key: Key) -> Bool {
+    public func has(_ key: Key) -> Bool {
         return index(forKey: key) != nil
     }
     
@@ -68,7 +68,7 @@ public extension Dictionary {
     }
     
     /// 转换成JSON
-    func formatJSON() -> String? {
+    public func formatJSON() -> String? {
         if let jsonData = try? JSONSerialization.data(withJSONObject: self, options: JSONSerialization.WritingOptions()) {
             let jsonStr = String(data: jsonData, encoding: String.Encoding(rawValue: String.Encoding.utf8.rawValue))
             return String(jsonStr ?? "")

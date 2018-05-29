@@ -13,7 +13,7 @@ import Contacts
 import ContactsUI
 
 @available(iOS 9.0, *)
-class Contact {
+public class Contact {
     // MARK: - 属性列表
     /// 姓名
     var name: String
@@ -59,7 +59,7 @@ fileprivate enum ContactsAuthorizationStatus: Int {
 /// 异常
 ///
 /// - authorizeFailed: 授权失败
-enum ContactsToolError: Error {
+public enum ContactsToolError: Error {
     case authorizeFailed
 }
 
@@ -67,9 +67,9 @@ enum ContactsToolError: Error {
 
 /// 联系人工具类
 @available(iOS 9.0, *)
-class ContactsManager: NSObject, CNContactPickerDelegate, UINavigationControllerDelegate  {
-    typealias ContactOnSuccess = (_ location: Contact) -> ()
-    typealias ContactOnCancle = (_ errorCode: String) -> ()
+public class ContactsManager: NSObject, CNContactPickerDelegate, UINavigationControllerDelegate  {
+    public typealias ContactOnSuccess = (_ location: Contact) -> ()
+    public typealias ContactOnCancle = (_ errorCode: String) -> ()
     
     //  MARK: - 构建单例
     /// 单例
@@ -128,7 +128,7 @@ class ContactsManager: NSObject, CNContactPickerDelegate, UINavigationController
     /// - Parameters:
     ///   - down_address_book: 是否获取用户所有通讯录
     ///   - didSelect: 点击哪一行的回调
-    func clickgContactsBtn(onSuccess: @escaping ContactOnSuccess, onCancle: @escaping ContactOnCancle) {
+    public func clickgContactsBtn(onSuccess: @escaping ContactOnSuccess, onCancle: @escaping ContactOnCancle) {
         self.getContactOnSuccess = onSuccess
         self.getContactOnCancle = onCancle
         
@@ -207,7 +207,7 @@ class ContactsManager: NSObject, CNContactPickerDelegate, UINavigationController
     /// 从系统获取联系人数组
     ///
     /// - Returns: 联系人数组
-    func loadConcatcsFromSystem() throws -> [Contact] {
+    public func loadConcatcsFromSystem() throws -> [Contact] {
         do {
             try readRecords()
         } catch let error{
@@ -334,12 +334,12 @@ class ContactsManager: NSObject, CNContactPickerDelegate, UINavigationController
 
 // MARK: - CNContactPickerDelegate
 @available(iOS 9.0, *)
-extension ContactsManager {
-    func contactPickerDidCancel(_ picker: CNContactPickerViewController) {
+public extension ContactsManager {
+    public func contactPickerDidCancel(_ picker: CNContactPickerViewController) {
         getContactOnCancle!("CANCEL")
     }
     
-    func contactPicker(_ picker: CNContactPickerViewController, didSelect contact: CNContact) {
+    public func contactPicker(_ picker: CNContactPickerViewController, didSelect contact: CNContact) {
         guard contact.phoneNumbers.count > 0 else {
             return
         }
@@ -353,7 +353,7 @@ extension ContactsManager {
         getContactOnSuccess!(contact)
     }
     
-    func contactPicker(_ picker: CNContactPickerViewController, didSelect contactProperty: CNContactProperty) {
+    public func contactPicker(_ picker: CNContactPickerViewController, didSelect contactProperty: CNContactProperty) {
         print("选中")
     }
 }
