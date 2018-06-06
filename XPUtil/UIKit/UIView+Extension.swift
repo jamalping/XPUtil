@@ -120,5 +120,34 @@ public extension UIView {
         }
         return image
     }
+    
+//    func xp_addCorner(radius: CGFloat,
+//                      borderWidth: CGFloat,
+//                      backgroundColor: UIColor,
+//                      borderColor: UIColor) {
+//
+//        let imageView = UIImageView(image: xp_drawRectWithRoundedCorner(radius: radius,
+//                                                                        borderWidth: borderWidth,
+//                                                                        backgroundColor: backgroundColor,
+//                                                                        borderColor: borderColor))
+//        self.insertSubview(imageView, at: 0)
+//    }
+//
+//    func xp_drawRectWithRoundedCorner(radius: CGFloat,
+//                                      borderWidth: CGFloat,
+//                                      backgroundColor: UIColor,
+//                                      borderColor: UIColor) -> UIImage {
+//        UIGraphicsBeginImageContextWithOptions(self.size, false, UIScreen.main.scale)
+//
+//        let context = UIGraphicsGetCurrentContext()
+//        context?.move(to: self.origin)// 开始坐标右边开始
+//        context?.addRect(self.bounds)
+//
+//        context?.drawPath(using: .fillStroke)
+//
+//        let output = UIGraphicsGetImageFromCurrentImageContext()
+//        UIGraphicsEndImageContext()
+//        return output!
+//    }
 }
 

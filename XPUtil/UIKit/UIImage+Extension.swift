@@ -236,4 +236,27 @@ public extension UIImage {
         return UIColor.init(red: r, green: g, blue: b, alpha: a)
     }
     
+    
+    /// 生成一个圆角的图片
+    ///
+    /// - Parameters:
+    ///   - radius: <#radius description#>
+    ///   - sizetoFit: <#sizetoFit description#>
+    /// - Returns: <#return value description#>
+    func xp_drawRectWithRoundedCorner(radius: CGFloat, _ sizetoFit: CGSize) -> UIImage {
+        let rect = CGRect(origin: CGPoint(x: 0, y: 0), size: sizetoFit)
+        
+        UIGraphicsBeginImageContextWithOptions(rect.size, false, UIScreen.main.scale)
+        
+        UIGraphicsGetCurrentContext()!.addPath(UIBezierPath(roundedRect: rect,byRoundingCorners: UIRectCorner.allCorners,cornerRadii: CGSize(width: radius, height: radius)).cgPath)
+        UIGraphicsGetCurrentContext()?.clip()
+        
+        self.draw(in: rect)
+        UIGraphicsGetCurrentContext()!.drawPath(using: .fillStroke)
+        let output = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        
+        return output!
+    }
+    
 }
