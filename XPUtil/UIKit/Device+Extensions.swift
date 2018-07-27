@@ -123,28 +123,27 @@ public extension UIDevice {
         case ten = 10.0
     }
 
-    
-    /// 判断否是是某个系统版本
-    ///
-    /// - Parameter version: 比对的版本号
-    public class func isVersion(_ version: Versions) -> Bool {
-        return systemFloatVersion() >= version.rawValue && systemFloatVersion() < (version.rawValue + 1.0)
-    }
-
-    
-    /// 是否是高于某个版本号
-    ///
-    /// - Parameter version: 比对的版本号
-    public class func isVersionOrLater(_ version: Versions) -> Bool {
-        return systemFloatVersion() >= version.rawValue
-    }
-
-    /// 是否是低于某个版本号
-    ///
-    /// - Parameter version: 比对的版本号
-    public class func isVersionOrEarlier(_ version: Versions) -> Bool {
-        return systemFloatVersion() < (version.rawValue + 1.0)
-    }
+//    /// 判断否是是某个系统版本
+//    ///
+//    /// - Parameter version: 比对的版本号
+//    public class func isVersion(_ version: UIDevice.Versions) -> Bool {
+//        return systemFloatVersion() >= version.rawValue && systemFloatVersion() < (version.rawValue + 1.0)
+//    }
+//
+//
+//    /// 是否是高于某个版本号
+//    ///
+//    /// - Parameter version: 比对的版本号
+//    public class func isVersionOrLater(_ version: Versions) -> Bool {
+//        return systemFloatVersion() >= version.rawValue
+//    }
+//
+//    /// 是否是低于某个版本号
+//    ///
+//    /// - Parameter version: 比对的版本号
+//    public class func isVersionOrEarlier(_ version: Versions) -> Bool {
+//        return systemFloatVersion() < (version.rawValue + 1.0)
+//    }
 
     
     /// 当前版本号
@@ -152,90 +151,90 @@ public extension UIDevice {
         return "\(systemFloatVersion())"
     }
 
-    /// 是否是iOS 5
-    public class func IS_OS_5() -> Bool {
-        return isVersion(.five)
-    }
-
-    /// 是否大于、等于iOS 5
-    public class func IS_OS_5_OR_LATER() -> Bool {
-        return isVersionOrLater(.five)
-    }
-
-    /// 是否小于、等于iOS 5
-    public class func IS_OS_5_OR_EARLIER() -> Bool {
-        return isVersionOrEarlier(.five)
-    }
-
-    // MARK: iOS 6 Checks
-
-    public class func IS_OS_6() -> Bool {
-        return isVersion(.six)
-    }
-
-    public class func IS_OS_6_OR_LATER() -> Bool {
-        return isVersionOrLater(.six)
-    }
-
-    public class func IS_OS_6_OR_EARLIER() -> Bool {
-        return isVersionOrEarlier(.six)
-    }
-
-    // MARK: iOS 7 Checks
-
-    public class func IS_OS_7() -> Bool {
-        return isVersion(.seven)
-    }
-
-    public class func IS_OS_7_OR_LATER() -> Bool {
-        return isVersionOrLater(.seven)
-    }
-
-    public class func IS_OS_7_OR_EARLIER() -> Bool {
-        return isVersionOrEarlier(.seven)
-    }
-
-    // MARK: iOS 8 Checks
-
-    public class func IS_OS_8() -> Bool {
-        return isVersion(.eight)
-    }
-
-    public class func IS_OS_8_OR_LATER() -> Bool {
-        return isVersionOrLater(.eight)
-    }
-
-    public class func IS_OS_8_OR_EARLIER() -> Bool {
-        return isVersionOrEarlier(.eight)
-    }
-
-    // MARK: iOS 9 Checks
-
-    public class func IS_OS_9() -> Bool {
-        return isVersion(.nine)
-    }
-
-    public class func IS_OS_9_OR_LATER() -> Bool {
-        return isVersionOrLater(.nine)
-    }
-
-    public class func IS_OS_9_OR_EARLIER() -> Bool {
-        return isVersionOrEarlier(.nine)
-    }
-
-    // MARK: iOS 10 Checks
-
-    public class func IS_OS_10() -> Bool {
-        return isVersion(.ten)
-    }
-
-    public class func IS_OS_10_OR_LATER() -> Bool {
-        return isVersionOrLater(.ten)
-    }
-
-    public class func IS_OS_10_OR_EARLIER() -> Bool {
-        return isVersionOrEarlier(.ten)
-    }
+//    /// 是否是iOS 5
+//    public class func IS_OS_5() -> Bool {
+//        return isVersion(.five)
+//    }
+//
+//    /// 是否大于、等于iOS 5
+//    public class func IS_OS_5_OR_LATER() -> Bool {
+//        return isVersionOrLater(.five)
+//    }
+//
+//    /// 是否小于、等于iOS 5
+//    public class func IS_OS_5_OR_EARLIER() -> Bool {
+//        return isVersionOrEarlier(.five)
+//    }
+//
+//    // MARK: iOS 6 Checks
+//
+//    public class func IS_OS_6() -> Bool {
+//        return isVersion(.six)
+//    }
+//
+//    public class func IS_OS_6_OR_LATER() -> Bool {
+//        return isVersionOrLater(.six)
+//    }
+//
+//    public class func IS_OS_6_OR_EARLIER() -> Bool {
+//        return isVersionOrEarlier(.six)
+//    }
+//
+//    // MARK: iOS 7 Checks
+//
+//    public class func IS_OS_7() -> Bool {
+//        return isVersion(.seven)
+//    }
+//
+//    public class func IS_OS_7_OR_LATER() -> Bool {
+//        return isVersionOrLater(.seven)
+//    }
+//
+//    public class func IS_OS_7_OR_EARLIER() -> Bool {
+//        return isVersionOrEarlier(.seven)
+//    }
+//
+//    // MARK: iOS 8 Checks
+//
+//    public class func IS_OS_8() -> Bool {
+//        return isVersion(.eight)
+//    }
+//
+//    public class func IS_OS_8_OR_LATER() -> Bool {
+//        return isVersionOrLater(.eight)
+//    }
+//
+//    public class func IS_OS_8_OR_EARLIER() -> Bool {
+//        return isVersionOrEarlier(.eight)
+//    }
+//
+//    // MARK: iOS 9 Checks
+//
+//    public class func IS_OS_9() -> Bool {
+//        return isVersion(.nine)
+//    }
+//
+//    public class func IS_OS_9_OR_LATER() -> Bool {
+//        return isVersionOrLater(.nine)
+//    }
+//
+//    public class func IS_OS_9_OR_EARLIER() -> Bool {
+//        return isVersionOrEarlier(.nine)
+//    }
+//
+//    // MARK: iOS 10 Checks
+//
+//    public class func IS_OS_10() -> Bool {
+//        return isVersion(.ten)
+//    }
+//
+//    public class func IS_OS_10_OR_LATER() -> Bool {
+//        return isVersionOrLater(.ten)
+//    }
+//
+//    public class func IS_OS_10_OR_EARLIER() -> Bool {
+//        return isVersionOrEarlier(.ten)
+//    }
 
     
     public class func isSystemVersionOver(_ requiredVersion: String) -> Bool {

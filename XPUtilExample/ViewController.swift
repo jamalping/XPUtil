@@ -11,6 +11,7 @@ import XPTool
 
 class ViewController: UIViewController {
 
+    var s: String?
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -21,7 +22,14 @@ class ViewController: UIViewController {
 //        self.view.backgroundColor = UIColor.gradientColor(UIColor.black, toColor: UIColor.white, height: self.view.height)
 //        self.view.colorof
 //        let ccc = []
-        
+        self.s = "a"
+        let sss = Selector.init(("fff"))
+        KVO.observer(object: self, keyPath: "s", target: self, selector: sss)
+        self.s = "b"
+    }
+    
+    func fff() {
+        print("sd")
     }
 
     override func didReceiveMemoryWarning() {

@@ -19,7 +19,6 @@ public extension Array {
         }
     }
     
-    
 }
 
 extension Array where Element: Equatable {
