@@ -208,3 +208,42 @@ public extension String {
     }
 }
 
+
+// MARK: - 字符串和ascii码的相互转换
+
+extension String {
+    
+    func getHexString() -> String? {
+        var resultStr: String = String.init()
+        
+        let cStr = cString(using: .utf8)!
+        for index in 0..<cStr.count {
+            if index == cStr.count - 1 {
+                break
+            }
+            resultStr.append(String.init(format: "%02x", cStr[index]))
+        }
+        return resultStr
+    }
+    
+    func hexStringToString() -> String? {
+        var resultStr: String = String.init()
+        
+        for idx in 1...count {
+            if idx != 0 && idx % 2 == 0 {
+                let preIndex: Index = index(startIndex, offsetBy: idx - 2)
+                let sufIndex: Index = index(startIndex, offsetBy: idx)
+                
+                var intValue: UInt32 = UInt32()
+                let subStr: String = String.init(self[preIndex..<sufIndex])
+                Scanner.init(string: subStr).scanHexInt32(&intValue)
+                let r = Character(UnicodeScalar.init(intValue)!)
+                resultStr.append(r)
+                
+            }
+        }
+        return resultStr
+    }
+}
+
+
