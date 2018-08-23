@@ -213,6 +213,8 @@ public extension String {
 
 extension String {
     
+    /// 获取当前字符串的ASCII值
+    /// eg a.getHexString() return "61"
     func getHexString() -> String? {
         var resultStr: String = String.init()
         
@@ -226,6 +228,8 @@ extension String {
         return resultStr
     }
     
+    /// ASCII值的字符串形式转字符串
+    /// eg: "61".hexStringToString() return "a"
     func hexStringToString() -> String? {
         var resultStr: String = String.init()
         
@@ -241,6 +245,19 @@ extension String {
                 resultStr.append(r)
                 
             }
+        }
+        return resultStr
+    }
+    
+    /// 生成随机字符串
+    ///
+    /// - Parameter length: 字符串长度
+    /// - Returns: 生成好的随机字符串
+    static func randomString(length: Int) -> String {
+        var resultStr: String = ""
+        for _ in 0..<length {
+            let char: Character = Character.init(UnicodeScalar.init(33 + arc4random() % 63)!)
+            resultStr.append(char)
         }
         return resultStr
     }

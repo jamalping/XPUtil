@@ -44,6 +44,41 @@ private let DeviceList = [
     /* Simulator */       "x86_64": "Simulator", "i386": "Simulator"
 ]
 
+
+/// 设备名对应的case
+public enum DeviceModel: String {
+    case iPodTouch5 = "iPod Touch 5"
+    case iPodTouch6 = "iPod Touch 6"
+    case iPhone4  =  "iPhone 4"
+    case iPhone4s =  "iPhone 4s"
+    case iPhone5 =  "iPhone 5"
+    case iPhone5c =  "iPhone 5c"
+    case iPhone5s =  "iPhone 5s"
+    case iPhone6 =  "iPhone 6"
+    case iPhone6Plus =  "iPhone 6 Plus"
+    case iPhone6s =  "iPhone 6s"
+    case iPhone6sPlus =  "iPhone 6s Plus"
+    case iPhone7 =  "iPhone 7"
+    case iPhone7Plus =  "iPhone 7 Plus"
+    case iPhoneSE =  "iPhone SE"
+    case iPhone8 =  "iPhone 8"
+    case iPhone8Plus =  "iPhone 8 Plus"
+    case iPhoneX = "iPhone X"
+    case iPad2 =  "iPad 2"
+    case iPad3 =  "iPad 3"
+    case iPad4 =  "iPad 4"
+    case iPadAir =  "iPad Air"
+    case iPadAir2 =  "iPad Air 2"
+    case iPadMini =  "iPad Mini"
+    case iPadMini2 =  "iPad Mini 2"
+    case iPadMini3 =  "iPad Mini 3"
+    case iPadMini4 =  "iPad Mini 4"
+    case iPadPro12inch =  "iPad Pro (12.9 inch)"
+    case iPadPro9inch =  "iPad Pro (9.7 inch)"
+    case AppleTV =  "Apple TV"
+    case Simulator =  "Simulator"
+}
+
 public extension UIDevice {
     
     public class func idForVendor() -> String? {
@@ -75,9 +110,14 @@ public extension UIDevice {
         return Bundle.main.preferredLocalizations[0]
     }
 
-    /// 
+    /// 获取设备标识
     public class func deviceModelReadable() -> String {
         return DeviceList[deviceModel()] ?? deviceModel()
+    }
+    
+    /// 获取设备标识
+    public class func getDeviceModel() -> DeviceModel {
+        return DeviceModel.init(rawValue: DeviceList[deviceModel()] ?? deviceName()) ?? DeviceModel.iPhone6
     }
 
     /// 是否是iphone
@@ -123,10 +163,10 @@ public extension UIDevice {
         case ten = 10.0
     }
 
-//    /// 判断否是是某个系统版本
-//    ///
-//    /// - Parameter version: 比对的版本号
-//    public class func isVersion(_ version: UIDevice.Versions) -> Bool {
+    /// 判断否是是某个系统版本
+    ///
+    /// - Parameter version: 比对的版本号
+//    public class func isVersion(_ version: Versions) -> Bool {
 //        return systemFloatVersion() >= version.rawValue && systemFloatVersion() < (version.rawValue + 1.0)
 //    }
 //

@@ -51,3 +51,21 @@ public extension ImageFactory {
         }
     }
 }
+
+
+// MARK: 打印内存地址
+protocol  MemoryAdress {
+    //定义方法打印对象内存地址
+    func printAddress(values:AnyObject...)
+}
+
+extension MemoryAdress {
+    //定义方法打印对象内存地址
+    func printAddress(values:AnyObject...){
+        for value in values {
+            print(Unmanaged.passUnretained(value).toOpaque())
+        }
+        print("-----------------------------------------")
+    }
+
+}
