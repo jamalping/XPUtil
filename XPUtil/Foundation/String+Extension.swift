@@ -208,9 +208,22 @@ public extension String {
     }
 }
 
+extension String {
+    /// 生成随机字符串
+    ///
+    /// - Parameter length: 字符串长度
+    /// - Returns: 生成好的随机字符串
+    static func randomString(length: Int) -> String {
+        var resultStr: String = ""
+        for _ in 0..<length {
+            let char: Character = Character.init(UnicodeScalar.init(33 + arc4random() % 63)!)
+            resultStr.append(char)
+        }
+        return resultStr
+    }
+}
 
-// MARK: - 字符串和ascii码的相互转换
-
+// MARK: 字符串和ASCII码的相互转换
 extension String {
     
     /// 获取当前字符串的ASCII值
@@ -248,19 +261,5 @@ extension String {
         }
         return resultStr
     }
-    
-    /// 生成随机字符串
-    ///
-    /// - Parameter length: 字符串长度
-    /// - Returns: 生成好的随机字符串
-    static func randomString(length: Int) -> String {
-        var resultStr: String = ""
-        for _ in 0..<length {
-            let char: Character = Character.init(UnicodeScalar.init(33 + arc4random() % 63)!)
-            resultStr.append(char)
-        }
-        return resultStr
-    }
 }
-
 
