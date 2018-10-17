@@ -10,21 +10,21 @@ import Foundation
 
 public extension String {
     /// 长度
-    var length: Int {
+    public var length: Int {
         return self.count
     }
     
     /// 提取字符串中的数字组成新的字符串
-    var scannerNum: String {
+    public var scannerNum: String {
         return self.filter { return Int(String($0)) != nil }
     }
 
     /// 删除两端空格
-    var trimmingSpace: String {
+    public var trimmingSpace: String {
         return self.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
     }
     
-    subscript (i: Int) -> String {
+    public subscript (i: Int) -> String {
         get {
             let startIndex = self.index(self.startIndex, offsetBy: i)
             return String(self[startIndex])
@@ -32,7 +32,7 @@ public extension String {
     }
 
     // 下标范围取值：eg: "12345"[1..<3] = "23"
-    subscript (i : Range<Int>) -> String {
+    public subscript (i : Range<Int>) -> String {
         get {
             let startIndex = self.index(self.startIndex, offsetBy: i.lowerBound)
             let endIndex = self.index(self.startIndex, offsetBy: i.upperBound)
@@ -40,19 +40,52 @@ public extension String {
         }
     }
     
+    /// base64加密
+    public func base64Encode() -> String? {
+        guard let data = self.data(using: .utf8) else {
+            return nil
+        }
+        let base64Data = data.base64EncodedData()
+        return String.init(data: base64Data, encoding: .utf8)
+    }
+    
+    /// base64解密
+    public func base64Dencode() -> String? {
+        guard let data = Data.init(base64Encoded: self) else {
+            return nil
+        }
+        return String.init(data: data, encoding: .utf8)
+    }
+    
     // 用目标字符串替换range下标的字符串
     // var aa = "123456"
     // aa.replace(in: 1..<4, with: "*") 结果为：1*56
-    mutating func replace(in range: Range<Int>, with astring: String) -> String {
+    public mutating func replace(in range: Range<Int>, with astring: String) -> String {
         
         let startIndex = self.index(self.startIndex, offsetBy: range.lowerBound)
         let endIndex = self.index(self.startIndex, offsetBy: range.upperBound)
         return self.replacingCharacters(in: startIndex..<endIndex, with: astring)
     }
-
+    
+    /// 使用正则表达式替换
+    ///
+    /// - Parameters:
+    ///   - pattern: 正则表达式
+    ///   - with: 替换的字符串
+    ///   - options:
+    /// - Returns:
+    /// - eg: let str = "sfdg.sdf?多少f="
+    ///       let result = fsdf.pregReplace(pattern: "[.?=]", with: "") //sfdgsdf多少f
+    public func pregReplace(pattern: String, with: String,
+                     options: NSRegularExpression.Options = []) -> String {
+        let regex = try! NSRegularExpression(pattern: pattern, options: options)
+        return regex.stringByReplacingMatches(in: self, options: [],
+                                              range: NSMakeRange(0, self.count),
+                                              withTemplate: with)
+    }
     
     /// 格式化金额
-    func formatMoney() -> String? {
+    public func formatMoney() -> String? {
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
         guard let floatValue = Float(self), var resultString = formatter.string(from: NSNumber.init(value: floatValue)) else {
@@ -64,6 +97,7 @@ public extension String {
     /// MD5加密
     ///
     /// - Returns: 加密后的字符串
+    /// 外部使用
 //    func md5() -> String{
 //        let cStr = self.cString(using: String.Encoding.utf8);
 //        let buffer = UnsafeMutablePointer<UInt8>.allocate(capacity: 16)
@@ -83,7 +117,7 @@ public extension String {
     ///   - string: 插入的字符串
     ///   - len: 每隔几位
     /// - Returns: 插入后的字符串
-    func insert(string: String, len: Int) -> String {
+    public func insert(string: String, len: Int) -> String {
         if self.length < 1 { return self }
         var resultString = ""
         var index = 0
@@ -107,7 +141,7 @@ public extension String {
     ///   - options: <#options description#>
     /// - Returns: <#return value description#>
     /// - eg:pregReplace(pattern: "[A-Z]", with: "_$0")  大写转小写，并前面添加一个_
-    func regexReplace(pattern: String, with: String,
+    public func regexReplace(pattern: String, with: String,
                       options: NSRegularExpression.Options = []) -> String {
         let regex = try! NSRegularExpression(pattern: pattern, options: options)
         return regex.stringByReplacingMatches(in: self, options: [],
@@ -119,7 +153,7 @@ public extension String {
     ///
     /// - Parameter index: 切割的初始位置
     /// - Returns: 子串
-    func subString(from index: Int) -> String {
+    public func subString(from index: Int) -> String {
         if index <= self.length {
             return String(self[index..<self.length])
         }
@@ -130,7 +164,7 @@ public extension String {
     ///
     /// - Parameter index: 切割的最终位置
     /// - Returns: 子串
-    func subString(to index: Int) -> String {
+    public func subString(to index: Int) -> String {
         if index <= self.length {
             return String(self[0..<index])
         }
@@ -141,7 +175,7 @@ public extension String {
     ///
     /// - Parameter string: 类名的字符串
     /// - Returns: Swift类
-    static func swiftClassFromString(string: String) -> AnyClass? {
+    public static func swiftClassFromString(string: String) -> AnyClass? {
 
         let appName = Bundle.main.object(forInfoDictionaryKey: "CFBundleName") as! String
         let classStringName = "_TtC\(appName.count)\(appName)"+"\(string.count)"+string
@@ -154,7 +188,7 @@ public extension String {
     ///
     /// - Parameter string: 字符串
     /// - Returns: 字符串所在的位置
-    func match(string: String) -> [NSRange] {
+    public func match(string: String) -> [NSRange] {
         var result = [NSRange?]()
         
         string.forEach { (aChar) in
@@ -183,24 +217,24 @@ public extension String {
     }
     
     // 匹配数字递增或者递减。比如（123456、654321）
-    func isIncreasOrdiminish() -> Bool {
+    public func isIncreasOrdiminish() -> Bool {
         let regeXStr = "(?:(?:0(?=1)|1(?=2)|2(?=3)|3(?=4)|4(?=5)|5(?=6)|6(?=7)|7(?=8)|8(?=9)){5}|(?:9(?=8)|8(?=7)|7(?=6)|6(?=5)|5(?=4)|4(?=3)|3(?=2)|2(?=1)|1(?=0)){5})\\d"
         return self.isValidRegexString(regexString: regeXStr)
     }
     
     // 匹配6个数字是否相同
-    func isSameString() -> Bool {
+    public func isSameString() -> Bool {
         let regeXStr = "([\\d])\\1{5,}" // 匹配6个数字相同
         return self.isValidRegexString(regexString: regeXStr)
     }
     // 匹配2233类型（比如2233、2222，333444）
-    func is2233String() -> Bool {
+    public func is2233String() -> Bool {
         let regeXStr = "([\\d])\\1{1,}([\\d])\\2{1,}"
         return self.isValidRegexString(regexString: regeXStr)
     }
     
     // 是否是简单密码
-    var isSimplePwd: Bool {
+    public var isSimplePwd: Bool {
         if isIncreasOrdiminish() || isSameString() || is2233String() {
             return true
         }
@@ -213,7 +247,7 @@ extension String {
     ///
     /// - Parameter length: 字符串长度
     /// - Returns: 生成好的随机字符串
-    static func randomString(length: Int) -> String {
+   public  static func randomString(length: Int) -> String {
         var resultStr: String = ""
         for _ in 0..<length {
             let char: Character = Character.init(UnicodeScalar.init(33 + arc4random() % 63)!)
@@ -228,7 +262,7 @@ extension String {
     
     /// 获取当前字符串的ASCII值
     /// eg a.getHexString() return "61"
-    func getHexString() -> String? {
+    public func getHexString() -> String? {
         var resultStr: String = String.init()
         
         let cStr = cString(using: .utf8)!
@@ -243,7 +277,7 @@ extension String {
     
     /// ASCII值的字符串形式转字符串
     /// eg: "61".hexStringToString() return "a"
-    func hexStringToString() -> String? {
+    public func hexStringToString() -> String? {
         var resultStr: String = String.init()
         
         for idx in 1...count {
@@ -260,6 +294,25 @@ extension String {
             }
         }
         return resultStr
+    }
+    
+    /// 是否包含Emoji表情
+    public func isContainEmoji() -> Bool {
+        for scalar in unicodeScalars {
+            switch scalar.value {
+            case
+            0x00A0...0x00AF,
+            0x2030...0x204F,
+            0x2120...0x213F,
+            0x2190...0x21AF,
+            0x2310...0x329F,
+            0x1F000...0x1F9CF:
+                return true
+            default:
+                continue
+            }
+        }
+        return false
     }
 }
 

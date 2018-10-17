@@ -45,38 +45,4 @@ public extension Timer {
             block(timer)
         }
     }
-    
-    /*
-     @interface NSTimer (SGLUnRetain)
-     + (NSTimer *)sgl_scheduledTimerWithTimeInterval:(NSTimeInterval)inerval
-     repeats:(BOOL)repeats
-     block:(void(^)(NSTimer *timer))block;
-     @end
-     
-     //.m文件
-     #import "NSTimer+SGLUnRetain.h"
-     
-     @implementation NSTimer (SGLUnRetain)
-     
-     + (NSTimer *)sgl_scheduledTimerWithTimeInterval:(NSTimeInterval)inerval repeats:(BOOL)repeats block:(void (^)(NSTimer *timer))block{
-     
-     return [NSTimer scheduledTimerWithTimeInterval:inerval target:self selector:@selector(sgl_blcokInvoke:) userInfo:[block copy] repeats:repeats];
-     }
-     
-     + (void)sgl_blcokInvoke:(NSTimer *)timer {
-     
-     void (^block)(NSTimer *timer) = timer.userInfo;
-     
-     if (block) {
-     block(timer);
-     }
-     }
-     @end
-     
-     作者：Mrshang110
-     链接：https://www.jianshu.com/p/2fe076e5e255
-     來源：简书
-     著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
-     */
-    
 }

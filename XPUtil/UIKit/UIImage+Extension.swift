@@ -210,7 +210,7 @@ public extension UIImage {
             animatedImage = UIImage.animatedImage(with: images, duration: Double(count)*0.1)
         }
      
-        return animatedImage;
+        return animatedImage
     }
         
     /// 获取某个点的UIColor
