@@ -63,7 +63,7 @@ public class KeychainTool {
     
     /// 获取所有的键值对
     @discardableResult
-    public class func allValues() -> [[String: String]]?  {
+    public class func allValues() -> [[String: String]]? {
         
         var searchDictionary = basicDictionary()
         

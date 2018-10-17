@@ -15,6 +15,15 @@ public class KVO: NSObject {
     var observedObject: NSObject?
     var keyPath: String?
     
+    
+    /// 建立观察者与被观察者之间的联系
+    ///
+    /// - Parameters:
+    ///   - object: 观察者
+    ///   - keyPath: 观察目标
+    ///   - target: 被观察对象
+    ///   - selector: 响应
+    /// - Returns: <#return value description#>
     @discardableResult
     public class func observer(object: NSObject, keyPath: String, target: AnyObject, selector: Selector) -> KVO {
         return KVO.init(object: object, keyPath: keyPath, target: target, selector: selector)
