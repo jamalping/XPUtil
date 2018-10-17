@@ -29,8 +29,7 @@ class ViewController: UIViewController {
         
         let ddView = UIView.init(frame: CGRect.init(x: 100, y: 100, width: 100, height: 100))
         view.addSubview(ddView)
-//        ddView.corner(byRoundingCorners: [.bottomLeft, .bottomRight], radii: 50)
-        ddView.xp_addCorner(radius: 10, borderWidth: 1, backgroundColor: .red, borderColor: .cyan)
+        ddView.corner(byRoundingCorners: [.bottomLeft, .bottomRight], radii: 50)
     }
     
     func fff() {
