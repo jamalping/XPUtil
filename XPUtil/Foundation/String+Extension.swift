@@ -6,7 +6,7 @@
 //  Copyright © 2017年 xyj. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 public extension String {
     /// 长度
@@ -55,6 +55,30 @@ public extension String {
             return nil
         }
         return String.init(data: data, encoding: .utf8)
+    }
+    
+    
+    /// 计算文字的size
+    ///
+    /// - Parameters:
+    ///   - withFont: 文字字体
+    ///   - maxSize: 最大的size，指定width，就是计算height。指定height，就是计算width。
+    /// - Returns: 计算后的size
+    public func size(withFont: UIFont, maxSize: CGSize) -> CGSize {
+        
+        let dic: [NSAttributedStringKey : Any] = [NSAttributedStringKey.font: withFont]
+        return self.boundingRect(with: maxSize, options: .usesLineFragmentOrigin, attributes: dic, context:nil).size
+    }
+    
+    
+    /// 计算文字的size
+    ///
+    /// - Parameters:
+    ///   - withAttrs: <#withAttrs description#>
+    ///   - maxSize: 最大的size，指定width，就是计算height。指定height，就是计算width。
+    /// - Returns: 计算后的size
+    public func size(withAttrs: [NSAttributedStringKey : Any], maxSize: CGSize) -> CGSize {
+        return self.boundingRect(with: maxSize, options: .usesLineFragmentOrigin, attributes: withAttrs, context:nil).size
     }
     
     // 用目标字符串替换range下标的字符串
