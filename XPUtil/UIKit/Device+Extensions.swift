@@ -29,7 +29,9 @@ private let DeviceList = [
     /* iPhone 8 */        "iPhone10,1": "iPhone 8", "iPhone10,4": "iPhone 8",
     /* iPhone 8 Plus */   "iPhone10,2": "iPhone 8 Plus", "iPhone10,5": "iPhone 8 Plus",
     /* iPhone X */        "iPhone10,3": "iPhone X", "iPhone10,6": "iPhone X",
-
+    /* iPhone XS */       "iPhone11,2": "iPhone XS",
+    /* iPhone XS Max*/    "iPhone11,4": "iPhone XS Max","iPhone11,6": "iPhone XS Max",
+    /* iPhone XR */       "iPhone11,8": "iPhone XR",
     /* iPad 2 */          "iPad2,1": "iPad 2", "iPad2,2": "iPad 2", "iPad2,3": "iPad 2", "iPad2,4": "iPad 2",
     /* iPad 3 */          "iPad3,1": "iPad 3", "iPad3,2": "iPad 3", "iPad3,3": "iPad 3",
     /* iPad 4 */          "iPad3,4": "iPad 4", "iPad3,5": "iPad 4", "iPad3,6": "iPad 4",
@@ -49,6 +51,7 @@ private let DeviceList = [
 public enum DeviceModel: String {
     case iPodTouch5 = "iPod Touch 5"
     case iPodTouch6 = "iPod Touch 6"
+    
     case iPhone4  =  "iPhone 4"
     case iPhone4s =  "iPhone 4s"
     case iPhone5 =  "iPhone 5"
@@ -64,6 +67,10 @@ public enum DeviceModel: String {
     case iPhone8 =  "iPhone 8"
     case iPhone8Plus =  "iPhone 8 Plus"
     case iPhoneX = "iPhone X"
+    case iPhoneXR = "iPhone XR"
+    case iPhoneXS = "iPhone XS"
+    case iPhoneXSMax = "iPhone XS Max"
+    
     case iPad2 =  "iPad 2"
     case iPad3 =  "iPad 3"
     case iPad4 =  "iPad 4"

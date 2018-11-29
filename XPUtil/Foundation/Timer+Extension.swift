@@ -36,7 +36,8 @@ public extension Timer {
     }
     
     /// Timer的使用,直接用系统的target action方式会有循环引用。 10.0系统才发布block方式的api，同样是通过这个方式实现的
-    public class func xp_scheduledTimer(interval: TimeInterval, repeats: Bool, block: (_ timer: Timer)->()) -> Timer {
+    public class func xp_scheduledTimer(interval: TimeInterval, repeats: Bool, block: @escaping (_ timer: Timer)->()) -> Timer {
+        
         return Timer.scheduledTimer(timeInterval: interval, target: self, selector: #selector(xp_blcokInvoke), userInfo: block, repeats: true)
     }
     
