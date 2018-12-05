@@ -30,6 +30,24 @@ class ViewController: UIViewController {
         let ddView = UIView.init(frame: CGRect.init(x: 100, y: 100, width: 100, height: 100))
         view.addSubview(ddView)
         ddView.corner(byRoundingCorners: [.bottomLeft, .bottomRight], radii: 50)
+        
+        
+        // 圆角图片
+        let imgView = UIImageView.init(frame: CGRect.init(x: 100, y: 100, width: 100, height: 100))
+        var image = UIImage.init(color: .red)
+//        image.cornerImage(size: CGSize.init(width: 100, height: 100), radius: 50, fillColor: .red, completion: { (img) in
+//            imgView.image = img
+//        })
+        image = image.xp_drawRectWithRoundedCorner(radius: 50, CGSize.init(width: 100, height: 100))
+        imgView.image = image
+//        imgView.frame = CGRect.init(x: 100, y: 100, width: 100, height: 100)
+        self.view.addSubview(imgView)
+
+        let aview = UIView.init(frame: CGRect.init(x: 100, y: 300, width: 100, height: 200))
+        aview.backgroundColor = .gray
+        aview.circleView()
+        self.view.addSubview(aview)
+        
     }
     
     func fff() {
@@ -43,4 +61,3 @@ class ViewController: UIViewController {
 
 
 }
-

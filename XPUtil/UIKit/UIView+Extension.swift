@@ -97,6 +97,15 @@ public extension UIView {
         self.layer.addSublayer(shape)
     }
     
+    /// 将View裁剪成圆形
+    public func circleView() {
+        
+        let maskPath = UIBezierPath.init(roundedRect: self.bounds, byRoundingCorners: .allCorners, cornerRadii: self.bounds.size)
+        let maskLayer = CAShapeLayer.init()
+        maskLayer.path = maskPath.cgPath
+        self.layer.mask = maskLayer
+    }
+    
     public convenience init(backGroundColor: UIColor) {
         self.init(frame: .zero)
         self.backgroundColor = backGroundColor
