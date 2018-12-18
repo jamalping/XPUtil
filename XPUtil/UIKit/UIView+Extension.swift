@@ -76,26 +76,6 @@ public extension UIView {
         _ = self.subviews.map { $0.removeFromSuperview()}
     }
     
-    /// 部分圆角
-    ///
-    /// - Parameters:
-    ///   - corners: 需要实现为圆角的角，可传入多个
-    ///   - radii: 圆角半径
-    /// eg: view.corner(byRoundingCorners: [.bottomLeft, .bottomRight], radii: 50)
-    public func corner(byRoundingCorners corners: UIRectCorner, radii: CGFloat) {
-        
-        //创建贝塞尔,指定画圆角的地方为下方的左，右两个角添加阴影
-        let mask: UIBezierPath = UIBezierPath.init(roundedRect: self.bounds, byRoundingCorners: corners, cornerRadii: CGSize.init(width: radii, height: radii))
-        let shape:CAShapeLayer = CAShapeLayer()
-        shape.fillColor = UIColor.gray.cgColor
-        //Layer的线为贝塞尔曲线
-        shape.path = mask.cgPath
-        shape.frame = self.bounds;
-        self.layer.shadowOpacity = 0.5
-        self.layer.shadowOffset = CGSize.init(width: 1, height: 2)
-        self.layer.shadowRadius = radii
-        self.layer.addSublayer(shape)
-    }
     
     /// 将View裁剪成圆形
     public func circleView() {
@@ -130,6 +110,94 @@ public extension UIView {
         }
         return image
     }
+    
+    /// 添加毛玻璃效果
+    public func addVisualEffect(){
+        /// 高斯模糊视图
+        let blurView: UIVisualEffectView = {
+            let blureffect = UIBlurEffect(style: .light)
+            let blurView = UIVisualEffectView(effect: blureffect)
+            return blurView
+        }()
+        
+        self.addSubview(blurView)
+        if self.bounds == .zero {
+//            blurView.snp.makeConstraints { (make) in
+//                make.edges.equalTo(self)
+//            }
+            let views: [String: Any] = ["superV": blurView.superview]
+            let hConstrain = NSLayoutConstraint.constraints(withVisualFormat: "H:|[superV]|", options: [], metrics: nil, views: views)
+            let vConstrain = NSLayoutConstraint.constraints(withVisualFormat: "V:|[superV]|", options: [], metrics: nil, views: views)
+            
+            blurView.addConstraints([hConstrain, vConstrain].flatMap{return $0})
+        }else {
+            blurView.frame = self.bounds
+        }
+        
+    }
+}
+
+
+// MARK: - 圆角处理
+extension UIView {
+    
+    /// 部分圆角
+    ///
+    /// - Parameters:
+    ///   - corners: 需要实现为圆角的角，可传入多个
+    ///   - radii: 圆角半径
+    /// eg: view.corner(byRoundingCorners: [.bottomLeft, .bottomRight], radii: 50)
+    public func corner(byRoundingCorners corners: UIRectCorner, radii: CGFloat) {
+        
+        //创建贝塞尔,指定画圆角的地方为下方的左，右两个角添加阴影
+        let mask: UIBezierPath = UIBezierPath.init(roundedRect: self.bounds, byRoundingCorners: corners, cornerRadii: CGSize.init(width: radii, height: radii))
+        let shape:CAShapeLayer = CAShapeLayer()
+        shape.fillColor = UIColor.gray.cgColor
+        //Layer的线为贝塞尔曲线
+        shape.path = mask.cgPath
+        shape.frame = self.bounds;
+        self.layer.shadowOpacity = 0.5
+        self.layer.shadowOffset = CGSize.init(width: 1, height: 2)
+        self.layer.shadowRadius = radii
+        self.layer.addSublayer(shape)
+    }
+    
+    /// 将View裁剪成圆形
+    ///
+    /// - Parameter radius: 数值
+    public func radiusView(radius:CGFloat) {
+        
+        let maskPath = UIBezierPath.init(roundedRect: self.bounds, cornerRadius: radius)
+        let maskLayer = CAShapeLayer.init()
+        maskLayer.path = maskPath.cgPath
+        self.layer.mask = maskLayer
+    }
+    
+    /// 添加圆角和阴影
+    /// 使用该方法必须先设置View的frame
+    /// - Parameters:
+    ///   - radius: 圆角半径
+    ///   - shadowOpacity: 阴影透明度 (0-1)
+    ///   - shadowColor: shadowColor: 阴影颜色
+    func addRoundedOrShadow(radius:CGFloat, shadowOpacity:CGFloat, shadowColor:UIColor)  {
+        radiusView(radius: radius)
+        let subLayer = CALayer()
+        if self.frame == .zero {
+            return
+        }
+        let fixframe = self.frame
+        
+        subLayer.frame = fixframe
+        subLayer.cornerRadius = radius
+        subLayer.backgroundColor = UIColor.white.cgColor
+        subLayer.masksToBounds = false
+        subLayer.shadowColor = shadowColor.cgColor // 阴影颜色
+        subLayer.shadowOffset = CGSize(width: 0, height: 0) // 阴影偏移,width:向右偏移3，height:向下偏移2，默认(0, -3),这个跟shadowRadius配合使用
+        subLayer.shadowOpacity = Float(shadowOpacity) //阴影透明度
+        subLayer.shadowRadius = 3;//阴影半径，默认3
+        self.superview?.layer.insertSublayer(subLayer, below: self.layer)
+    }
+    
 }
 
 // MARK: 关联 StoryBoard 和 XIB
