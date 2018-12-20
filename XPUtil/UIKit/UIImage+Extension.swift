@@ -9,6 +9,7 @@
 import UIKit
 import ImageIO
 import CoreGraphics
+import AVFoundation
 
 public extension UIImage {
     
@@ -298,4 +299,24 @@ public extension UIImage {
         }
     }
     
+}
+
+extension UIImage {
+    
+    /// 获取url资源的第一帧
+    ///
+    /// - Parameters:
+    ///   - videoUrl: <#videoUrl description#>
+    ///   - time: 时间点
+    /// - Returns: 图片
+    class func getThumbnailImageForVideo(videoUrl: URL, time: TimeInterval) -> UIImage? {
+        let asset = AVURLAsset.init(url: videoUrl)
+        let imageGenerator = AVAssetImageGenerator.init(asset: asset)
+        imageGenerator.apertureMode = .encodedPixels
+        
+        let imageRef = try? imageGenerator.copyCGImage(at: CMTime.init(seconds: time, preferredTimescale: 60), actualTime: nil)
+        
+        let image: UIImage? = (imageRef != nil) ? UIImage.init(cgImage: imageRef!) : nil
+        return image
+    }
 }
