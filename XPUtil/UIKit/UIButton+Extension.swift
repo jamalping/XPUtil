@@ -72,3 +72,45 @@ public extension UIButton {
     }
 }
 
+/// 按钮布局方式
+///
+/// - top: image 上，labal下
+/// - left: image 左，label右
+/// - right: <#right description#>
+/// - bottom: <#bottom description#>
+public enum ButtonEdgeInsetStyle {
+    case top
+    case left
+    case right
+    case bottom
+}
+
+public extension UIButton {
+    /// 按钮布局
+    ///
+    /// - Parameters:
+    ///   - edgeInsetStyle: 布局方式
+    ///   - margin: image和Label之间的间隙
+    func layoutSubView(edgeInsetStyle: ButtonEdgeInsetStyle, margin: CGFloat = 5) {
+        
+        let imgW = self.imageView?.image?.size.width ?? 0
+        let imgH = self.imageView?.image?.size.height ?? 0
+        let lblW:CGFloat = self.titleLabel!.intrinsicContentSize.width
+        let lblH:CGFloat = self.titleLabel!.intrinsicContentSize.height
+        
+        switch edgeInsetStyle {
+        case .top:
+            self.imageEdgeInsets = UIEdgeInsets.init(top: -lblH-margin/2, left: 0, bottom: 0, right: -lblW)
+            self.titleEdgeInsets = UIEdgeInsets.init(top: 0, left: -imgW, bottom: -imgH-margin/2, right: 0)
+        case .left:
+            self.imageEdgeInsets = UIEdgeInsets.init(top: 0, left: -margin/2, bottom: 0, right: margin/2)
+            self.titleEdgeInsets = UIEdgeInsets.init(top: 0, left: -margin/2, bottom: 0, right: margin/2)
+        case .bottom:
+            self.imageEdgeInsets = UIEdgeInsets.init(top: 0, left: 0, bottom: -lblH-margin/2, right: -lblW)
+            self.titleEdgeInsets = UIEdgeInsets.init(top: -imgH-margin/2, left: -imgW, bottom: 0, right: 0)
+        case .right:
+            self.imageEdgeInsets = UIEdgeInsets.init(top: 0, left: lblW+margin/2, bottom: 0, right: -lblW-margin/2)
+            self.titleEdgeInsets = UIEdgeInsets.init(top: 0, left: -lblW-margin/2, bottom: 0, right: imgW+margin/2)
+        }
+    }
+}
