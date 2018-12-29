@@ -8,6 +8,78 @@
 
 import UIKit
 
+
+// MARK: - 渐变色
+public extension UIColor {
+    /// 渐变色方向
+    public enum Directions: Int {
+        case right = 0
+        case left
+        case bottom
+        case top
+        case topLeftToBottomRight
+        case topRightToBottomLeft
+        case bottomLeftToTopRight
+        case bottomRightToTopLeft
+    }
+    
+    /// 生产渐变颜色
+    ///
+    /// - Parameters:
+    ///   - from: 开始的颜色
+    ///   - toColor: 结束的颜色
+    ///   - size: 渐变颜色的范围
+    ///   - direction: 渐变方向
+    /// - Returns: 渐变颜色
+    public class func gradientColor(_ fromColor: UIColor, toColor: UIColor, size: CGSize, direction: Directions = UIColor.Directions.bottom) -> UIColor? {
+        UIGraphicsBeginImageContextWithOptions(size, false, 0)
+        let context = UIGraphicsGetCurrentContext()
+        let colorSpace = CGColorSpaceCreateDeviceRGB()
+        let colors = [fromColor.cgColor, toColor.cgColor]
+        
+        guard let gradient: CGGradient = CGGradient.init(colorsSpace: colorSpace, colors: colors as CFArray, locations: nil) else { return nil }
+        
+        var startPoint: CGPoint
+        var endPoint: CGPoint
+        switch direction {
+        case .left:
+            startPoint = CGPoint.init(x: size.width, y: 0.0)
+            endPoint = CGPoint.init(x: 0.0, y: 0.0)
+        case .right:
+            startPoint = CGPoint.init(x: 0.0, y: 0.0)
+            endPoint = CGPoint.init(x: size.width, y: 0.0)
+        case .bottom:
+            startPoint = CGPoint.init(x: 0.0, y: 0.0)
+            endPoint = CGPoint.init(x: 0.0, y: size.height)
+        case .top:
+            startPoint = CGPoint.init(x: 0.0, y: size.height)
+            endPoint = CGPoint.init(x: 0.0, y: 0.0)
+        case .topLeftToBottomRight:
+            startPoint = CGPoint.init(x: 0.0, y: 0.0)
+            endPoint = CGPoint.init(x: size.width, y: size.height)
+        case .topRightToBottomLeft:
+            startPoint = CGPoint.init(x: size.width, y: 0.0)
+            endPoint = CGPoint.init(x: 0.0, y: size.height)
+        case .bottomLeftToTopRight:
+            startPoint = CGPoint.init(x: 0.0, y: size.height)
+            endPoint = CGPoint.init(x: size.width, y: 0.0)
+        case .bottomRightToTopLeft:
+            startPoint = CGPoint.init(x: size.width, y: size.height)
+            endPoint = CGPoint.init(x: 0.0, y: 0.0)
+        }
+        
+        context?.drawLinearGradient(gradient, start: startPoint, end: endPoint, options: .drawsBeforeStartLocation)
+        
+        guard let image = UIGraphicsGetImageFromCurrentImageContext() else { return nil }
+        
+        UIGraphicsEndImageContext()
+        
+        return UIColor.init(patternImage: image)
+    }
+    
+}
+
+
 public extension UIColor {
     // user:UIColor.init(hexString: "#ff5a10") ||UIColor.init(hexString: "ff5a10")
     public convenience init(hexString: String, alpha: CGFloat = 1) {
@@ -71,30 +143,6 @@ public extension UIColor {
         return UIColor.init(red: R, green: G, blue: B, alpha: 1)
     }
     
-    /// 生产渐变颜色
-    ///
-    /// - Parameters:
-    ///   - from: 开始的颜色
-    ///   - toColor: 结束的颜色
-    ///   - height: 渐变颜色的高度
-    /// - Returns: 渐变颜色
-    public class func gradientColor(_ fromColor: UIColor, toColor: UIColor, height: CGFloat) -> UIColor? {
-        let size = CGSize.init(width: 1, height: height)
-        UIGraphicsBeginImageContextWithOptions(size, false, 0)
-        let context = UIGraphicsGetCurrentContext()
-        let colorSpace = CGColorSpaceCreateDeviceRGB()
-        let colors = [fromColor.cgColor, toColor.cgColor]
-        
-        guard let gradient: CGGradient = CGGradient.init(colorsSpace: colorSpace, colors: colors as CFArray, locations: nil) else { return nil }
-        
-        context?.drawLinearGradient(gradient, start: CGPoint.init(x: 0, y: 0), end: CGPoint.init(x: 0, y: size.height), options: .drawsBeforeStartLocation)
-        
-        guard let image = UIGraphicsGetImageFromCurrentImageContext() else { return nil }
-        
-        UIGraphicsEndImageContext()
-        
-        return UIColor.init(patternImage: image)
-    }
     
     /// 获取对应的rgba值
     public var component: (CGFloat,CGFloat,CGFloat,CGFloat) {
