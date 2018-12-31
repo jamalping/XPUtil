@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18329A8421D8E4F5007CF410 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18329A8321D8E4F5007CF410 /* JSON.swift */; };
+		18329A8621D9F4C2007CF410 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18329A8521D9F4C2007CF410 /* UIViewController+Extension.swift */; };
 		18FBC36021C8A0B700FBD25C /* CellIdentfierable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FBC35F21C8A0B700FBD25C /* CellIdentfierable.swift */; };
 		302266BF1FAAC5BA005D32B7 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302266BE1FAAC5BA005D32B7 /* Array+Extension.swift */; };
 		302266C11FAB147A005D32B7 /* Dictionary+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302266C01FAB147A005D32B7 /* Dictionary+Extension.swift */; };
@@ -111,6 +113,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		18329A8321D8E4F5007CF410 /* JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
+		18329A8521D9F4C2007CF410 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		18FBC35F21C8A0B700FBD25C /* CellIdentfierable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellIdentfierable.swift; sourceTree = "<group>"; };
 		302266BE1FAAC5BA005D32B7 /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
 		302266C01FAB147A005D32B7 /* Dictionary+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+Extension.swift"; sourceTree = "<group>"; };
@@ -271,6 +275,7 @@
 				30492ED91F9F208A00ED64AD /* Date+Extension.swift */,
 				302266C01FAB147A005D32B7 /* Dictionary+Extension.swift */,
 				302266C21FAB2948005D32B7 /* Date+Extensions.swift */,
+				18329A8321D8E4F5007CF410 /* JSON.swift */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -286,6 +291,7 @@
 				3097A04C1F7F358B00E27C9F /* UIView+Extension.swift */,
 				F6B073F920BD296A00E31A69 /* Device+Extensions.swift */,
 				18FBC35F21C8A0B700FBD25C /* CellIdentfierable.swift */,
+				18329A8521D9F4C2007CF410 /* UIViewController+Extension.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -536,11 +542,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				30492EE41FA1860000ED64AD /* Range+Extension.swift in Sources */,
+				18329A8421D8E4F5007CF410 /* JSON.swift in Sources */,
 				30492EE51FA1860000ED64AD /* String+Extension.swift in Sources */,
 				30492EE71FA1860000ED64AD /* UIView+Extension.swift in Sources */,
 				30492EDA1F9F208A00ED64AD /* Date+Extension.swift in Sources */,
 				3097A0201F7F34E100E27C9F /* ViewController.swift in Sources */,
 				F6F2877020B53B2D00F4DFE2 /* ContactsManager.swift in Sources */,
+				18329A8621D9F4C2007CF410 /* UIViewController+Extension.swift in Sources */,
 				30492ED81F9F1A4A00ED64AD /* Timer+Extension.swift in Sources */,
 				F6F2876D20B5054C00F4DFE2 /* CheckValueTool.swift in Sources */,
 				30492EDC1F9F24B000ED64AD /* UIImage+Extension.swift in Sources */,
