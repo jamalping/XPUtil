@@ -22,9 +22,9 @@ class ViewController: UIViewController {
         KVO.observer(object: self, keyPath: "s", target: self, selector: sss)
         self.s = "b"
         
-        let ddView = UIView.init(frame: CGRect.init(x: 100, y: 100, width: 100, height: 100))
+        let ddView = UIView.init(frame: CGRect.init(x: 300, y: 100, width: 100, height: 100))
         view.addSubview(ddView)
-        ddView.corner(byRoundingCorners: [.bottomLeft, .bottomRight], radii: 50)
+        ddView.corner(byRoundingCorners: [.bottomLeft, .bottomRight, .topLeft, .topRight], radii: 50)
         
         
         // 圆角图片

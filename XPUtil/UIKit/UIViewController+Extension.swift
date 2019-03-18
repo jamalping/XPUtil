@@ -8,6 +8,7 @@
 
 import UIKit
 
+let keyWindow = UIApplication.shared.keyWindow ?? UIApplication.shared.windows.first!
 extension UIViewController {
     
     /// 获取栈顶控制器

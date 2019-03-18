@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		18329A8421D8E4F5007CF410 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18329A8321D8E4F5007CF410 /* JSON.swift */; };
 		18329A8621D9F4C2007CF410 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18329A8521D9F4C2007CF410 /* UIViewController+Extension.swift */; };
+		18BCA5AA223F87AB0080F87C /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BCA5A9223F87AB0080F87C /* Random.swift */; };
 		18FBC36021C8A0B700FBD25C /* CellIdentfierable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FBC35F21C8A0B700FBD25C /* CellIdentfierable.swift */; };
 		302266BF1FAAC5BA005D32B7 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302266BE1FAAC5BA005D32B7 /* Array+Extension.swift */; };
 		302266C11FAB147A005D32B7 /* Dictionary+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302266C01FAB147A005D32B7 /* Dictionary+Extension.swift */; };
@@ -115,6 +116,7 @@
 /* Begin PBXFileReference section */
 		18329A8321D8E4F5007CF410 /* JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
 		18329A8521D9F4C2007CF410 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		18BCA5A9223F87AB0080F87C /* Random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Random.swift; sourceTree = "<group>"; };
 		18FBC35F21C8A0B700FBD25C /* CellIdentfierable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellIdentfierable.swift; sourceTree = "<group>"; };
 		302266BE1FAAC5BA005D32B7 /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
 		302266C01FAB147A005D32B7 /* Dictionary+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+Extension.swift"; sourceTree = "<group>"; };
@@ -259,6 +261,7 @@
 				F6F2876E20B53B1900F4DFE2 /* Manage */,
 				F6F2876920B5022200F4DFE2 /* Tool */,
 				30C3BB921FE75BA500795A31 /* Protocol.swift */,
+				18BCA5A9223F87AB0080F87C /* Random.swift */,
 				F6EFE73F208D881F006B1349 /* UIKit */,
 				F6EFE73E208D8814006B1349 /* Foundation */,
 			);
@@ -549,6 +552,7 @@
 				3097A0201F7F34E100E27C9F /* ViewController.swift in Sources */,
 				F6F2877020B53B2D00F4DFE2 /* ContactsManager.swift in Sources */,
 				18329A8621D9F4C2007CF410 /* UIViewController+Extension.swift in Sources */,
+				18BCA5AA223F87AB0080F87C /* Random.swift in Sources */,
 				30492ED81F9F1A4A00ED64AD /* Timer+Extension.swift in Sources */,
 				F6F2876D20B5054C00F4DFE2 /* CheckValueTool.swift in Sources */,
 				30492EDC1F9F24B000ED64AD /* UIImage+Extension.swift in Sources */,
