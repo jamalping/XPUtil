@@ -11,6 +11,12 @@ import XPTool
 
 class ViewController: UIViewController {
 
+    enum TestType: String {
+        case keyChainTool
+    }
+    @IBOutlet weak var tableView: UITableView!
+    
+    var tableDataSource: [TestType] = [.keyChainTool]
     var s: String?
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +58,9 @@ class ViewController: UIViewController {
         vView.backgroundColor = .blue
         vView.backgroundColor = UIColor.gradientColor(.red, toColor: .cyan, size: vView.size, direction: .right)
         self.view.addSubview(vView)
+//        let ddView = UIView.init(frame: CGRect.init(x: 100, y: 100, width: 100, height: 100))
+//        view.addSubview(ddView)
+//        ddView.corner(byRoundingCorners: [.bottomLeft, .bottomRight], radii: 50)
     }
     
     func fff() {
@@ -62,6 +71,28 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+}
 
-
+extension ViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.tableDataSource.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var cell = tableView.dequeueReusableCell(withIdentifier: "cell")
+        if cell == nil {
+            cell = UITableViewCell.init(style: .default, reuseIdentifier: "cell")
+        }
+        cell?.textLabel?.text = self.tableDataSource[indexPath.row].rawValue
+        return cell!
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch self.tableDataSource[indexPath.row] {
+        case .keyChainTool:
+            print("keyChainTool test")
+            self.navigationController?.pushViewController(keyChainToolTestVC(), animated: true)
+        }
+        
+    }
 }
