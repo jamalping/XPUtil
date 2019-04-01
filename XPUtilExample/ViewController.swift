@@ -11,6 +11,12 @@ import XPTool
 
 class ViewController: UIViewController {
 
+    enum TestType: String {
+        case keyChainTool
+    }
+    @IBOutlet weak var tableView: UITableView!
+    
+    var tableDataSource: [TestType] = [.keyChainTool]
     var s: String?
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,12 +58,9 @@ class ViewController: UIViewController {
         vView.backgroundColor = .blue
         vView.backgroundColor = UIColor.gradientColor(.red, toColor: .cyan, size: vView.size, direction: .right)
         self.view.addSubview(vView)
-<<<<<<< HEAD
 //        let ddView = UIView.init(frame: CGRect.init(x: 100, y: 100, width: 100, height: 100))
 //        view.addSubview(ddView)
 //        ddView.corner(byRoundingCorners: [.bottomLeft, .bottomRight], radii: 50)
-=======
->>>>>>> Merge branch 'master' of ssh://github.com/jamalping/XPUtil
     }
     
     func fff() {
@@ -68,8 +71,8 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+}
 
-<<<<<<< HEAD
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.tableDataSource.count
@@ -92,7 +95,4 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
     }
-=======
-
->>>>>>> Merge branch 'master' of ssh://github.com/jamalping/XPUtil
 }

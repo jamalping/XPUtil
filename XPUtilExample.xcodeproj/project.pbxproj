@@ -59,6 +59,7 @@
 		F6F2876B20B5025F00F4DFE2 /* KeyChainTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F2876A20B5025F00F4DFE2 /* KeyChainTool.swift */; };
 		F6F2876D20B5054C00F4DFE2 /* CheckValueTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F2876C20B5054C00F4DFE2 /* CheckValueTool.swift */; };
 		F6F2877020B53B2D00F4DFE2 /* ContactsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F2876F20B53B2D00F4DFE2 /* ContactsManager.swift */; };
+		FB0EAC7B224784AC00E7736B /* keyChainToolTestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0EAC7A224784AC00E7736B /* keyChainToolTestVC.swift */; };
 		FBDCB9D5210731E8007A9D7A /* KVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDCB9D4210731E8007A9D7A /* KVO.swift */; };
 /* End PBXBuildFile section */
 
@@ -157,6 +158,7 @@
 		F6F2876A20B5025F00F4DFE2 /* KeyChainTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainTool.swift; sourceTree = "<group>"; };
 		F6F2876C20B5054C00F4DFE2 /* CheckValueTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckValueTool.swift; sourceTree = "<group>"; };
 		F6F2876F20B53B2D00F4DFE2 /* ContactsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsManager.swift; sourceTree = "<group>"; };
+		FB0EAC7A224784AC00E7736B /* keyChainToolTestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = keyChainToolTestVC.swift; sourceTree = "<group>"; };
 		FBDCB9D4210731E8007A9D7A /* KVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KVO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -231,6 +233,7 @@
 			children = (
 				3097A01D1F7F34E100E27C9F /* AppDelegate.swift */,
 				3097A01F1F7F34E100E27C9F /* ViewController.swift */,
+				FB0EAC792247849000E7736B /* Test */,
 				3097A0211F7F34E100E27C9F /* Main.storyboard */,
 				3097A0241F7F34E100E27C9F /* Assets.xcassets */,
 				3097A0261F7F34E100E27C9F /* LaunchScreen.storyboard */,
@@ -336,6 +339,14 @@
 				F6F2876F20B53B2D00F4DFE2 /* ContactsManager.swift */,
 			);
 			path = Manage;
+			sourceTree = "<group>";
+		};
+		FB0EAC792247849000E7736B /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				FB0EAC7A224784AC00E7736B /* keyChainToolTestVC.swift */,
+			);
+			path = Test;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -569,6 +580,7 @@
 				30492EE21F9F279A00ED64AD /* UIBarButtonItem+Extension.swift in Sources */,
 				302266C31FAB2948005D32B7 /* Date+Extensions.swift in Sources */,
 				FBDCB9D5210731E8007A9D7A /* KVO.swift in Sources */,
+				FB0EAC7B224784AC00E7736B /* keyChainToolTestVC.swift in Sources */,
 				30C3BB931FE75BA500795A31 /* Protocol.swift in Sources */,
 				30492EDE1F9F24F400ED64AD /* UIButton+Extension.swift in Sources */,
 				302266C11FAB147A005D32B7 /* Dictionary+Extension.swift in Sources */,
