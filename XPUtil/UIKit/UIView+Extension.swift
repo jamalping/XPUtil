@@ -122,13 +122,9 @@ public extension UIView {
         
         self.addSubview(blurView)
         if self.bounds == .zero {
-//            blurView.snp.makeConstraints { (make) in
-//                make.edges.equalTo(self)
-//            }
-            let views: [String: Any] = ["superV": blurView.superview]
+            let views: [String: Any] = ["superV": blurView.superview as Any]
             let hConstrain = NSLayoutConstraint.constraints(withVisualFormat: "H:|[superV]|", options: [], metrics: nil, views: views)
             let vConstrain = NSLayoutConstraint.constraints(withVisualFormat: "V:|[superV]|", options: [], metrics: nil, views: views)
-            
             blurView.addConstraints([hConstrain, vConstrain].flatMap{return $0})
         }else {
             blurView.frame = self.bounds

@@ -8,12 +8,19 @@
 
 import Foundation
 
+
+
 public extension Range where Bound == String.Index {
-    
-    public var nsRange: NSRange {
+
+    /// Range转NSRange
+    public var toNSRange: NSRange {
         let loc = self.lowerBound
         let length = self.upperBound
         return NSMakeRange(loc.encodedOffset, length.encodedOffset - loc.encodedOffset)
+        
     }
+    /// NSRange转Range
+    /// Range.init(<#T##range: NSRange##NSRange#>, in: <#T##String#>)
 }
+
 

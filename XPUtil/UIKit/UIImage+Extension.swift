@@ -226,7 +226,7 @@ public extension UIImage {
         guard point.x <= width && point.y <= height else { return nil }
         let pixelData = CGDataProvider.init(data: self.cgImage! as! CFData)
 
-        let data:UnsafePointer<UInt8> = CFDataGetBytePtr(pixelData as! CFData)
+        let data:UnsafePointer<UInt8> = CFDataGetBytePtr(pixelData?.data)
         let pixelInfo: Int = ((Int(self.size.width) * Int(point.y)) + Int(point.x)) * 4
         
         let r = CGFloat(data[pixelInfo]) / CGFloat(255.0)
