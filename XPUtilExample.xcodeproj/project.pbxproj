@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		180912362266C3160056FB26 /* ImageScaleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180912352266C3160056FB26 /* ImageScaleVC.swift */; };
 		18329A8421D8E4F5007CF410 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18329A8321D8E4F5007CF410 /* JSON.swift */; };
 		18329A8621D9F4C2007CF410 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18329A8521D9F4C2007CF410 /* UIViewController+Extension.swift */; };
 		18BCA5AA223F87AB0080F87C /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BCA5A9223F87AB0080F87C /* Random.swift */; };
@@ -116,6 +117,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		180912352266C3160056FB26 /* ImageScaleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageScaleVC.swift; sourceTree = "<group>"; };
 		18329A8321D8E4F5007CF410 /* JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
 		18329A8521D9F4C2007CF410 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		18BCA5A9223F87AB0080F87C /* Random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Random.swift; sourceTree = "<group>"; };
@@ -345,6 +347,7 @@
 			isa = PBXGroup;
 			children = (
 				FB0EAC7A224784AC00E7736B /* keyChainToolTestVC.swift */,
+				180912352266C3160056FB26 /* ImageScaleVC.swift */,
 			);
 			path = Test;
 			sourceTree = "<group>";
@@ -569,6 +572,7 @@
 				18329A8621D9F4C2007CF410 /* UIViewController+Extension.swift in Sources */,
 				18BCA5AA223F87AB0080F87C /* Random.swift in Sources */,
 				30492ED81F9F1A4A00ED64AD /* Timer+Extension.swift in Sources */,
+				180912362266C3160056FB26 /* ImageScaleVC.swift in Sources */,
 				F6F2876D20B5054C00F4DFE2 /* CheckValueTool.swift in Sources */,
 				30492EDC1F9F24B000ED64AD /* UIImage+Extension.swift in Sources */,
 				F6F2876B20B5025F00F4DFE2 /* KeyChainTool.swift in Sources */,

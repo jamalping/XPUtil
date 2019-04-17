@@ -13,10 +13,11 @@ class ViewController: UIViewController {
 
     enum TestType: String {
         case keyChainTool
+        case imageScale
     }
     @IBOutlet weak var tableView: UITableView!
     
-    var tableDataSource: [TestType] = [.keyChainTool]
+    var tableDataSource: [TestType] = [.keyChainTool, .imageScale]
     var s: String?
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -92,6 +93,8 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         case .keyChainTool:
             print("keyChainTool test")
             self.navigationController?.pushViewController(keyChainToolTestVC(), animated: true)
+        case .imageScale: // 自适应图片
+            self.navigationController?.pushViewController(ImageScaleVC(), animated: true)
         }
         
     }
