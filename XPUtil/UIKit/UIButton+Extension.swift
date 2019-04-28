@@ -104,7 +104,7 @@ public extension UIButton {
             self.titleEdgeInsets = UIEdgeInsets.init(top: 0, left: -imgW, bottom: -imgH-margin/2, right: 0)
         case .left:
             self.imageEdgeInsets = UIEdgeInsets.init(top: 0, left: -margin/2, bottom: 0, right: margin/2)
-            self.titleEdgeInsets = UIEdgeInsets.init(top: 0, left: -margin/2, bottom: 0, right: margin/2)
+            self.titleEdgeInsets = UIEdgeInsets.init(top: 0, left: margin/2, bottom: 0, right: -margin/2)
         case .bottom:
             self.imageEdgeInsets = UIEdgeInsets.init(top: 0, left: 0, bottom: -lblH-margin/2, right: -lblW)
             self.titleEdgeInsets = UIEdgeInsets.init(top: -imgH-margin/2, left: -imgW, bottom: 0, right: 0)

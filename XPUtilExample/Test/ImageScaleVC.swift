@@ -22,12 +22,25 @@ class ImageScaleVC: UIViewController {
 //        guard let image  = ct_imageFromImage(image: UIImage.init(named: "r")!, rect: imageView.frame) else { return }
 //        if image.size.height > image.size.width {
 //        }
-        guard let image = UIImage.init(named: "r") else { return }
+        guard let image = UIImage.init(named: "t") else { return }
+        guard let imageData = image.toImageJPEGData else { return }
+        imageData.forEach { (bety) in
+//            print(bety)
+        }
+        let w = pngImageSizeWithHeaderData(imgdata: imageData)
         let scale = image.size.height/image.size.width
-        imageView.size = CGSize.init(width: 300, height: 300*scale)
+        imageView.size = CGSize.init(width: 300, height: 300)
         imageView.image = image
+        imageView.backgroundColor = .red
+        
         imageView.origin = CGPoint.init(x: 100, y: 100)
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
+        
+        let url = URL.init(string: "http://kuaiqiav2.oss-cn-shenzhen.aliyuncs.com/photo/20190417/2_20190417141209545.jpg?x-oss-process=image/info")!
+        let request = URLRequest.init(url: url)
+        guard let data = try? Data.init(contentsOf: url) else { return }
+        let dataString = String.init(data: data, encoding: String.Encoding.utf8)
+        print(dataString)
     }
     
     func config() {
@@ -38,6 +51,45 @@ class ImageScaleVC: UIViewController {
     func layout() {
         
     }
+}
+
+func pngImageSizeWithHeaderData(imgdata: Data) -> CGSize
+{
+    var w1 = 0.0
+    var w2 = 0.0
+    var w3 = 0.0
+    var w4 = 0.0
+    let index0 = imgdata.index(imgdata.startIndex, offsetBy: 1)
+    let index1 = imgdata.index(index0, offsetBy: 1)
+    let index2 = imgdata.index(index1, offsetBy: 1)
+    let index3 = imgdata.index(index2, offsetBy: 1)
+    var w: CGFloat = 0
+    var h: CGFloat = 0
+    imgdata.enumerated().forEach { (index, element) in
+        if index <= 3 {
+            w += CGFloat(element << ((3-index)*8))
+            
+        }else if index <= 7 {
+            h += CGFloat(element << ((7-index)*8))
+        }
+    }
+    return CGSize.init(width: w, height: h)
+//    imgdata.copyBytes(to: w1, from: imgdata.index(0, offsetBy: 1))
+//    imgdata.copyBytes(to: &w1, from: imgdata.index(0, offsetBy: 1))
+//    [data getBytes:&w1 range:NSMakeRange(0, 1)];
+//    [data getBytes:&w2 range:NSMakeRange(1, 1)];
+//    [data getBytes:&w3 range:NSMakeRange(2, 1)];
+//    [data getBytes:&w4 range:NSMakeRange(3, 1)];
+//    int w = (w1 << 24) + (w2 << 16) + (w3 << 8) + w4;
+//
+//    int h1 = 0, h2 = 0, h3 = 0, h4 = 0;
+//    [data getBytes:&h1 range:NSMakeRange(4, 1)];
+//    [data getBytes:&h2 range:NSMakeRange(5, 1)];
+//    [data getBytes:&h3 range:NSMakeRange(6, 1)];
+//    [data getBytes:&h4 range:NSMakeRange(7, 1)];
+//    int h = (h1 << 24) + (h2 << 16) + (h3 << 8) + h4;
+//
+//    return CGSizeMake(w, h);
 }
 
 func ct_imageFromImage(image: UIImage, rect: CGRect) -> UIImage? {
