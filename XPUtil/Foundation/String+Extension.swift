@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import CommonCrypto
 
 public extension String {
     /// 长度
     public var length: Int {
-        return self.count
+        return self.utf16.count
     }
     
     /// 提取字符串中的数字组成新的字符串
@@ -32,54 +33,21 @@ public extension String {
     }
 
     // 下标范围取值：eg: "12345"[1..<3] = "23"
-    public subscript (i : Range<Int>) -> String {
+    subscript (i : Range<Int>) -> String {
         get {
             let startIndex = self.index(self.startIndex, offsetBy: i.lowerBound)
             let endIndex = self.index(self.startIndex, offsetBy: i.upperBound)
             return String(self[startIndex ..< endIndex])
         }
-    }
-    
-    /// base64加密
-    public func base64Encode() -> String? {
-        guard let data = self.data(using: .utf8) else {
-            return nil
-        }
-        let base64Data = data.base64EncodedData()
-        return String.init(data: base64Data, encoding: .utf8)
-    }
-    
-    /// base64解密
-    public func base64Dencode() -> String? {
-        guard let data = Data.init(base64Encoded: self) else {
-            return nil
-        }
-        return String.init(data: data, encoding: .utf8)
-    }
-    
-    
-    /// 计算文字的size
-    ///
-    /// - Parameters:
-    ///   - withFont: 文字字体
-    ///   - maxSize: 最大的size，指定width，就是计算height。指定height，就是计算width。
-    /// - Returns: 计算后的size
-    public func size(withFont: UIFont, maxSize: CGSize) -> CGSize {
         
-        let dic: [NSAttributedStringKey : Any] = [NSAttributedStringKey.font: withFont]
-        return self.boundingRect(with: maxSize, options: .usesLineFragmentOrigin, attributes: dic, context:nil).size
+        set {
+            let startIndex = self.index(self.startIndex, offsetBy: i.lowerBound)
+            let endIndex = self.index(self.startIndex, offsetBy: i.upperBound)
+            let strRange = startIndex..<endIndex
+            self.replaceSubrange(strRange, with: newValue)
+        }
     }
     
-    
-    /// 计算文字的size
-    ///
-    /// - Parameters:
-    ///   - withAttrs: <#withAttrs description#>
-    ///   - maxSize: 最大的size，指定width，就是计算height。指定height，就是计算width。
-    /// - Returns: 计算后的size
-    public func size(withAttrs: [NSAttributedStringKey : Any], maxSize: CGSize) -> CGSize {
-        return self.boundingRect(with: maxSize, options: .usesLineFragmentOrigin, attributes: withAttrs, context:nil).size
-    }
     
     // 用目标字符串替换range下标的字符串
     // var aa = "123456"
@@ -118,22 +86,6 @@ public extension String {
         resultString.removeSubrange(resultString.startIndex ..< resultString.index(resultString.startIndex, offsetBy: 1))
         return resultString
     }
-    /// MD5加密
-    ///
-    /// - Returns: 加密后的字符串
-    /// 外部使用
-//    func md5() -> String{
-//        let cStr = self.cString(using: String.Encoding.utf8);
-//        let buffer = UnsafeMutablePointer<UInt8>.allocate(capacity: 16)
-//        CC_MD5(cStr!,(CC_LONG)(strlen(cStr!)), buffer)
-//        let md5String = NSMutableString();
-//        for i in 0 ..< 16{
-//            md5String.appendFormat("%02x", buffer[i])
-//        }
-//        free(buffer)
-//
-//        return md5String as String
-//    }
 
     /// 每隔一段插入一个字符
     ///
@@ -337,6 +289,88 @@ extension String {
             }
         }
         return false
+    }
+}
+
+// MARK: - 文字宽高计算
+extension String {
+    /// 带换行符等特殊字符串计算高度（下面的方法应该也能计算出文字高度，有待验证，如果下面的方法有用，尽量用下面的方法）
+    ///
+    /// - Parameters:
+    ///   - maxSize: 最大size
+    func heightForContent(maxSize: CGSize,font: UIFont) -> CGFloat {
+        
+        let textView = UITextView(frame: CGRect(x: 0, y: 0, width: maxSize.width, height: 10))
+        
+        textView.text = self
+        
+        textView.font = font
+        
+        let constraint = textView.sizeThatFits(maxSize)
+        return constraint.height
+    }
+    
+    /// 计算文字的size
+    ///
+    /// - Parameters:
+    ///   - withFont: 文字字体
+    ///   - maxSize: 最大的size，指定width，就是计算height。指定height，就是计算width。
+    /// - Returns: 计算后的size
+    public func size(withFont: UIFont, maxSize: CGSize) -> CGSize {
+        
+        let dic: [NSAttributedStringKey : Any] = [NSAttributedStringKey.font: withFont]
+        return self.boundingRect(with: maxSize, options: .usesLineFragmentOrigin, attributes: dic, context:nil).size
+    }
+    
+    
+    /// 计算文字的size
+    ///
+    /// - Parameters:
+    ///   - withAttrs: <#withAttrs description#>
+    ///   - maxSize: 最大的size，指定width，就是计算height。指定height，就是计算width。
+    /// - Returns: 计算后的size
+    public func size(withAttrs: [NSAttributedStringKey : Any], maxSize: CGSize) -> CGSize {
+        return self.boundingRect(with: maxSize, options: .usesLineFragmentOrigin, attributes: withAttrs, context:nil).size
+    }
+}
+
+// MARK: - 加密，解密
+extension String {
+    
+    /// base64加密
+    public func base64Encode() -> String? {
+        guard let data = self.data(using: .utf8) else {
+            return nil
+        }
+        let base64Data = data.base64EncodedData()
+        return String.init(data: base64Data, encoding: .utf8)
+    }
+    
+    /// base64解密
+    public func base64Dencode() -> String? {
+        guard let data = Data.init(base64Encoded: self) else {
+            return nil
+        }
+        return String.init(data: data, encoding: .utf8)
+    }
+    
+    /// MD5加密后的字符串
+    var md5: String {
+        guard let cStr = self.cString(using: String.Encoding.utf8) else {
+            debugPrint("MD5加密失败")
+            return self
+        }
+        let digestLen = Int(CC_MD5_DIGEST_LENGTH)
+        let strLength = CC_LONG(strlen(cStr))
+        let result = UnsafeMutablePointer<CUnsignedChar>.allocate(capacity: digestLen)
+        CC_MD5(cStr, strLength, result)
+        
+        var md5String: String = String()
+        for i in 0 ..< digestLen {
+            md5String.append(String.init(format: "%02x", result[i]))
+        }
+        free(result)
+        return String(format: md5String as String)
     }
 }
 

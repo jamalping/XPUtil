@@ -320,3 +320,63 @@ extension UIImage {
         return image
     }
 }
+
+// MARK: - 渐变色图片
+//extension UIImage {
+//
+//    /// 渐变色方向
+//    public enum Directions: Int {
+//        case right = 0
+//        case left
+//        case bottom
+//        case top
+//        case topLeftToBottomRight
+//        case topRightToBottomLeft
+//        case bottomLeftToTopRight
+//        case bottomRightToTopLeft
+//    }
+//
+//    public class func gradientColor(_ startColor: UIColor, endColor: UIColor, size: CGSize, direction: Directions = UIImage.Directions.right) -> UIImage? {
+//        UIGraphicsBeginImageContextWithOptions(size, false, 0)
+//        let context = UIGraphicsGetCurrentContext()
+//        let colorSpace = CGColorSpaceCreateDeviceRGB()
+//        let colors = [startColor.cgColor, endColor.cgColor]
+//
+//        guard let gradient: CGGradient = CGGradient.init(colorsSpace: colorSpace, colors: colors as CFArray, locations: nil) else { return nil }
+//
+//        var startPoint: CGPoint
+//        var endPoint: CGPoint
+//        switch direction {
+//        case .left:
+//            startPoint = CGPoint.init(x: size.width, y: 0.0)
+//            endPoint = CGPoint.init(x: 0.0, y: 0.0)
+//        case .right:
+//            startPoint = CGPoint.init(x: 0.0, y: 0.0)
+//            endPoint = CGPoint.init(x: size.width, y: 0.0)
+//        case .bottom:
+//            startPoint = CGPoint.init(x: 0.0, y: 0.0)
+//            endPoint = CGPoint.init(x: 0.0, y: size.height)
+//        case .top:
+//            startPoint = CGPoint.init(x: 0.0, y: size.height)
+//            endPoint = CGPoint.init(x: 0.0, y: 0.0)
+//        case .topLeftToBottomRight:
+//            startPoint = CGPoint.init(x: 0.0, y: 0.0)
+//            endPoint = CGPoint.init(x: size.width, y: size.height)
+//        case .topRightToBottomLeft:
+//            startPoint = CGPoint.init(x: size.width, y: 0.0)
+//            endPoint = CGPoint.init(x: 0.0, y: size.height)
+//        case .bottomLeftToTopRight:
+//            startPoint = CGPoint.init(x: 0.0, y: size.height)
+//            endPoint = CGPoint.init(x: size.width, y: 0.0)
+//        case .bottomRightToTopLeft:
+//            startPoint = CGPoint.init(x: size.width, y: size.height)
+//            endPoint = CGPoint.init(x: 0.0, y: 0.0)
+//        }
+//
+//        context?.drawLinearGradient(gradient, start: startPoint, end: endPoint, options: .drawsBeforeStartLocation)
+//
+//        guard let image = UIGraphicsGetImageFromCurrentImageContext() else { return nil }
+//        UIGraphicsEndImageContext()
+//        return image
+//    }
+//}

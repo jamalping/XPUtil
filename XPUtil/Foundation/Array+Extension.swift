@@ -9,10 +9,7 @@
 import Foundation
 
 public extension Array {
-    /// 拼接一个数组
-    mutating func appendArray(_ array: [Element]) {
-        _ = array.map{ self.append($0) }
-    }
+  
     /// 随机一个元素
     public var random: Element? {
         get {

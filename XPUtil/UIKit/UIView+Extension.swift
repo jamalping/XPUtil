@@ -77,15 +77,6 @@ public extension UIView {
     }
     
     
-    /// 将View裁剪成圆形
-    public func circleView() {
-        
-        let maskPath = UIBezierPath.init(roundedRect: self.bounds, byRoundingCorners: .allCorners, cornerRadii: self.bounds.size)
-        let maskLayer = CAShapeLayer.init()
-        maskLayer.path = maskPath.cgPath
-        self.layer.mask = maskLayer
-    }
-    
     public convenience init(backGroundColor: UIColor) {
         self.init(frame: .zero)
         self.backgroundColor = backGroundColor
@@ -133,40 +124,235 @@ public extension UIView {
     }
 }
 
+// MARK: - 渐变色处理
+extension UIView {
+    
+    /// 添加从左到右的渐变色
+    ///
+    /// - Parameters:
+    ///   - startColor: 最左边的颜色
+    ///   - endColor: 最右边的颜色
+    ///   - radius: 圆角
+    /// - Returns: 返回layer用来移除 可不接收返回值
+    @discardableResult
+    public func addGradientLayer(startColor:CGColor, endColor:CGColor, radius:CGFloat = 0) -> CAGradientLayer {
+        
+        let gradient:CAGradientLayer = CAGradientLayer.init()
+        gradient.colors = [startColor, endColor]
+        gradient.startPoint = CGPoint.init(x: 0, y: 0)
+        gradient.endPoint = CGPoint.init(x: 1, y: 0)
+        gradient.frame = self.bounds
+        gradient.cornerRadius = radius
+        self.layer.insertSublayer(gradient, at: 0)
+        return gradient
+    }
+    
+    
+    public func getGradientImage(startColor:CGColor, endColor:CGColor, radius:CGFloat = 0) -> UIImage? {
+        UIGraphicsBeginImageContextWithOptions(self.frame.size, false, 0)
+        let colorSpace = CGColorSpaceCreateDeviceRGB()
+        let colors = [startColor, endColor]
+        
+        guard let gradient: CGGradient = CGGradient.init(colorsSpace: colorSpace, colors: colors as CFArray, locations: nil) else { return nil }
+        
+        let startPoint = CGPoint.init(x: 0.0, y: 0.0)
+        let endPoint = CGPoint.init(x: self.frame.size.width, y: 0.0)
+        
+        let context = UIGraphicsGetCurrentContext()
+        context?.drawLinearGradient(gradient, start: startPoint, end: endPoint, options: .drawsBeforeStartLocation)
+        
+        guard let image = UIGraphicsGetImageFromCurrentImageContext() else { return nil }
+        UIGraphicsEndImageContext()
+        return image
+    }
+    
+}
+
+
+// MARK: - 添加边框线
+//public extension UIView {
+//    // MARK: - 虚线
+//    public struct UIRectSide : OptionSet {
+//
+//        public let rawValue: Int
+//
+//        public static let left = UIRectSide(rawValue: 1 << 0)
+//
+//        public static let top = UIRectSide(rawValue: 1 << 1)
+//
+//        public static let right = UIRectSide(rawValue: 1 << 2)
+//
+//        public static let bottom = UIRectSide(rawValue: 1 << 3)
+//
+//        public static let all: UIRectSide = [.top, .right, .left, .bottom]
+//
+//        public init(rawValue: Int) {
+//
+//            self.rawValue = rawValue;
+//        }
+//    }
+//
+//    ///画虚线边框
+//    func drawDashLine(strokeColor: UIColor, lineWidth: CGFloat = 1, lineLength: Int = 10, lineSpacing: Int = 5, corners: UIRectSide) {
+//        if self.bounds.equalTo(.zero) {
+//            self.setNeedsLayout()
+//            self.layoutIfNeeded()
+//        }
+//
+//        #if DEBUG
+//        assert(!self.bounds.equalTo(.zero), "请先设置frame")
+//        #endif
+//
+//        let shapeLayer = CAShapeLayer()
+//
+//        shapeLayer.bounds = self.bounds
+//
+//        shapeLayer.anchorPoint = CGPoint(x: 0, y: 0)
+//
+//        shapeLayer.fillColor = UIColor.blue.cgColor
+//
+//        shapeLayer.strokeColor = strokeColor.cgColor
+//
+//        shapeLayer.lineWidth = lineWidth
+//
+//        shapeLayer.lineJoin = kCALineJoinRound
+////            CAShapeLayerLineJoin.round
+//
+//        //每一段虚线长度 和 每两段虚线之间的间隔
+//        shapeLayer.lineDashPattern = [NSNumber(value: lineLength), NSNumber(value: lineSpacing)]
+//
+//        let path = CGMutablePath()
+//
+//        if corners.contains(.left) {
+//
+//            path.move(to: CGPoint(x: 0, y: self.layer.bounds.height))
+//
+//            path.addLine(to: CGPoint(x: 0, y: 0))
+//
+//        }
+//
+//        if corners.contains(.top){
+//
+//            path.move(to: CGPoint(x: 0, y: 0))
+//
+//            path.addLine(to: CGPoint(x: self.layer.bounds.width, y: 0))
+//
+//        }
+//
+//        if corners.contains(.right){
+//
+//            path.move(to: CGPoint(x: self.layer.bounds.width, y: 0))
+//
+//            path.addLine(to: CGPoint(x: self.layer.bounds.width, y: self.layer.bounds.height))
+//
+//        }
+//
+//        if corners.contains(.bottom){
+//
+//            path.move(to: CGPoint(x: self.layer.bounds.width, y: self.layer.bounds.height))
+//
+//            path.addLine(to: CGPoint(x: 0, y: self.layer.bounds.height))
+//
+//        }
+//
+//        shapeLayer.path = path
+//
+//        self.layer.addSublayer(shapeLayer)
+//
+//    }
+//
+//    ///画实线边框
+//    func drawLine(strokeColor: UIColor, lineWidth: CGFloat = 1, corners: UIRectSide) {
+//
+//        self.setNeedsLayout()
+//        self.layoutIfNeeded()
+//        #if DEBUG
+//        assert(!self.bounds.equalTo(.zero), "请先设置frame")
+//        #endif
+//
+//        if corners == UIRectSide.all {
+//
+//            self.layer.borderWidth = lineWidth
+//
+//            self.layer.borderColor = strokeColor.cgColor
+//
+//        }else{
+//
+//            let shapeLayer = CAShapeLayer()
+//
+//            shapeLayer.bounds = self.bounds
+//
+//            shapeLayer.anchorPoint = CGPoint(x: 0, y: 0)
+//
+//            shapeLayer.fillColor = UIColor.blue.cgColor
+//
+//            shapeLayer.strokeColor = strokeColor.cgColor
+//
+//            shapeLayer.lineWidth = lineWidth
+//
+//            shapeLayer.lineJoin = kCALineJoinRound
+////                CAShapeLayerLineJoin.round
+//
+//            let path = CGMutablePath()
+//
+//            if corners.contains(.left) {
+//
+//                path.move(to: CGPoint(x: 0, y: self.layer.bounds.height))
+//
+//                path.addLine(to: CGPoint(x: 0, y: 0))
+//
+//            }
+//
+//            if corners.contains(.top){
+//
+//                path.move(to: CGPoint(x: 0, y: 0))
+//
+//                path.addLine(to: CGPoint(x: self.layer.bounds.width, y: 0))
+//
+//            }
+//
+//            if corners.contains(.right){
+//
+//                path.move(to: CGPoint(x: self.layer.bounds.width, y: 0))
+//
+//                path.addLine(to: CGPoint(x: self.layer.bounds.width, y: self.layer.bounds.height))
+//
+//            }
+//
+//            if corners.contains(.bottom){
+//
+//                path.move(to: CGPoint(x: self.layer.bounds.width, y: self.layer.bounds.height))
+//
+//                path.addLine(to: CGPoint(x: 0, y: self.layer.bounds.height))
+//
+//            }
+//
+//            shapeLayer.path = path
+//
+//            self.layer.addSublayer(shapeLayer)
+//        }
+//    }
+//
+//}
 
 // MARK: - 圆角处理
 extension UIView {
     
-    /// 部分圆角
+    /// 圆角的裁剪
     ///
     /// - Parameters:
     ///   - corners: 需要实现为圆角的角，可传入多个
-    ///   - radii: 圆角半径
-    /// eg: view.corner(byRoundingCorners: [.bottomLeft, .bottomRight], radii: 50)
-    public func corner(byRoundingCorners corners: UIRectCorner, radii: CGFloat) {
+    ///   - radii: 圆角度数
+    /// eg: view.addCornerRadius(byRoundingCorners: [.bottomLeft, .bottomRight], radii: 50)
+    public func addCornerRadius(byRoundingCorners corners: UIRectCorner = .allCorners, radii: CGFloat) {
         
+        assert(self.frame != .zero, "请先确认当前View已经布局完成")
         //创建贝塞尔,指定画圆角的地方为下方的左，右两个角添加阴影
         let mask: UIBezierPath = UIBezierPath.init(roundedRect: self.bounds, byRoundingCorners: corners, cornerRadii: CGSize.init(width: radii, height: radii))
         let shape:CAShapeLayer = CAShapeLayer()
-        shape.fillColor = UIColor.gray.cgColor
         //Layer的线为贝塞尔曲线
         shape.path = mask.cgPath
-        shape.frame = self.bounds;
-        self.layer.shadowOpacity = 0.5
-        self.layer.shadowOffset = CGSize.init(width: 1, height: 2)
-        self.layer.shadowRadius = radii
-        self.layer.addSublayer(shape)
-    }
-    
-    /// 将View裁剪成圆形
-    ///
-    /// - Parameter radius: 数值
-    public func radiusView(radius:CGFloat) {
-        
-        let maskPath = UIBezierPath.init(roundedRect: self.bounds, cornerRadius: radius)
-        let maskLayer = CAShapeLayer.init()
-        maskLayer.path = maskPath.cgPath
-        self.layer.mask = maskLayer
+        self.layer.mask = shape
     }
     
     /// 添加圆角和阴影
@@ -175,12 +361,10 @@ extension UIView {
     ///   - radius: 圆角半径
     ///   - shadowOpacity: 阴影透明度 (0-1)
     ///   - shadowColor: shadowColor: 阴影颜色
-    func addRoundedOrShadow(radius:CGFloat, shadowOpacity:CGFloat, shadowColor:UIColor)  {
-        radiusView(radius: radius)
+    func addRoundedAndShadow(radius:CGFloat, shadowOpacity:CGFloat, shadowColor:UIColor)  {
+        addCornerRadius(byRoundingCorners: .allCorners, radii: radius)
         let subLayer = CALayer()
-        if self.frame == .zero {
-            return
-        }
+        assert(self.frame != .zero, "请先确认当前View已经布局完成")
         let fixframe = self.frame
         
         subLayer.frame = fixframe
@@ -194,6 +378,28 @@ extension UIView {
         self.superview?.layer.insertSublayer(subLayer, below: self.layer)
     }
     
+    
+    /// 裁剪圆角并增加边框
+    ///
+    /// - Parameters:
+    ///   - radius: 圆角度数
+    ///   - borderWidth: 边框宽度
+    ///   - borderColor: 边框颜色
+    public func addRadiusAndBorder(radius: CGFloat, borderWidth: CGFloat, borderColor: UIColor) {
+        addCornerRadius(byRoundingCorners: .allCorners, radii: radius)
+        let subLayer = CALayer()
+        guard self.frame != .zero else {
+            return
+        }
+        let fixframe = self.frame
+        
+        subLayer.frame = fixframe
+        subLayer.cornerRadius = radius
+        subLayer.backgroundColor = UIColor.white.cgColor
+        subLayer.borderWidth = borderWidth
+        subLayer.borderColor = borderColor.cgColor
+        self.superview?.layer.insertSublayer(subLayer, below: self.layer)
+    }
 }
 
 // MARK: 关联 StoryBoard 和 XIB

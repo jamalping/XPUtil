@@ -31,7 +31,8 @@ class ViewController: UIViewController {
         
         let ddView = UIView.init(frame: CGRect.init(x: 300, y: 100, width: 100, height: 100))
         view.addSubview(ddView)
-        ddView.corner(byRoundingCorners: [.bottomLeft, .bottomRight, .topLeft, .topRight], radii: 50)
+        
+        ddView.addCornerRadius(byRoundingCorners: [.bottomLeft, .bottomRight, .topLeft, .topRight], radii: 50)
         
         
         // 圆角图片
@@ -50,10 +51,7 @@ class ViewController: UIViewController {
 //        imgView.frame = CGRect.init(x: 100, y: 100, width: 100, height: 100)
         self.view.addSubview(imgView)
 
-        let aview = UIView.init(frame: CGRect.init(x: 100, y: 300, width: 100, height: 200))
-        aview.backgroundColor = .gray
-        aview.circleView()
-        self.view.addSubview(aview)
+        
         
         let vView = UIView.init(frame: CGRect.init(x: 100, y: 480, width: 200, height: 200))
         vView.backgroundColor = .blue
