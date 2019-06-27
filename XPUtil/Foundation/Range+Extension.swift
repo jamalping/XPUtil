@@ -13,7 +13,7 @@ import Foundation
 public extension Range where Bound == String.Index {
 
     /// Range转NSRange
-    public var toNSRange: NSRange {
+    var toNSRange: NSRange {
         let loc = self.lowerBound
         let length = self.upperBound
         return NSMakeRange(loc.encodedOffset, length.encodedOffset - loc.encodedOffset)

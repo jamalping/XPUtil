@@ -30,7 +30,7 @@ extension UIViewController {
             
             return self.getTopViewController(presentedController)
             
-        } else if let presentedController = viewController?.childViewControllers.filter({ (vc) -> Bool in
+        } else if let presentedController = viewController?.children.filter({ (vc) -> Bool in
             let point = vc.view.convert(vc.view.center, to: keyWindow)
             return keyWindow.bounds.contains(point)
         }).last { // 有childViewControllers的，只取当前展示在window内的控制器

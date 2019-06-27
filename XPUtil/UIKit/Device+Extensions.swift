@@ -90,57 +90,57 @@ public enum DeviceModel: String {
 
 public extension UIDevice {
     
-    public class func idForVendor() -> String? {
+    class func idForVendor() -> String? {
         return UIDevice.current.identifierForVendor?.uuidString
     }
     
     /// 系统名
-    public class func systemName() -> String {
+    class func systemName() -> String {
         return UIDevice.current.systemName
     }
     
     /// 系统版本
-    public class func systemVersion() -> String {
+    class func systemVersion() -> String {
         return UIDevice.current.systemVersion
     }
     
     /// 系统短版本号
-    public class func systemFloatVersion() -> Float {
+    class func systemFloatVersion() -> Float {
         return (systemVersion() as NSString).floatValue
     }
     
     /// 设备名称
-    public class func deviceName() -> String {
+    class func deviceName() -> String {
         return UIDevice.current.name
     }
     
     /// 设备语言
-    public class func deviceLanguage() -> String {
+    class func deviceLanguage() -> String {
         return Bundle.main.preferredLocalizations[0]
     }
     
     /// 获取设备标识
-    public class func deviceModelReadable() -> String {
+    class func deviceModelReadable() -> String {
         return DeviceList[deviceModel()] ?? deviceModel()
     }
     
     /// 获取设备标识
-    public class func getDeviceModel() -> DeviceModel {
+    class func getDeviceModel() -> DeviceModel {
         return DeviceModel.init(rawValue: DeviceList[deviceModel()] ?? deviceName()) ?? DeviceModel.iPhone6
     }
     
     /// 是否是iphone
-    public class func isPhone() -> Bool {
+    class func isPhone() -> Bool {
         return UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.phone
     }
     
     /// 是否是ipad
-    public class func isPad() -> Bool {
+    class func isPad() -> Bool {
         return UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.pad
     }
     
     /// 获取设备的标示
-    public class func deviceModel() -> String {
+    class func deviceModel() -> String {
         var systemInfo = utsname()
         uname(&systemInfo)
         
@@ -160,11 +160,11 @@ public extension UIDevice {
     }
     
     /// 当前版本号
-    public class var CURRENT_VERSION: String {
+    class var CURRENT_VERSION: String {
         return "\(systemFloatVersion())"
     }
     
-    public class func isSystemVersionOver(_ requiredVersion: String) -> Bool {
+    class func isSystemVersionOver(_ requiredVersion: String) -> Bool {
         switch systemVersion().compare(requiredVersion, options: NSString.CompareOptions.numeric) {
         case .orderedSame, .orderedDescending:
             //println("iOS >= 8.0")

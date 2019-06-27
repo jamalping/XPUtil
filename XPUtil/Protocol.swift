@@ -21,7 +21,7 @@ public protocol ImageFactory {
 
 // MARK: --- 实现 ImageFactory
 public extension ImageFactory {
-    public func createImage(color: UIColor) -> UIImage? {
+    func createImage(color: UIColor) -> UIImage? {
         let rect = CGRect(x: 0.0, y: 0.0, width: 1.0, height: 1.0)
         UIGraphicsBeginImageContext(rect.size)
         let context = UIGraphicsGetCurrentContext()
@@ -32,7 +32,7 @@ public extension ImageFactory {
         return image ?? nil
     }
     
-    public func gifImage(gifData: Data) -> UIImage? {
+    func gifImage(gifData: Data) -> UIImage? {
         
         guard let sources = CGImageSourceCreateWithData(gifData as CFData, nil) else { return nil }
         
@@ -44,7 +44,7 @@ public extension ImageFactory {
             var images = [UIImage]()
             for i in 0..<count {
                 if let image = CGImageSourceCreateImageAtIndex(sources, i, nil) {
-                    images.append(UIImage.init(cgImage: image, scale: UIScreen.main.scale, orientation: UIImageOrientation.up))
+                    images.append(UIImage.init(cgImage: image, scale: UIScreen.main.scale, orientation: UIImage.Orientation.up))
                 }
             }
             return UIImage.animatedImage(with: images, duration: Double(count)*0.1)

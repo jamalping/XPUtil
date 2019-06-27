@@ -14,13 +14,13 @@ import AVFoundation
 public extension UIImage {
     
     /// 获取图片的大小，多少bytes
-    public var bytesSize: Int { return UIImageJPEGRepresentation(self, 1)?.count ?? 0 }
+     var bytesSize: Int { return self.jpegData(compressionQuality: 1)?.count ?? 0 }
     /// 获取图片的大小，多少kb
-    public var kiloBytesSize: Int {
+     var kiloBytesSize: Int {
         return self.bytesSize/1024
     }
     
-    public convenience init(color: UIColor) {
+     convenience init(color: UIColor) {
         let rect = CGRect(x: 0.0, y: 0.0, width: 1.0, height: 1.0)
         UIGraphicsBeginImageContext(rect.size)
         let context = UIGraphicsGetCurrentContext()
@@ -31,7 +31,7 @@ public extension UIImage {
         self.init(cgImage: (image?.cgImage)!)
     }
     
-    public convenience init?(fileName: String, bundle: Bundle = Bundle.main) {
+     convenience init?(fileName: String, bundle: Bundle = Bundle.main) {
         var path: String?
         if fileName.contains(".png") {
             path = bundle.path(forResource: fileName, ofType: nil)
@@ -43,7 +43,7 @@ public extension UIImage {
     }
     
     /// 是否有AlPha通道
-    public var hasAlphaChannnel: Bool {
+     var hasAlphaChannnel: Bool {
         get {
             let alpha = self.cgImage?.alphaInfo
             return alpha == .first || alpha == .last || alpha == .premultipliedFirst || alpha == .premultipliedLast
@@ -52,7 +52,7 @@ public extension UIImage {
     
     
     // base64字符串转image
-    public convenience init?(base64ImgString: String) {
+     convenience init?(base64ImgString: String) {
         let imageString = base64ImgString as NSString
         
         let dataString = imageString.replacingOccurrences(of:" ", with:"")
@@ -67,11 +67,11 @@ public extension UIImage {
     }
     
     // image转base64字符串
-    public var toBase64String: String? {
+     var toBase64String: String? {
         get {
             
             ///根据图片得到对应的二进制编码
-            guard let imageData = UIImageJPEGRepresentation(self, 0.25) else {
+            guard let imageData = self.jpegData(compressionQuality: 0.25) else {
                 return nil
             }
             ///根据二进制编码得到对应的base64字符串
@@ -80,10 +80,10 @@ public extension UIImage {
         }
     }
     
-    public var toBase64StringPNG: String? {
+     var toBase64StringPNG: String? {
         get {
             ///根据图片得到对应的二进制编码
-            guard let imageData = UIImagePNGRepresentation(self) else {
+            guard let imageData = self.pngData() else {
                 return nil
             }
             ///根据二进制编码得到对应的base64字符串
@@ -94,16 +94,16 @@ public extension UIImage {
     }
     
     /// 转换成Data
-    public var toImageJPEGData: Data? {
+     var toImageJPEGData: Data? {
         get {
-            guard let imageData = UIImageJPEGRepresentation(self, 0.25) else { return nil }
+            guard let imageData = self.jpegData(compressionQuality: 0.25) else { return nil }
             return imageData
         }
     }
     
-    public var toImagePNGData: Data? {
+     var toImagePNGData: Data? {
         get {
-            guard let imageData = UIImagePNGRepresentation(self) else { return nil }
+            guard let imageData = self.pngData() else { return nil }
             return imageData
             
         }
@@ -115,9 +115,9 @@ public extension UIImage {
     /// - Parameters:
     ///   - maxLength: 最大长度
     /// - Returns:
-    public func compressImage(maxLength: Int) -> Data? {
+     func compressImage(maxLength: Int) -> Data? {
         
-        guard let vData = UIImageJPEGRepresentation(self, 1) else { return nil }
+        guard let vData = self.jpegData(compressionQuality: 1) else { return nil }
         
         if vData.count < maxLength {
             return vData
@@ -127,12 +127,12 @@ public extension UIImage {
         guard let newImage = self.resizeImage(newSize: newSize) else { return nil }
         
         var compress:CGFloat = 0.9
-        guard var data = UIImageJPEGRepresentation(newImage, compress) else { return nil }
+        guard var data = newImage.jpegData(compressionQuality: compress) else { return nil }
         
         while data.count > maxLength && compress > 0.01 {
             compress -= 0.02
             autoreleasepool {
-                data = UIImageJPEGRepresentation(newImage, compress)!
+                data = newImage.jpegData(compressionQuality: compress)!
             }
         }
         return data
@@ -144,7 +144,7 @@ public extension UIImage {
     /// - Parameters:
     ///   - imageLength: 最大值
     /// - Returns: 按比例压缩后的尺寸
-    public func  scaleImages(imageLength: CGFloat) -> CGSize {
+     func  scaleImages(imageLength: CGFloat) -> CGSize {
         
         var newWidth:CGFloat = 0.0
         var newHeight:CGFloat = 0.0
@@ -175,7 +175,7 @@ public extension UIImage {
     
     
     /// 压缩图片到指定大小
-    public func resizeImage(newSize: CGSize) -> UIImage? {
+     func resizeImage(newSize: CGSize) -> UIImage? {
         UIGraphicsBeginImageContext(newSize)
         
         self.draw(in:CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height))
@@ -188,7 +188,7 @@ public extension UIImage {
 
     
     // 加载本地gif
-    public static func imageWithGifName(name: String) -> UIImage? {
+     static func imageWithGifName(name: String) -> UIImage? {
     
         var animatedImage: UIImage?
         guard let path = Bundle.main.path(forResource: name, ofType: "gif") else { return nil }
@@ -205,7 +205,7 @@ public extension UIImage {
             var images = [UIImage]()
             for i in 0..<count {
                 if let image = CGImageSourceCreateImageAtIndex(source, i, nil) {
-                    images.append(UIImage.init(cgImage: image, scale: UIScreen.main.scale, orientation: UIImageOrientation.up))
+                    images.append(UIImage.init(cgImage: image, scale: UIScreen.main.scale, orientation: UIImage.Orientation.up))
                 }
             }
             animatedImage = UIImage.animatedImage(with: images, duration: Double(count)*0.1)
@@ -218,7 +218,7 @@ public extension UIImage {
     ///
     /// - Parameter point: 目标点
     /// - Returns: UIColor
-    public func colorOfPoint(point: CGPoint)-> UIColor? {
+     func colorOfPoint(point: CGPoint)-> UIColor? {
         guard point.x >= 0 && point.y >= 0 else { return nil }
         guard let cgimage = self.cgImage else { return nil }
         let width = CGFloat(cgimage.width)
@@ -301,7 +301,7 @@ public extension UIImage {
     
 }
 
-extension UIImage {
+public extension UIImage {
     
     /// 获取url资源的第一帧
     ///
@@ -325,7 +325,7 @@ extension UIImage {
 //extension UIImage {
 //
 //    /// 渐变色方向
-//    public enum Directions: Int {
+//     enum Directions: Int {
 //        case right = 0
 //        case left
 //        case bottom
@@ -336,7 +336,7 @@ extension UIImage {
 //        case bottomRightToTopLeft
 //    }
 //
-//    public class func gradientColor(_ startColor: UIColor, endColor: UIColor, size: CGSize, direction: Directions = UIImage.Directions.right) -> UIImage? {
+//     class func gradientColor(_ startColor: UIColor, endColor: UIColor, size: CGSize, direction: Directions = UIImage.Directions.right) -> UIImage? {
 //        UIGraphicsBeginImageContextWithOptions(size, false, 0)
 //        let context = UIGraphicsGetCurrentContext()
 //        let colorSpace = CGColorSpaceCreateDeviceRGB()

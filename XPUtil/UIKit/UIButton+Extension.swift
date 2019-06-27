@@ -12,7 +12,7 @@ import UIKit
 public extension UIButton {
     
     // MARK: --- 表单提交按钮
-    public convenience init(formBtnTitle: String) {
+    convenience init(formBtnTitle: String) {
         self.init(type: .custom)
         setTitle(formBtnTitle, for: .normal)
         
@@ -26,7 +26,7 @@ public extension UIButton {
     }
     
     // MARK: --- 分段选择器按钮的创建
-    public convenience init(title: String, bNormalImg: UIImage?, bSelectedImg: UIImage?){
+    convenience init(title: String, bNormalImg: UIImage?, bSelectedImg: UIImage?){
         self.init(type: .custom)
         self.setBackgroundImage(bNormalImg, for: .normal)
         self.setBackgroundImage(bSelectedImg, for: .selected)
@@ -37,28 +37,28 @@ public extension UIButton {
     }
     
     // 只有默认背景
-    public convenience init(normalbackgroundImage: String) {
+    convenience init(normalbackgroundImage: String) {
         self.init()
         self.setBackgroundImage(UIImage(named: normalbackgroundImage), for: .normal)
     }
     
     // 创建一般按钮
-    public convenience init(title: String, titleColor: UIColor, backGroundColor: UIColor, font: UIFont = .systemFont(ofSize: 13)) {
+    convenience init(title: String, titleColor: UIColor, backGroundColor: UIColor, font: UIFont = .systemFont(ofSize: 13)) {
         self.init()
         self.backgroundColor = backGroundColor
         
-        self.setTitle(title, for: UIControlState())
+        self.setTitle(title, for: UIControl.State())
         
         self.titleLabel?.font = font
         
-        self.setTitleColor(titleColor, for: UIControlState())
+        self.setTitleColor(titleColor, for: UIControl.State())
         
         self.layer.cornerRadius = 5
         
         self.layer.masksToBounds = true
     }
     
-    public convenience init(title: String, titleColor: UIColor, normalImg: UIImage, selectedimg: UIImage) {
+    convenience init(title: String, titleColor: UIColor, normalImg: UIImage, selectedimg: UIImage) {
         self.init()
         
         self.setTitle(title, for: .normal)

@@ -11,47 +11,47 @@ import UIKit
 // MARK: 坐标处理
 public extension UIView {
 
-    public var left: CGFloat {
+     var left: CGFloat {
         set { self.frame.origin.x = newValue }
         get { return self.frame.minX }
     }
-    public var top: CGFloat {
+     var top: CGFloat {
         set { self.frame.origin.y = newValue }
         get { return self.frame.minY }
     }
-    public var right: CGFloat {
+     var right: CGFloat {
         set { self.frame.origin.x = newValue - self.frame.width }
         get { return self.frame.maxX }
     }
-    public var bottom: CGFloat {
+     var bottom: CGFloat {
         set { self.frame.origin.y = newValue - self.frame.maxY }
         get { return self.frame.maxY }
     }
     
-    public var width: CGFloat {
+     var width: CGFloat {
         set { self.frame.size.width = newValue }
         get { return self.frame.width }
     }
     
-    public var height: CGFloat {
+     var height: CGFloat {
         set { self.frame.size.height = newValue }
         get { return self.frame.height }
     }
-    public var centerX: CGFloat {
+     var centerX: CGFloat {
         set { self.center = CGPoint.init(x: newValue, y: self.center.y) }
         get { return self.center.x }
     }
     
-    public var centerY: CGFloat {
+     var centerY: CGFloat {
         set { self.center = CGPoint.init(x: self.center.x, y: newValue) }
         get { return self.center.y }
     }
     
-    public var size: CGSize {
+     var size: CGSize {
         set { self.frame = CGRect.init(origin: self.frame.origin, size: newValue) }
         get { return self.frame.size }
     }
-    public var origin: CGPoint {
+     var origin: CGPoint {
         set { self.frame = CGRect.init(origin: newValue, size: self.frame.size) }
         get { return self.frame.origin }
     }
@@ -60,7 +60,7 @@ public extension UIView {
 public extension UIView {
     
     /// 获取view的vc
-    public var viewController: UIViewController? {
+     var viewController: UIViewController? {
         var next:UIView? = self
         repeat{
             if let nextResponder = next?.next, nextResponder is UIViewController {
@@ -72,12 +72,12 @@ public extension UIView {
         return nil
     }
     /// 移除当前视图的所有子视图
-    public func removeAllSubviews() -> Void {
+     func removeAllSubviews() -> Void {
         _ = self.subviews.map { $0.removeFromSuperview()}
     }
     
     
-    public convenience init(backGroundColor: UIColor) {
+     convenience init(backGroundColor: UIColor) {
         self.init(frame: .zero)
         self.backgroundColor = backGroundColor
     }
@@ -85,7 +85,7 @@ public extension UIView {
     /// 截取整个View
     ///
     /// - Parameter save: 是否保存到系统相册
-    public func screenShot(_ save: Bool) -> UIImage? {
+     func screenShot(_ save: Bool) -> UIImage? {
         
         guard frame.size.height > 0 && frame.size.width > 0 else {
             return nil
@@ -103,7 +103,7 @@ public extension UIView {
     }
     
     /// 添加毛玻璃效果
-    public func addVisualEffect(){
+     func addVisualEffect(){
         /// 高斯模糊视图
         let blurView: UIVisualEffectView = {
             let blureffect = UIBlurEffect(style: .light)
@@ -125,7 +125,7 @@ public extension UIView {
 }
 
 // MARK: - 渐变色处理
-extension UIView {
+public extension UIView {
     
     /// 添加从左到右的渐变色
     ///
@@ -135,7 +135,7 @@ extension UIView {
     ///   - radius: 圆角
     /// - Returns: 返回layer用来移除 可不接收返回值
     @discardableResult
-    public func addGradientLayer(startColor:CGColor, endColor:CGColor, radius:CGFloat = 0) -> CAGradientLayer {
+     func addGradientLayer(startColor:CGColor, endColor:CGColor, radius:CGFloat = 0) -> CAGradientLayer {
         
         let gradient:CAGradientLayer = CAGradientLayer.init()
         gradient.colors = [startColor, endColor]
@@ -148,7 +148,7 @@ extension UIView {
     }
     
     
-    public func getGradientImage(startColor:CGColor, endColor:CGColor, radius:CGFloat = 0) -> UIImage? {
+     func getGradientImage(startColor:CGColor, endColor:CGColor, radius:CGFloat = 0) -> UIImage? {
         UIGraphicsBeginImageContextWithOptions(self.frame.size, false, 0)
         let colorSpace = CGColorSpaceCreateDeviceRGB()
         let colors = [startColor, endColor]
@@ -170,23 +170,23 @@ extension UIView {
 
 
 // MARK: - 添加边框线
-//public extension UIView {
+// extension UIView {
 //    // MARK: - 虚线
-//    public struct UIRectSide : OptionSet {
+//     struct UIRectSide : OptionSet {
 //
-//        public let rawValue: Int
+//         let rawValue: Int
 //
-//        public static let left = UIRectSide(rawValue: 1 << 0)
+//         static let left = UIRectSide(rawValue: 1 << 0)
 //
-//        public static let top = UIRectSide(rawValue: 1 << 1)
+//         static let top = UIRectSide(rawValue: 1 << 1)
 //
-//        public static let right = UIRectSide(rawValue: 1 << 2)
+//         static let right = UIRectSide(rawValue: 1 << 2)
 //
-//        public static let bottom = UIRectSide(rawValue: 1 << 3)
+//         static let bottom = UIRectSide(rawValue: 1 << 3)
 //
-//        public static let all: UIRectSide = [.top, .right, .left, .bottom]
+//         static let all: UIRectSide = [.top, .right, .left, .bottom]
 //
-//        public init(rawValue: Int) {
+//         init(rawValue: Int) {
 //
 //            self.rawValue = rawValue;
 //        }
@@ -336,7 +336,7 @@ extension UIView {
 //}
 
 // MARK: - 圆角处理
-extension UIView {
+public extension UIView {
     
     /// 圆角的裁剪
     ///
@@ -344,7 +344,7 @@ extension UIView {
     ///   - corners: 需要实现为圆角的角，可传入多个
     ///   - radii: 圆角度数
     /// eg: view.addCornerRadius(byRoundingCorners: [.bottomLeft, .bottomRight], radii: 50)
-    public func addCornerRadius(byRoundingCorners corners: UIRectCorner = .allCorners, radii: CGFloat) {
+     func addCornerRadius(byRoundingCorners corners: UIRectCorner = .allCorners, radii: CGFloat) {
         
         assert(self.frame != .zero, "请先确认当前View已经布局完成")
         //创建贝塞尔,指定画圆角的地方为下方的左，右两个角添加阴影
@@ -385,7 +385,7 @@ extension UIView {
     ///   - radius: 圆角度数
     ///   - borderWidth: 边框宽度
     ///   - borderColor: 边框颜色
-    public func addRadiusAndBorder(radius: CGFloat, borderWidth: CGFloat, borderColor: UIColor) {
+     func addRadiusAndBorder(radius: CGFloat, borderWidth: CGFloat, borderColor: UIColor) {
         addCornerRadius(byRoundingCorners: .allCorners, radii: radius)
         let subLayer = CALayer()
         guard self.frame != .zero else {
@@ -403,9 +403,9 @@ extension UIView {
 }
 
 // MARK: 关联 StoryBoard 和 XIB
-extension UIView {
+public extension UIView {
     @IBInspectable
-    public var cornerRadius: CGFloat {
+     var cornerRadius: CGFloat {
         get { return self.cornerRadius }
         set {
             clipsToBounds = true
@@ -414,7 +414,7 @@ extension UIView {
     }
     
     @IBInspectable
-    public var borderWidth: CGFloat {
+     var borderWidth: CGFloat {
         get { return self.borderWidth }
         set {
             layer.borderWidth = newValue
@@ -422,7 +422,7 @@ extension UIView {
     }
     
     @IBInspectable
-    public var borderColor: UIColor? {
+     var borderColor: UIColor? {
         get { return self.borderColor }
         set {
             layer.borderColor = newValue?.cgColor
@@ -430,7 +430,7 @@ extension UIView {
     }
     
     @IBInspectable
-    public var shadowRadius: CGFloat {
+     var shadowRadius: CGFloat {
         get {
             return self.shadowRadius
         }
@@ -440,7 +440,7 @@ extension UIView {
         }
     }
     @IBInspectable
-    public var shadowOpacity: Float {
+     var shadowOpacity: Float {
         get { return self.shadowOpacity }
         set {
             layer.shadowOpacity = newValue
@@ -448,7 +448,7 @@ extension UIView {
     }
     
     @IBInspectable
-    public var shadowColor: UIColor? {
+     var shadowColor: UIColor? {
         get { return self.shadowColor }
         set {
             layer.shadowColor = newValue?.cgColor
@@ -456,7 +456,7 @@ extension UIView {
     }
     
     @IBInspectable
-    public var shadowOffset: CGSize {
+     var shadowOffset: CGSize {
         get { return self.shadowOffset }
         set {
             layer.shadowOffset = newValue
@@ -464,7 +464,7 @@ extension UIView {
     }
     
     @IBInspectable
-    public var zPosition: CGFloat {
+     var zPosition: CGFloat {
         get { return self.zPosition }
         set {
             layer.zPosition = newValue
@@ -480,7 +480,7 @@ public protocol Nibloadable {
 
 public extension Nibloadable where Self : UIView {
     
-    public static func loadNib(_ nibNmae :String? = nil) -> Self {
+     static func loadNib(_ nibNmae :String? = nil) -> Self {
         return Bundle.main.loadNibNamed(nibNmae ?? "\(self)", owner: nil, options: nil)?.first as! Self
     }
 }

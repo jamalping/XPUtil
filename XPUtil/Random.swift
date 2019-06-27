@@ -16,7 +16,7 @@ public protocol Randomable {
 
 public  extension Randomable {
     /// 随机数生成 闭区间 [min, max]支持负数 eg: [1, 10],[-3,3]
-    public func randomCustom(min: Int, max: Int) -> Int {
+    func randomCustom(min: Int, max: Int) -> Int {
         //  [min, max)  [0, 100)
         //        var x = arc4random() % UInt32(max);
         //        return Int(x)
@@ -33,7 +33,7 @@ public  extension Randomable {
     }
     
     /// 随机生成正负1
-    public func randomPosiOrNega() -> Int {
+    func randomPosiOrNega() -> Int {
         let random = (arc4random()%2+1)%2
         if random == 0 {
             return -1

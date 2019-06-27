@@ -8,7 +8,7 @@
 
 import UIKit
 
-var roeHeightCacheKey: Void
+var roeHeightCacheKey: Void = ()
 public extension UITableView {
     /// 缓存cell高度
     var rowHeightCache: [IndexPath: Any] {

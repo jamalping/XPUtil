@@ -60,7 +60,7 @@ public struct JSON {
             return [:]
         }
         
-        guard let json: [String: Any] = try? JSONSerialization.jsonObject(with: data, options: options) as! [String : Any]  else {
+        guard let json: [String: Any] = try? JSONSerialization.jsonObject(with: data, options: options) as? [String : Any]  else {
             return [:]
         }
         return json

@@ -147,7 +147,7 @@ public class ContactsManager: NSObject, CNContactPickerDelegate, UINavigationCon
         peoplePicker.predicateForSelectionOfContact = NSPredicate(value: true)
         peoplePicker.predicateForSelectionOfProperty = NSPredicate(value: false)// 防止自动dismiss
         
-        let vc = UIApplication.shared.keyWindow?.rootViewController?.childViewControllers.first
+        let vc = UIApplication.shared.keyWindow?.rootViewController?.children.first
         
         if authorStatus == CNAuthorizationStatus.notDetermined {
             // 用户未授权
@@ -183,12 +183,12 @@ public class ContactsManager: NSObject, CNContactPickerDelegate, UINavigationCon
             
             // 提示用户去打开设置
             let sureAction = UIAlertAction.init(title: "确定", style: .destructive, handler: { (alert) in
-                let url = URL(string: UIApplicationOpenSettingsURLString)
+                let url = URL(string: UIApplication.openSettingsURLString)
                 
                 if UIApplication.shared.canOpenURL(url!) {
                     
                     if #available(iOS 10.0, *) {
-                        UIApplication.shared.open(url! as URL, options: [:], completionHandler: nil)
+                        UIApplication.shared.open(url! as URL, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
                     } else {
                         UIApplication.shared.openURL(url! as URL)
                     }
@@ -335,11 +335,11 @@ public class ContactsManager: NSObject, CNContactPickerDelegate, UINavigationCon
 // MARK: - CNContactPickerDelegate
 @available(iOS 9.0, *)
 public extension ContactsManager {
-    public func contactPickerDidCancel(_ picker: CNContactPickerViewController) {
+    func contactPickerDidCancel(_ picker: CNContactPickerViewController) {
         getContactOnCancle!("CANCEL")
     }
     
-    public func contactPicker(_ picker: CNContactPickerViewController, didSelect contact: CNContact) {
+    func contactPicker(_ picker: CNContactPickerViewController, didSelect contact: CNContact) {
         guard contact.phoneNumbers.count > 0 else {
             return
         }
@@ -353,8 +353,13 @@ public extension ContactsManager {
         getContactOnSuccess!(contact)
     }
     
-    public func contactPicker(_ picker: CNContactPickerViewController, didSelect contactProperty: CNContactProperty) {
+    func contactPicker(_ picker: CNContactPickerViewController, didSelect contactProperty: CNContactProperty) {
         print("选中")
     }
 }
 
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToUIApplicationOpenExternalURLOptionsKeyDictionary(_ input: [String: Any]) -> [UIApplication.OpenExternalURLOptionsKey: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value)})
+}

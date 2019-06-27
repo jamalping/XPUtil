@@ -131,7 +131,7 @@ func ct_imageFromImage(image: UIImage, rect: CGRect) -> UIImage? {
     let  dianRect = CGRect.init(x: X, y: Y, width: W, height: H)//CGRectMake(x, y, w, h);
 //    CGImageCreateWithImageInRect
     guard let imageRef = image.cgImage?.cropping(to: dianRect) else { return nil }
-    return UIImage.init(cgImage: imageRef, scale: UIScreen.main.scale, orientation: UIImageOrientation.up)
+    return UIImage.init(cgImage: imageRef, scale: UIScreen.main.scale, orientation: UIImage.Orientation.up)
 
     //截取部分图片并生成新图片
 //

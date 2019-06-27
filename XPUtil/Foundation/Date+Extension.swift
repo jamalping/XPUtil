@@ -11,7 +11,7 @@ import Foundation
 public extension Date {
     
     // 时间戳转化成时间（毫秒）"yyyy-MM-dd HH:mm:ss"
-    public static func timeStampToString(timeStamp: String, dataFormatter: String) ->String {
+    static func timeStampToString(timeStamp: String, dataFormatter: String) ->String {
         
         let timeSta: TimeInterval = (Double(timeStamp) ?? 0)/1000
         
@@ -25,7 +25,7 @@ public extension Date {
     }
     
     // 时间转化成时间戳
-    public static func stringToTimeStamp(stringTime:String)->String {
+    static func stringToTimeStamp(stringTime:String)->String {
         
         let dfmatter = DateFormatter()
         dfmatter.dateFormat="yyyy年MM月dd日"
@@ -39,7 +39,7 @@ public extension Date {
         
     }
     // 格式化时间
-    public static func formatDate(format: String = "yyyy-MM-dd", time: String) -> String {
+    static func formatDate(format: String = "yyyy-MM-dd", time: String) -> String {
         let dfmatter = DateFormatter()
         dfmatter.dateFormat = format
 //        dfmatter.date(from: time)
@@ -47,7 +47,7 @@ public extension Date {
         return dfmatter.string(from: date)
     }
     
-    public static func dateWithString(str: String,dateFormat:String) -> Date? {
+    static func dateWithString(str: String,dateFormat:String) -> Date? {
         
         let formatter = DateFormatter()
         formatter.dateFormat = dateFormat
@@ -57,24 +57,24 @@ public extension Date {
     }
     
     // 比较Date是都相等----到天
-    public func isEqual(date: Date, otherDate: Date) -> Bool {
+    func isEqual(date: Date, otherDate: Date) -> Bool {
         let calendar = Calendar.current
         return calendar.isDate(date, inSameDayAs: otherDate)
     
     }
     
     // 是否为今天
-    public func isToday() -> Bool {
+    func isToday() -> Bool {
         return Calendar.current.isDateInToday(self)
     }
     
     // 是否为明天
-    public func isTomorrow() -> Bool {
+    func isTomorrow() -> Bool {
         return Calendar.current.isDateInTomorrow(self)
     }
     
     // 是否为昨天
-    public func isYesterday() -> Bool {
+    func isYesterday() -> Bool {
         return Calendar.current.isDateInYesterday(self)
     }
 }

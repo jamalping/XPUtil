@@ -10,7 +10,7 @@ import UIKit
 
 private var key: Void?
 public extension UIBarButtonItem {
-     public var hasTextChange: Bool? {
+    var hasTextChange: Bool? {
         get {
             return objc_getAssociatedObject(self, &key) as? Bool
         }
@@ -25,7 +25,7 @@ public extension UIBarButtonItem {
     ///   - normalImg: 图String
     ///   - target: <#target description#>
     ///   - action: <#action description#>
-    public convenience init(normalImg: String, target: Any?, action: Selector?) {
+    convenience init(normalImg: String, target: Any?, action: Selector?) {
         
         let btn = UIButton(type: .custom)
         let norImg = UIImage(named: normalImg)?.withRenderingMode(.alwaysOriginal)
@@ -57,7 +57,7 @@ public extension UIBarButtonItem {
     ///   - font: <#font description#>
     ///   - target: <#target description#>
     ///   - action: <#action description#>
-    public convenience init(title: String,titleColor: UIColor, font: UIFont = UIFont.systemFont(ofSize: 17), target: Any?, action: Selector?) {
+    convenience init(title: String,titleColor: UIColor, font: UIFont = UIFont.systemFont(ofSize: 17), target: Any?, action: Selector?) {
     
     let btn = UIButton(type: .custom)
     
@@ -96,7 +96,7 @@ public extension UIBarButtonItem {
 //}
 
 public extension UIBarButtonItem {
-    public func acceptBtn() -> UIButton {
+    func acceptBtn() -> UIButton {
         for view in (self.customView?.subviews)! {
             if let btnView = view as? UIButton {
                 return btnView
@@ -107,7 +107,7 @@ public extension UIBarButtonItem {
         return UIButton()
     }
     
-    public func acceptBtn(title: String) -> UIButton? {
+    func acceptBtn(title: String) -> UIButton? {
         let btn = self.customView as! UIButton
         if btn.title(for: .normal) == title {
             return btn

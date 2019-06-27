@@ -10,10 +10,10 @@ import Foundation
 
 public extension Date {
 
-    public static let minutesInAWeek = 24 * 60 * 7
+    static let minutesInAWeek = 24 * 60 * 7
 
     /// EZSE: Initializes Date from string and format
-    public init?(fromString string: String, format: String) {
+    init?(fromString string: String, format: String) {
         let formatter = DateFormatter()
         formatter.dateFormat = format
         if let date = formatter.date(from: string) {
@@ -24,7 +24,7 @@ public extension Date {
     }
 
     /// EZSE: Initializes Date from string returned from an http response, according to several RFCs / ISO
-    public init?(httpDateString: String) {
+    init?(httpDateString: String) {
         if let rfc1123 = Date(fromString: httpDateString, format: "EEE',' dd' 'MMM' 'yyyy HH':'mm':'ss zzz") {
             self = rfc1123
             return
@@ -58,7 +58,7 @@ public extension Date {
     }
 
     /// EZSE: Converts Date to String
-    public func toString(dateStyle: DateFormatter.Style = .medium, timeStyle: DateFormatter.Style = .medium) -> String {
+    func toString(dateStyle: DateFormatter.Style = .medium, timeStyle: DateFormatter.Style = .medium) -> String {
         let formatter = DateFormatter()
         formatter.dateStyle = dateStyle
         formatter.timeStyle = timeStyle
@@ -66,42 +66,42 @@ public extension Date {
     }
 
     /// EZSE: Converts Date to String, with format
-    public func toString(format: String) -> String {
+     func toString(format: String) -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = format
         return formatter.string(from: self)
     }
 
     /// EZSE: Calculates how many days passed from now to date
-    public func daysInBetweenDate(_ date: Date) -> Double {
+    func daysInBetweenDate(_ date: Date) -> Double {
         var diff = self.timeIntervalSince1970 - date.timeIntervalSince1970
         diff = fabs(diff/86400)
         return diff
     }
 
     /// EZSE: Calculates how many hours passed from now to date
-    public func hoursInBetweenDate(_ date: Date) -> Double {
+     func hoursInBetweenDate(_ date: Date) -> Double {
         var diff = self.timeIntervalSince1970 - date.timeIntervalSince1970
         diff = fabs(diff/3600)
         return diff
     }
 
     /// EZSE: Calculates how many minutes passed from now to date
-    public func minutesInBetweenDate(_ date: Date) -> Double {
+     func minutesInBetweenDate(_ date: Date) -> Double {
         var diff = self.timeIntervalSince1970 - date.timeIntervalSince1970
         diff = fabs(diff/60)
         return diff
     }
 
     /// EZSE: Calculates how many seconds passed from now to date
-    public func secondsInBetweenDate(_ date: Date) -> Double {
+     func secondsInBetweenDate(_ date: Date) -> Double {
         var diff = self.timeIntervalSince1970 - date.timeIntervalSince1970
         diff = fabs(diff)
         return diff
     }
 
     /// EZSE: Easy creation of time passed String. Can be Years, Months, days, hours, minutes or seconds
-    public func timePassed() -> String {
+     func timePassed() -> String {
         let date = Date()
         let calendar = Calendar.current
         let components = (calendar as NSCalendar).components([.year, .month, .day, .hour, .minute, .second], from: self, to: date, options: [])
@@ -131,76 +131,76 @@ public extension Date {
     }
     
     /// EZSE: Check if date is in future.
-    public var isFuture: Bool {
+     var isFuture: Bool {
         return self > Date()
     }
     
     /// EZSE: Check if date is in past.
-    public var isPast: Bool {
+     var isPast: Bool {
         return self < Date()
     }
     /// EZSE: Check date if it is within this month.
-    public var isThisMonth: Bool {
+     var isThisMonth: Bool {
         let today = Date()
         return self.month == today.month && self.year == today.year
     }
 
     /// EZSE: Check date if it is within this week.
-    public var isThisWeek: Bool {
+     var isThisWeek: Bool {
         return self.minutesInBetweenDate(Date()) <= Double(Date.minutesInAWeek)
     }
 
     /// EZSE: Get the era from the date
-    public var era: Int {
+     var era: Int {
         return Calendar.current.component(Calendar.Component.era, from: self)
     }
     
     /// EZSE : Get the year from the date
-    public var year: Int {
+     var year: Int {
         return Calendar.current.component(Calendar.Component.year, from: self)
     }
 
     /// EZSE : Get the month from the date
-    public var month: Int {
+     var month: Int {
         return Calendar.current.component(Calendar.Component.month, from: self)
     }
 
     /// EZSE : Get the weekday from the date
-    public var weekday: String {
+     var weekday: String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "EEEE"
         return dateFormatter.string(from: self)
     }
 
     // EZSE : Get the month from the date
-    public var monthAsString: String {
+     var monthAsString: String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMMM"
         return dateFormatter.string(from: self)
     }
 
     // EZSE : Get the day from the date
-    public var day: Int {
+     var day: Int {
         return Calendar.current.component(.day, from: self)
     }
 
     /// EZSE: Get the hours from date
-    public var hour: Int {
+     var hour: Int {
         return Calendar.current.component(.hour, from: self)
     }
 
     /// EZSE: Get the minute from date
-    public var minute: Int {
+     var minute: Int {
         return Calendar.current.component(.minute, from: self)
     }
 
     /// EZSE: Get the second from the date
-    public var second: Int {
+     var second: Int {
         return Calendar.current.component(.second, from: self)
     }
     
     /// EZSE : Gets the nano second from the date
-    public var nanosecond: Int {
+     var nanosecond: Int {
         return Calendar.current.component(.nanosecond, from: self)
     }
     
@@ -209,7 +209,7 @@ public extension Date {
     /// EZSE : Gets the international standard(ISO8601) representation of date
     @available(iOS 10.0, *)
     @available(tvOS 10.0, *)
-    public var iso8601: String {
+     var iso8601: String {
         let formatter = ISO8601DateFormatter()
         return formatter.string(from: self)
     }
