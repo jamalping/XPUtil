@@ -69,3 +69,13 @@ extension MemoryAdress {
     }
 
 }
+
+/// 弧度转角度
+public func radiansToDegrees(radians: CGFloat) -> CGFloat {
+    return ((radians) * (180.0 / CGFloat.pi))
+}
+
+/// 角度转弧度
+public func degreesToRadians(angle: CGFloat) -> CGFloat {
+    return ((angle) / 180.0 * CGFloat.pi)
+}
