@@ -92,4 +92,17 @@ extension Array where Element: Equatable {
     public func unique() -> Array {
         return reduce([]) { $0.contains($1) ? $0 : $0 + [$1] }
     }
+    
+    
+}
+
+extension Array where Element: Hashable {
+    /// 数组中相同的元素只保留一个,
+    func removeDuplicates() -> [Element] {
+        var addedDict = [Element: Bool]()
+        return filter { (e) -> Bool in
+            return addedDict.updateValue(true, forKey: e) == nil
+            
+        }
+    }
 }

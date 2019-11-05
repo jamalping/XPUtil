@@ -13,19 +13,28 @@ extension UITableViewCell: Cellidentfierable {}
 
 extension UICollectionViewCell: Cellidentfierable{}
 
+extension UITableViewHeaderFooterView: Cellidentfierable{}
+
 // MARK: - Cell标志协议
 protocol Cellidentfierable {
     static var cellIdentfier: String { get }
 }
 
-extension Cellidentfierable where Self: UITableViewCell{
+extension Cellidentfierable where Self: UITableViewCell {
     static var cellIdentfier: String {
         return "\(self)"
     }
 }
 
-extension Cellidentfierable where Self: UICollectionViewCell{
+extension Cellidentfierable where Self: UICollectionViewCell {
     static var cellIdentfier: String {
         return "\(self)"
     }
 }
+
+extension Cellidentfierable where Self: UITableViewHeaderFooterView {
+    static var cellIdentfier: String {
+        return "\(self)"
+    }
+}
+
