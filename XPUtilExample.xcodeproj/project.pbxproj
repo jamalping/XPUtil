@@ -37,6 +37,8 @@
 		3097A03E1F7F34E100E27C9F /* XPUtilExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3097A03D1F7F34E100E27C9F /* XPUtilExampleUITests.swift */; };
 		30C3BB931FE75BA500795A31 /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C3BB921FE75BA500795A31 /* Protocol.swift */; };
 		5E67EBCF242B067300E6000C /* HexString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E67EBCE242B067300E6000C /* HexString.swift */; };
+		5E67EBD1242B186100E6000C /* QRCodeUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E67EBD0242B186100E6000C /* QRCodeUtil.swift */; };
+		5E67EBD2242B186100E6000C /* QRCodeUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E67EBD0242B186100E6000C /* QRCodeUtil.swift */; };
 		F6B073FA20BD296A00E31A69 /* Device+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B073F920BD296A00E31A69 /* Device+Extensions.swift */; };
 		F6B073FD20BD2ED000E31A69 /* ContactsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F2876F20B53B2D00F4DFE2 /* ContactsManager.swift */; };
 		F6B073FE20BD2ED400E31A69 /* KeyChainTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F2876A20B5025F00F4DFE2 /* KeyChainTool.swift */; };
@@ -159,6 +161,7 @@
 		3097A0501F7F358C00E27C9F /* Range+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Range+Extension.swift"; sourceTree = "<group>"; };
 		30C3BB921FE75BA500795A31 /* Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
 		5E67EBCE242B067300E6000C /* HexString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexString.swift; sourceTree = "<group>"; };
+		5E67EBD0242B186100E6000C /* QRCodeUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeUtil.swift; sourceTree = "<group>"; };
 		F6B073F920BD296A00E31A69 /* Device+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Device+Extensions.swift"; sourceTree = "<group>"; };
 		F6EFE73C208D880C006B1349 /* UIlabel+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIlabel+Extension.swift"; sourceTree = "<group>"; };
 		F6EFE745208D899C006B1349 /* XPTool.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XPTool.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -282,6 +285,7 @@
 				18BCA5AB223FA5720080F87C /* GCDTimer.swift */,
 				18D7616822C465920015C92F /* Optional+Extension.swift */,
 				5E67EBCE242B067300E6000C /* HexString.swift */,
+				5E67EBD0242B186100E6000C /* QRCodeUtil.swift */,
 				F6EFE73F208D881F006B1349 /* UIKit */,
 				F6EFE73E208D8814006B1349 /* Foundation */,
 			);
@@ -598,6 +602,7 @@
 				18D7616922C465920015C92F /* Optional+Extension.swift in Sources */,
 				F6F2876B20B5025F00F4DFE2 /* KeyChainTool.swift in Sources */,
 				3097A01E1F7F34E100E27C9F /* AppDelegate.swift in Sources */,
+				5E67EBD1242B186100E6000C /* QRCodeUtil.swift in Sources */,
 				F6B073FA20BD296A00E31A69 /* Device+Extensions.swift in Sources */,
 				302266BF1FAAC5BA005D32B7 /* Array+Extension.swift in Sources */,
 				18FBC36021C8A0B700FBD25C /* CellIdentfierable.swift in Sources */,
@@ -635,6 +640,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E67EBD2242B186100E6000C /* QRCodeUtil.swift in Sources */,
 				F6B0740020BD2ED900E31A69 /* Device+Extensions.swift in Sources */,
 				F6B073FE20BD2ED400E31A69 /* KeyChainTool.swift in Sources */,
 				F6B073FF20BD2ED400E31A69 /* CheckValueTool.swift in Sources */,

@@ -24,17 +24,29 @@ extension Cellidentfierable where Self: UITableViewCell {
     static var cellIdentfier: String {
         return "\(self)"
     }
+    
+    var cellIdentfier: String {
+        return Self.cellIdentfier
+    }
 }
 
 extension Cellidentfierable where Self: UICollectionViewCell {
     static var cellIdentfier: String {
         return "\(self)"
     }
+    
+    var cellIdentfier: String {
+        return Self.cellIdentfier
+    }
 }
 
 extension Cellidentfierable where Self: UITableViewHeaderFooterView {
     static var cellIdentfier: String {
         return "\(self)"
+    }
+    
+    var cellIdentfier: String {
+        return Self.cellIdentfier
     }
 }
 
