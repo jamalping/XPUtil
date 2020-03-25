@@ -36,6 +36,7 @@
 		3097A0331F7F34E100E27C9F /* XPUtilExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3097A0321F7F34E100E27C9F /* XPUtilExampleTests.swift */; };
 		3097A03E1F7F34E100E27C9F /* XPUtilExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3097A03D1F7F34E100E27C9F /* XPUtilExampleUITests.swift */; };
 		30C3BB931FE75BA500795A31 /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C3BB921FE75BA500795A31 /* Protocol.swift */; };
+		5E67EBCF242B067300E6000C /* HexString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E67EBCE242B067300E6000C /* HexString.swift */; };
 		F6B073FA20BD296A00E31A69 /* Device+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B073F920BD296A00E31A69 /* Device+Extensions.swift */; };
 		F6B073FD20BD2ED000E31A69 /* ContactsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F2876F20B53B2D00F4DFE2 /* ContactsManager.swift */; };
 		F6B073FE20BD2ED400E31A69 /* KeyChainTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F2876A20B5025F00F4DFE2 /* KeyChainTool.swift */; };
@@ -157,6 +158,7 @@
 		3097A04E1F7F358B00E27C9F /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		3097A0501F7F358C00E27C9F /* Range+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Range+Extension.swift"; sourceTree = "<group>"; };
 		30C3BB921FE75BA500795A31 /* Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
+		5E67EBCE242B067300E6000C /* HexString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexString.swift; sourceTree = "<group>"; };
 		F6B073F920BD296A00E31A69 /* Device+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Device+Extensions.swift"; sourceTree = "<group>"; };
 		F6EFE73C208D880C006B1349 /* UIlabel+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIlabel+Extension.swift"; sourceTree = "<group>"; };
 		F6EFE745208D899C006B1349 /* XPTool.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XPTool.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -279,6 +281,7 @@
 				18BCA5A9223F87AB0080F87C /* Random.swift */,
 				18BCA5AB223FA5720080F87C /* GCDTimer.swift */,
 				18D7616822C465920015C92F /* Optional+Extension.swift */,
+				5E67EBCE242B067300E6000C /* HexString.swift */,
 				F6EFE73F208D881F006B1349 /* UIKit */,
 				F6EFE73E208D8814006B1349 /* Foundation */,
 			);
@@ -583,6 +586,7 @@
 				30492EE71FA1860000ED64AD /* UIView+Extension.swift in Sources */,
 				30492EDA1F9F208A00ED64AD /* Date+Extension.swift in Sources */,
 				3097A0201F7F34E100E27C9F /* ViewController.swift in Sources */,
+				5E67EBCF242B067300E6000C /* HexString.swift in Sources */,
 				F6F2877020B53B2D00F4DFE2 /* ContactsManager.swift in Sources */,
 				18329A8621D9F4C2007CF410 /* UIViewController+Extension.swift in Sources */,
 				18BCA5AA223F87AB0080F87C /* Random.swift in Sources */,
