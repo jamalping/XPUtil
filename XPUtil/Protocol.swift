@@ -79,3 +79,15 @@ public func radiansToDegrees(radians: CGFloat) -> CGFloat {
 public func degreesToRadians(angle: CGFloat) -> CGFloat {
     return ((angle) / 180.0 * CGFloat.pi)
 }
+
+struct AppInfo {
+    static let infoDictionary = Bundle.main.infoDictionary!
+
+    static let appDisplayName = infoDictionary["CFBundleDisplayName"] //程序名称
+
+    static let majorVersion=infoDictionary["CFBundleShortVersionString"]//主程序版本号
+
+    static let minorVersion = infoDictionary["CFBundleVersion"]//版本号（内部标示）
+
+    static let appVersion = majorVersion
+}
