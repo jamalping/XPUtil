@@ -42,7 +42,6 @@ public extension Date {
     static func formatDate(format: String = "yyyy-MM-dd", time: String) -> String {
         let dfmatter = DateFormatter()
         dfmatter.dateFormat = format
-//        dfmatter.date(from: time)
         let date = Date.dateWithString(str: time, dateFormat: format)!
         return dfmatter.string(from: date)
     }
