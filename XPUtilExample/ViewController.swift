@@ -79,6 +79,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCell(withIdentifier: "cell")
+        
         if cell == nil {
             cell = UITableViewCell.init(style: .default, reuseIdentifier: "cell")
         }

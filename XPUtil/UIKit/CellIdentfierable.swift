@@ -1,5 +1,5 @@
 //
-//  CellIdentfierable.swift
+//  CellidentfierCompatible.swift
 //  XPUtilExample
 //
 //  Created by Apple on 2018/12/18.
@@ -7,6 +7,48 @@
 //
 
 import UIKit
+
+// MARK: - TableViewCell、CollectionViewCell，遵循Cell标志协议，实现为默认实现
+extension UITableViewCell: CellidentfierCompatible {}
+
+extension UICollectionViewCell: CellidentfierCompatible{}
+
+extension UITableViewHeaderFooterView: CellidentfierCompatible{}
+
+
+// MARK: - Cell标志协议
+public protocol CellidentfierCompatible {
+    associatedtype CompatibleType
+    var cell: CompatibleType { get }
+    
+    var identier: String { get }
+}
+
+public struct CellIdentier<Base> {
+    let base: Base
+}
+
+public extension CellidentfierCompatible {
+
+    static var cell: CellIdentier<Self.Type>{
+        return CellIdentier.init(base: self.self)
+    }
+
+
+    var cell: CellIdentier<Self> {
+        return CellIdentier.init(base: self)
+    }
+    
+    var identier: String {
+        return "\(cell.base)"
+    }
+    
+    static var identier: String {
+        return "\(cell.base)"
+    }
+    
+}
+
 
 // MARK: - TableViewCell、CollectionViewCell，遵循Cell标志协议，实现为默认实现
 extension UITableViewCell: Cellidentfierable {}
