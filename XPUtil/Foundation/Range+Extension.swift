@@ -8,19 +8,28 @@
 
 import Foundation
 
-
-
 public extension Range where Bound == String.Index {
 
     /// Range转NSRange
     var toNSRange: NSRange {
-        let loc = self.lowerBound
-        let length = self.upperBound
-        return NSMakeRange(loc.encodedOffset, length.encodedOffset - loc.encodedOffset)
-        
+        let low = self.lowerBound
+        let lar = self.upperBound
+        return NSMakeRange(low.encodedOffset, lar.encodedOffset - low.encodedOffset)
+
     }
     /// NSRange转Range
-    /// Range.init(<#T##range: NSRange##NSRange#>, in: <#T##String#>)
+//    Range.init(<#T##range: NSRange##NSRange#>, in: <#T##String#>)
+    
 }
 
+extension String {
+    func toNSRange(range: Range<String.Index>) -> NSRange {
+        return NSRange.init(range, in: self)
+    }
+    
+    /// NSRange转化为range
+    func range(from nsRange: NSRange) -> Range<String.Index>? {
+        return Range<String.Index>.init(nsRange, in: self)
+    }
+}
 
