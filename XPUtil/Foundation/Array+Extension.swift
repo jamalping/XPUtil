@@ -8,6 +8,18 @@
 
 import Foundation
 
+extension Optional where Wrapped: Collection {
+    /// 有效性
+    var isValidity: Bool {
+        switch self {
+        case .none:
+            return false
+        case .some(let arr):
+            return !arr.isEmpty
+        }
+    }
+}
+
 public extension Array {
   
     /// 随机一个元素
