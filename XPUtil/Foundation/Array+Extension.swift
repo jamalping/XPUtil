@@ -104,8 +104,6 @@ extension Array where Element: Equatable {
     public func unique() -> Array {
         return reduce([]) { $0.contains($1) ? $0 : $0 + [$1] }
     }
-    
-    
 }
 
 extension Array where Element: Hashable {
