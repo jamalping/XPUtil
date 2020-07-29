@@ -10,6 +10,7 @@ import UIKit
 import ImageIO
 import CoreGraphics
 import AVFoundation
+import MobileCoreServices
 
 public extension UIImage {
     
@@ -298,7 +299,49 @@ public extension UIImage {
             }
         }
     }
-    
+
+    func imageWithGif(iamges: [String]) {
+        var destination: CGImageDestination?
+        
+        let document = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
+        var documentStr = document.first!
+        let fileManager = FileManager.default
+        
+        let textDirectory = documentStr.append("/gif")
+
+        try? fileManager.createDirectory(atPath: documentStr, withIntermediateDirectories: true, attributes: nil)
+        
+        let path = documentStr + "/example.gif"
+        
+        //创建CFURL对象
+        let urlref = CFURLCreateWithFileSystemPath(kCFAllocatorDefault, path as CFString, CFURLPathStyle.cfurlposixPathStyle, false)
+
+        //通过一个url返回图像目标
+        destination = CGImageDestinationCreateWithURL(urlref!, kUTTypeGIF, iamges.count, nil)
+
+        //设置gif的信息,播放间隔时间,基本数据,和delay时间
+        let frameProperties = [kCGImagePropertyGIFDictionary: [kCGImagePropertyGIFDelayTime :NSNumber.init(value: 0.3)]]
+
+
+        var dict: [CFString: Any] = [
+            kCGImagePropertyGIFHasGlobalColorMap: NSNumber.init(value: true),
+            kCGImagePropertyColorModel: kCGImagePropertyColorModelRGB,
+            kCGImagePropertyDepth: NSNumber.init(value: 7),
+            kCGImagePropertyGIFLoopCount: NSNumber.init(value: 0)]
+        
+        let gifProperties = [kCGImagePropertyGIFDictionary: dict]
+
+        //合成gif
+        for img in iamges {
+            CGImageDestinationAddImage(destination!, (UIImage.init(named: img)?.cgImage)!, frameProperties as CFDictionary)
+            
+//            CGImageDestinationAddImage(<#T##idst: CGImageDestination##CGImageDestination#>, <#T##image: CGImage##CGImage#>, <#T##properties: CFDictionary?##CFDictionary?#>)
+            
+        }
+
+        CGImageDestinationSetProperties(destination!, gifProperties as CFDictionary)
+
+    }
 }
 
 public extension UIImage {
@@ -318,6 +361,74 @@ public extension UIImage {
         
         let image: UIImage? = (imageRef != nil) ? UIImage.init(cgImage: imageRef!) : nil
         return image
+    }
+}
+
+
+/// VR 相关资源
+var vrImagePaths: [String] {
+    get {
+        var vrs: [String] = [String]()
+        for i in 1...75 {
+            vrs.append(Bundle.main.path(forResource: String.init(format: "VR_%02d", i), ofType: "png")!)
+        }
+        return vrs
+    }
+}
+
+var vrImages = vrImagePaths.compactMap { (vrImagePath) -> UIImage? in
+    return UIImage.init(contentsOfFile: vrImagePath)
+}
+
+/// 播放帧动画的ImageView
+class VrImageView: UIImageView {
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        _layer = CALayer()
+        self.layer.addSublayer(_layer!)
+        
+        userDisplayLink()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    var _displayLink: CADisplayLink?
+    func userDisplayLink() {
+        
+        _displayLink = CADisplayLink.init(target: self, selector: #selector(updateImage))
+        if #available(iOS 10.0, *) {
+            _displayLink?.preferredFramesPerSecond = vrImages.count/3
+        } else {
+            _displayLink?.frameInterval = vrImages.count/3
+        }
+        _displayLink?.add(to: RunLoop.main, forMode: .common)
+    }
+    
+    var _layer: CALayer?
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        _layer?.bounds = self.frame
+        _layer?.position = CGPoint.init(x: self.frame.width/2, y: self.frame.height/2)
+    }
+    
+    var _index = 0
+    @objc func updateImage() {
+        let image = vrImages[_index]
+        _layer?.contents = image.cgImage
+        _index = (_index + 1)%vrImages.count
+    }
+    
+    deinit {
+        deinitDisplayLink()
+    }
+    
+    func deinitDisplayLink() {
+        print("销毁_displayLink")
+        _displayLink?.invalidate()
+        _displayLink = nil
     }
 }
 

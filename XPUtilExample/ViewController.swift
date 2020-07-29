@@ -57,6 +57,24 @@ class ViewController: UIViewController {
         vView.backgroundColor = .blue
         vView.backgroundColor = UIColor.gradientColor(.red, toColor: .cyan, size: vView.size, direction: .right)
         self.view.addSubview(vView)
+        
+        var images: [String] = []
+        for i in 1...75 {
+            let imageString = String.init(format: "VR_%02d", i)
+//            let imageString = "VR_\(i)"
+            images.append(imageString)
+        }
+        let imagess = images.map { (imageString) -> UIImage in
+            return UIImage.init(named: imageString)!
+        }
+        let imgVieww = UIImageView()
+        imgVieww.frame = CGRect.init(x: 100, y: 280, width: 200, height: 200)
+        imgVieww.animationImages = imagess
+        imgVieww.animationDuration = 3
+        imgVieww.startAnimating()
+        view.addSubview(imgVieww)
+        
+        UIImage().imageWithGif(iamges: images)
 //        let ddView = UIView.init(frame: CGRect.init(x: 100, y: 100, width: 100, height: 100))
 //        view.addSubview(ddView)
 //        ddView.corner(byRoundingCorners: [.bottomLeft, .bottomRight], radii: 50)
@@ -70,6 +88,7 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
 }
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {

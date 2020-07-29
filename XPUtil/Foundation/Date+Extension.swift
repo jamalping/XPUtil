@@ -76,4 +76,25 @@ public extension Date {
     func isYesterday() -> Bool {
         return Calendar.current.isDateInYesterday(self)
     }
+    
+    /// 当前date的月份有多少天
+    func numberOfDays(date: Date) -> Int? {
+        guard let sss = Calendar.current.range(of: .day, in: .month, for: date) else {
+            return nil
+        }
+        return sss.endIndex - sss.startIndex
+    }
+    
+    /// 当前 component 的下一个
+    func nextComponent(date: Date, component: Calendar.Component = .day) -> Date? {
+        let calendar: Calendar = Calendar.current
+        return calendar.date(byAdding: component, value: 1, to: date)
+    }
+    
+    //根据date获取日
+    func convertDateToDay(date: Date, _ components: Set<Calendar.Component> = [Calendar.Component.year, .month, .day, .weekday]) -> DateComponents {
+        let calendar: Calendar = Calendar.current
+        let components = calendar.dateComponents(components, from: date)
+        return components
+    }
 }
